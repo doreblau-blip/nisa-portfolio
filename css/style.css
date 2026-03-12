@@ -607,9 +607,10 @@ h6 {
 .ira-grid {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 10px !important; /* Extremely tight gap for editorial look */
-    max-width: 1300px;
-    margin: 2vw auto !important; /* Brought closer to header */
+    gap: 10px !important;
+    width: 100%; /* Occupy full container width */
+    max-width: none !important; /* Remove restriction to lean on margins */
+    margin: 2vw auto !important;
 }
 
 .ira-grid .gallery-item.full-width {
@@ -1038,10 +1039,9 @@ h6 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.75);
-    /* Glassmorphism background */
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
+    background-color: rgba(255, 255, 255, 0.35); /* Increased transparency as requested */
+    backdrop-filter: blur(10px); /* Reduced blur to see background more */
+    -webkit-backdrop-filter: blur(10px);
     z-index: 10000;
     display: flex;
     flex-direction: column;
@@ -1178,19 +1178,14 @@ body.menu-open {
 /* About Hero Styles */
 .about-hero {
     position: relative;
-    width: 100vw;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    height: 80vh; /* Enlarged height */
-    margin-top: -40px; /* Negate the 120px - 80px (nav) gap to start at the line */
-    margin-bottom: -80px; /* Negate container bottom padding to touch footer */
+    width: 100%;
+    height: 85vh; /* Larger on desktop */
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     background-color: #000;
+    margin-top: 5px; /* Tiny gap under nav line */
 }
 
 .about-bg-container {
@@ -1238,12 +1233,43 @@ body.menu-open {
 
 @media (max-width: 768px) {
     .about-hero {
-        margin-left: -5vw;
-        min-height: calc(100vh - var(--nav-height));
-        align-items: center;
+        height: 70vh; /* Scaled for mobile */
+        margin-top: 0;
     }
     .about-text {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         text-align: center;
+        padding: 0 40px;
+    }
+    .about-content {
+        width: 100%;
+    }
+}
+
+/* Footer Socials */
+.footer-socials {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    justify-content: flex-end;
+}
+
+.footer-socials a {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #999;
+    transition: color 0.3s ease;
+}
+
+.footer-socials a:hover {
+    color: #000;
+}
+
+@media (max-width: 768px) {
+    .footer-socials {
+        justify-content: center;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
     }
 }
