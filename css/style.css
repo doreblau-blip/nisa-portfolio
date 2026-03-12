@@ -422,17 +422,21 @@ h6 {
 
 /* Specific adjustment for TikTok project */
 .tiktok-header.project-header {
-    column-gap: 0.6rem; /* Tight grouping for TikTok */
+    column-gap: 2rem;
+    row-gap: 0.6rem; /* Aesthetic gap between title and meta when stacked */
 }
 
-.tiktok-header .project-title,
-.tiktok-header .project-meta {
-    transform: translateY(-5px); /* Moving up "5 clicks" as requested */
+.tiktok-header .project-title {
+    grid-row: 1;
+    grid-column: 1;
+    transform: translateY(-5px); /* Keep that "5 clicks up" feel for the title */
 }
 
 .tiktok-header .project-meta {
-    grid-column: 2; /* Desktop: Grouped next to button on the right */
-    justify-self: end;
+    grid-row: 2; /* Move below title */
+    grid-column: 1; 
+    justify-self: start; /* Left align */
+    transform: translateY(-5px); /* Keep alignment with the title's shift */
 }
 
 .project-header-top, 
