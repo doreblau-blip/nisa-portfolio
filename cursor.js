@@ -36,6 +36,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    // Right-click protection for images
+    window.addEventListener('contextmenu', (e) => {
+        if (e.target.tagName === 'IMG' || e.target.closest('.image-wrapper')) {
+            e.preventDefault();
+        }
+    });
+
     // Add hover states to all links and interactive elements
     const interactables = document.querySelectorAll("a, button, .work-item");
     interactables.forEach(item => {
