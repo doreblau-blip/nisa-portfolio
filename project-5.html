@@ -4,37 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abstract Luminescence | Nisa Alkan</title>
+    <title>Saline | Nisa Alkan</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css?v=3">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <style>
-        .project-gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .gallery-item {
-            aspect-ratio: 4/5;
-            background-color: #e0e0e0;
-        }
-
-        @media (max-width: 992px) {
-            .project-gallery {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .project-gallery {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <!-- Internal styles removed as they are now in style.css -->
 </head>
 
 <body>
@@ -106,29 +83,36 @@
         <!-- Editorial header -->
         <div class="project-header" id="project-header">
             <div class="project-header-top">
-                <h1 class="project-title" id="p-title">Abstract Luminescence</h1>
+                <h1 class="project-title" id="p-title">Saline</h1>
                 <div class="project-meta">
-                    <span id="p-year">2024</span>
+                    <span id="p-year">2026</span>
                     <span class="meta-divider"></span>
-                    <span id="p-role">3D Design, Lighting</span>
+                    <span id="p-role">branding design</span>
                 </div>
             </div>
             <p class="project-description" id="p-desc">
-                An experiment in texture and illumination, building an abstract, highly premium spatial experience.
+                SALINE is a self-initiated branding and visual exploration project developed to push my approach to packaging design, typographic systems, and ai image-making. The project focuses on creating a bold, contemporary identity for a fictional artisanal beer brand made with olives, defined by a dry, salty, and acidic character.
             </p>
         </div>
 
         <!-- 3 Column Grid Static Colors -->
         <div class="project-gallery" id="project-gallery">
-            <div class="gallery-item" style="background-color: #F67280;"></div>
-            <div class="gallery-item" style="background-color: #E8626F;"></div>
-            <div class="gallery-item" style="background-color: #DA515F;"></div>
-            <div class="gallery-item" style="background-color: #F67280;"></div>
-            <div class="gallery-item" style="background-color: #E8626F;"></div>
-            <div class="gallery-item" style="background-color: #DA515F;"></div>
-            <div class="gallery-item" style="background-color: #F67280;"></div>
-            <div class="gallery-item" style="background-color: #E8626F;"></div>
-            <div class="gallery-item" style="background-color: #DA515F;"></div>
+            <div class="gallery-item"><img src="images/saline/01.jpg" alt="Saline 01"></div>
+            <div class="gallery-item"><img src="images/saline/02.jpg" alt="Saline 02"></div>
+            <div class="gallery-item"><img src="images/saline/03.jpg" alt="Saline 03"></div>
+            <div class="gallery-item"><img src="images/saline/04.jpg" alt="Saline 04"></div>
+            <div class="gallery-item"><img src="images/saline/05.jpg" alt="Saline 05"></div>
+            <div class="gallery-item"><img src="images/saline/06.jpg" alt="Saline 06"></div>
+            <div class="gallery-item"><img src="images/saline/07.jpg" alt="Saline 07"></div>
+            <div class="gallery-item"><img src="images/saline/08.jpg" alt="Saline 08"></div>
+            <div class="gallery-item"><img src="images/saline/09.jpg" alt="Saline 09"></div>
+            <div class="gallery-item"><img src="images/saline/10.jpg" alt="Saline 10"></div>
+            <div class="gallery-item"><img src="images/saline/11.jpg" alt="Saline 11"></div>
+            <div class="gallery-item"><img src="images/saline/12.jpg" alt="Saline 12"></div>
+            <div class="gallery-item"><img src="images/saline/13.jpg" alt="Saline 13"></div>
+            <div class="gallery-item"><img src="images/saline/14.jpg" alt="Saline 14"></div>
+            <div class="gallery-item"><img src="images/saline/15.jpg" alt="Saline 15"></div>
+            <div class="gallery-item"><img src="images/saline/16.jpg" alt="Saline 16"></div>
         </div>
     </main>
 
@@ -162,20 +146,12 @@
         const lbContent = document.getElementById('lightbox-content');
         document.querySelectorAll('.gallery-item').forEach(item => {
             item.addEventListener('click', () => {
-                const bg = item.style.backgroundImage;
-                const color = item.style.backgroundColor;
+                const imgSource = item.querySelector('img').src;
                 lbContent.innerHTML = '';
-                if (bg && bg !== '') {
-                    const img = document.createElement('img');
-                    img.className = 'lightbox-img';
-                    img.src = bg.replace(/url\(['"]?/, '').replace(/['"]?\)$/, '');
-                    lbContent.appendChild(img);
-                } else {
-                    const div = document.createElement('div');
-                    div.className = 'lightbox-color';
-                    div.style.backgroundColor = color;
-                    lbContent.appendChild(div);
-                }
+                const img = document.createElement('img');
+                img.className = 'lightbox-img';
+                img.src = imgSource;
+                lbContent.appendChild(img);
                 overlay.classList.add('active');
                 document.body.style.overflow = 'hidden';
             });
