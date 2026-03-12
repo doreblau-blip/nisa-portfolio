@@ -177,7 +177,7 @@ h6 {
 
 /* Main Container */
 .container {
-    padding: var(--nav-height) 4vw 4vw; /* Removed extra top spacing entirely for maximum elevation */
+    padding: calc(var(--nav-height) + 4vw) 4vw 4vw; /* Restored original spacing for home page */
 }
 
 /* Home Grid Layout - 6 Column Grid Math */
@@ -309,7 +309,8 @@ h6 {
 /* Shared Project and Contact Header Styles */
 .project-header,
 .contact-heading {
-    margin-bottom: 2vw; /* Further reduced from 3vw */
+    margin-top: -3vw; /* Pulls content up towards navbar specifically for project pages */
+    margin-bottom: 2vw;
 }
 
 .project-header-top,
