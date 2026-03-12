@@ -333,9 +333,11 @@ h6 {
     flex-shrink: 0;
     position: relative;
     z-index: 1;
-    grid-row: 1; /* Desktop: Move to top row */
+    grid-row: 1;
     grid-column: 3;
-    align-self: center; /* Center between nav-line and divider */
+    justify-self: end;
+    align-self: center;
+    margin-left: 0.6rem; /* Tight gap between meta and button */
 }
 
 .project-link-btn span {
@@ -412,7 +414,7 @@ h6 {
 .project-header {
     display: grid;
     grid-template-columns: 1fr auto auto;
-    column-gap: 0.8rem; /* Extremely tight aesthetic grouping */
+    column-gap: 0; /* Removed fixed gap to prevent empty column spacing */
     align-items: center;
     margin-top: -3vw;
     margin-bottom: 2vw;
@@ -467,6 +469,7 @@ h6 {
     font-size: clamp(1.6rem, 3vw, 2.8rem);
     letter-spacing: -0.02em;
     margin: 0;
+    margin-right: 1.5rem; /* Gap between title and next element */
     font-weight: 600;
 }
 
@@ -475,7 +478,8 @@ h6 {
     align-items: center;
     gap: 1.5rem;
     flex-shrink: 0;
-    /* justify-self removed to allow natural grid grouping next to button */
+    grid-column: 3; /* Always snap to the far right column */
+    justify-self: end;
 }
 
 .project-meta span {
@@ -534,7 +538,8 @@ h6 {
     .project-title {
         grid-column: 1;
         grid-row: 1;
-        margin-bottom: -0.3rem; /* Brining title closer to meta as per "3 tık" request */
+        margin-bottom: -1rem; /* Bringing title much closer to meta (10 clicks total approx) */
+        margin-right: 0;
     }
 
     .project-link-btn {
