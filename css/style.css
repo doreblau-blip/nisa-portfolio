@@ -552,40 +552,27 @@ h6 {
     transform: scale(1.03);
 }
 
-/* Specific Bento/Masonry grid for Dore Typeface */
+/* Clean Full-Width Stack for Dore Typeface Detail Page */
 .typeface-grid {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 40px !important;
-    align-items: start; /* Prevent items from stretching to match row height */
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 60px !important; /* Elegant vertical breathing room */
+    max-width: 1000px; /* Keep typography focused and readable */
+    margin: 0 auto;
 }
 
 .typeface-grid .gallery-item {
-    aspect-ratio: auto !important;
+    width: 100% !important;
     height: auto !important;
     background-color: transparent !important;
+    transform: none !important; /* No hover lift for this clean stack */
 }
 
 .typeface-grid .gallery-item img {
     width: 100%;
     height: auto;
     display: block;
-    object-fit: contain; /* Ensure full visibility */
-}
-
-/* Bento spans for variety */
-.typeface-grid .gallery-item.span-2 {
-    grid-column: span 2;
-}
-
-@media (max-width: 768px) {
-    .typeface-grid {
-        grid-template-columns: 1fr !important;
-        gap: 20px !important;
-    }
-    .typeface-grid .gallery-item.span-2 {
-        grid-column: span 1;
-    }
+    border-radius: 2px;
 }
 
 /* Responsive adjustments for header elements */
