@@ -577,27 +577,23 @@ h6 {
 
 /* Clean Full-Width Stack for Dore Typeface Detail Page */
 .typeface-grid {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 40px !important;
-    /* Standardized to match other projects */
-    max-width: 1000px;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 30px !important;
+    max-width: 1200px; /* Widened for 2-col visual balance */
     margin: 0 auto;
 }
 
 @media (max-width: 768px) {
     .typeface-grid {
-        gap: 20px !important;
-        /* Reduced for mobile consistency */
+        grid-template-columns: repeat(2, 1fr) !important; /* Keep 2 per row as requested */
+        gap: 15px !important;
     }
 }
 
 .typeface-grid .gallery-item {
     width: 100% !important;
     height: auto !important;
-    background-color: transparent !important;
-    transform: none !important;
-    /* No hover lift for this clean stack */
 }
 
 .typeface-grid .gallery-item img {
