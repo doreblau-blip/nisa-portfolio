@@ -337,46 +337,6 @@ h6 {
 
 .project-link-btn span {
     position: relative;
-    z-index: 2;
-}
-
-.project-link-btn::before,
-.project-link-btn::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 0;
-    border: 1px solid transparent;
-    box-sizing: border-box;
-    border-radius: 2px;
-    z-index: 3;
-    pointer-events: none;
-}
-
-.project-link-btn::before {
-    top: -1px;
-    left: -1px;
-}
-
-.project-link-btn::after {
-    bottom: -1px;
-    right: -1px;
-}
-
-.project-link-btn:hover::before {
-    width: calc(100% + 2px);
-    height: calc(100% + 2px);
-    border-top-color: #40E0D0; /* Turquoise */
-    border-right-color: #40E0D0;
-    transition: width 0.15s ease-out, height 0.15s ease-out 0.15s;
-}
-
-.project-link-btn:hover::after {
-    width: calc(100% + 2px);
-    height: calc(100% + 2px);
-    border-bottom-color: #40E0D0;
-    border-left-color: #40E0D0;
-    transition: border-bottom-color 0s ease-out 0.3s, width 0.15s ease-out 0.3s, height 0.15s ease-out 0.45s;
 }
 
 .project-link-btn span::after {
@@ -399,7 +359,7 @@ h6 {
 
 .project-link-btn:hover {
     background: #ffd1dc; /* Soft Pastel Pink */
-    border-color: transparent;
+    border-color: #ffd1dc;
     transform: translateY(-2px);
 }
 
