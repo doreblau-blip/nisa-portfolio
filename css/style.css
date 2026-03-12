@@ -407,12 +407,26 @@ h6 {
     }
 }
 
+.project-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: 3rem;
+    align-items: baseline;
+    margin-top: -3vw; /* Pulls content up towards navbar specifically for project pages */
+    margin-bottom: 2vw;
+}
+
+/* Flatten wrappers for grid control */
+.project-header-top, 
 .project-header-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 3rem;
-    padding-top: 1.2rem;
+    display: contents;
+}
+
+.project-header-divider {
+    grid-column: 1 / span 2;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.12);
+    margin: 1.2rem 0;
 }
 
 .project-description {
@@ -433,8 +447,7 @@ h6 {
     position: relative; /* For pseudo-element lines */
 }
 
-/* Only bottom line for project headers as per request */
-.project-header-top::after,
+/* Bottom line now handled by .project-header-divider in the HTML */
 .contact-heading::after {
     content: '';
     position: absolute;
@@ -503,30 +516,46 @@ h6 {
 
 /* Responsive adjustments for header elements */
 @media (max-width: 768px) {
+    .project-header {
+        grid-template-columns: 1fr auto;
+        gap: 0.8rem 1rem;
+        align-items: center;
+    }
+
     .project-header-top {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.8rem;
+        display: contents;
     }
     
-    .project-header-bottom {
-        flex-direction: column;
-        gap: 1.5rem;
+    .project-title {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .project-link-btn {
+        grid-column: 2;
+        grid-row: 1;
+        margin-top: 0; /* Align with title */
     }
     
     .project-meta {
+        grid-column: 1 / span 2;
+        grid-row: 2;
         width: 100%;
         justify-content: flex-start;
-    }
-    
-    .project-header-top::after,
-    .contact-heading::after {
-        left: 0;
-        right: 0;
-    }
-    .project-meta {
         flex-wrap: wrap;
         gap: 0.8rem;
+    }
+
+    .project-header-divider {
+        grid-column: 1 / span 2;
+        grid-row: 3;
+        margin: 0.8rem 0;
+    }
+
+    .project-description {
+        grid-column: 1 / span 2;
+        grid-row: 4;
+        max-width: 100%;
     }
 
     /* TikTok and others: ensure top part is visible if requested */
