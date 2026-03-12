@@ -433,7 +433,7 @@ h6 {
     column-gap: 3rem;
     align-items: center;
     margin-top: 0vw; /* Brought closer back to navbar */
-    margin-bottom: 2vw;
+    margin-bottom: 1vw; /* Tightened space before gallery */
 }
 
 /* Specific adjustment for TikTok project */
@@ -580,7 +580,7 @@ h6 {
 .typeface-grid {
     display: flex !important;
     flex-direction: column !important;
-    gap: 40px !important;
+    gap: 15px !important; /* Tightened for a stronger editorial connection */
     max-width: 1000px;
     margin: 0 auto;
 }
@@ -608,9 +608,9 @@ h6 {
 .ira-grid {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 30px !important;
-    max-width: 1200px;
-    margin: 4vw auto !important;
+    gap: 10px !important; /* Extremely tight gap for editorial look */
+    max-width: 1300px;
+    margin: 2vw auto !important; /* Brought closer to header */
 }
 
 .ira-grid .gallery-item.full-width {
@@ -620,7 +620,8 @@ h6 {
 @media (max-width: 768px) {
     .ira-grid {
         grid-template-columns: 1fr !important;
-        gap: 15px !important;
+        gap: 8px !important;
+        margin-top: 5vw !important;
     }
 }
 
