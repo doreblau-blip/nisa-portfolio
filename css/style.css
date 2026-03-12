@@ -1383,3 +1383,56 @@ body.menu-open {
     .slideshow-container { height: 50vh; }
     .nav-btn { width: 60px; height: 60px; }
 }
+
+/* Project Navigation (Prev/Next) */
+.project-navigation {
+    padding: 60px 4vw;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 80px;
+}
+
+.nav-link {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.4);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link.next {
+    align-items: flex-end;
+    text-align: right;
+}
+
+.nav-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+}
+
+.nav-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #000;
+}
+
+.nav-link:hover {
+    color: #000;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .project-navigation {
+        padding: 40px 6vw;
+        margin-top: 40px;
+    }
+    .nav-title {
+        font-size: 0.9rem;
+    }
+}
