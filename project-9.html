@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP Design | Nisa Alkan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css?v=6">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="index.html">
+                <h1 class="nav-name">Nisa Alkan</h1>
+            </a>
+            <span class="nav-subtitle">Art Director & Designer</span>
+        </div>
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="about.html">ABOUT</a>
+                <a href="contact.html">CONTACT</a>
+            </div>
+            <button class="mobile-menu-trigger" id="menu-trigger" aria-label="Menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-overlay" id="mobile-menu">
+        <button class="mobile-overlay-close" id="menu-close" aria-label="Close Menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+        <nav class="mobile-nav-links">
+            <a href="index.html">WORK</a>
+            <a href="about.html">ABOUT</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+    </div>
+
+    <main class="container">
+        <!-- Editorial header -->
+        <div class="project-header">
+            <div class="project-header-top">
+                <h1 class="project-title">IP Design</h1>
+                <div class="project-meta">
+                    <span>2024</span>
+                    <span class="meta-divider"></span>
+                    <span>Blind Box Design</span>
+                </div>
+            </div>
+            
+            <div class="project-header-divider"></div>
+
+            <div class="project-header-bottom">
+                <p class="project-description">
+                    A minimalist figure box design that explores character through geometric form and subtle detailing. Designed for a collectible "blind box" series where simplicity meets visual intrigue.
+                </p>
+            </div>
+        </div>
+
+        <!-- Gallery -->
+        <div class="project-gallery" id="project-gallery">
+            <div class="gallery-item"><img src="images/dobi/01.png" alt="IP Design Detail 01"></div>
+            <div class="gallery-item"><img src="images/dobi/07.png" alt="IP Design Detail 02"></div>
+            <div class="gallery-item"><img src="images/dobi/333.png" alt="IP Design Detail 03"></div>
+            <div class="gallery-item"><img src="images/dobi/Square-Paper-Boxes-Mockup.jpg" alt="IP Design Mockup"></div>
+            <div class="gallery-item"><img src="images/dobi/cover.png" alt="IP Design Cover"></div>
+        </div>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox(event)">
+        <button class="lightbox-close" onclick="closeLightboxBtn()" aria-label="Kapat">&#x2715;</button>
+        <div class="lightbox-content" id="lightbox-content"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-left">
+            &copy; 2025 Nisa Alkan. All Rights Reserved.
+        </div>
+        <div class="footer-right">
+            <a href="mailto:hello@doreblau.com" class="footer-email">hello@doreblau.com</a>
+        </div>
+        <!-- Mobile layout -->
+        <div class="footer-top">
+            <a href="mailto:hello@doreblau.com" class="footer-email">hello@doreblau.com</a>
+        </div>
+        <div class="footer-bottom">
+            <span style="display:block;">&copy; 2025 Nisa Alkan. All Rights Reserved.</span>
+        </div>
+    </footer>
+
+    <!-- Custom Cursor -->
+    <script src="./cursor.js"></script>
+    <script>
+        // Lightbox
+        const overlay = document.getElementById('lightbox');
+        const lbContent = document.getElementById('lightbox-content');
+
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const imgSource = item.querySelector('img').src;
+                lbContent.innerHTML = '';
+                const img = document.createElement('img');
+                img.className = 'lightbox-img';
+                img.src = imgSource;
+                lbContent.appendChild(img);
+                
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        function closeLightbox(e) {
+            if (e.target === overlay) { closeLightboxBtn(); }
+        }
+        function closeLightboxBtn() {
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+            lbContent.innerHTML = '';
+        }
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') closeLightboxBtn();
+        });
+
+        // Mobile Menu Toggle
+        const trigger = document.getElementById('menu-trigger');
+        const menu = document.getElementById('mobile-menu');
+        
+        trigger.addEventListener('click', () => {
+            menu.classList.add('active');
+            document.body.classList.add('menu-open');
+        });
+
+        const closeBtn = document.getElementById('menu-close');
+        closeBtn.addEventListener('click', () => {
+            menu.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        });
+
+        // Close menu on link click
+        document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                trigger.classList.remove('active');
+                menu.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
+        });
+    </script>
+</body>
+</html>
