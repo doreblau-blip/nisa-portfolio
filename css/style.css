@@ -411,9 +411,9 @@ h6 {
 
 .project-header {
     display: grid;
-    grid-template-columns: 1fr auto auto; /* 3 columns to separate title, meta and button */
+    grid-template-columns: 1fr auto auto;
     column-gap: 3rem;
-    align-items: baseline;
+    align-items: center; /* Center vertically between lines */
     margin-top: -3vw;
     margin-bottom: 2vw;
 }
@@ -475,6 +475,7 @@ h6 {
     align-items: center;
     gap: 1.5rem;
     flex-shrink: 0;
+    justify-self: end; /* Desktop: Push to right */
 }
 
 .project-meta span {
@@ -521,7 +522,7 @@ h6 {
 @media (max-width: 768px) {
     .project-header {
         grid-template-columns: 1fr auto;
-        gap: 0.8rem 1rem;
+        gap: 0.4rem 1rem; /* Reduced vertical gap to match other pages' tight feel */
         align-items: start;
     }
 
@@ -532,6 +533,7 @@ h6 {
     .project-title {
         grid-column: 1;
         grid-row: 1;
+        margin-bottom: -0.3rem; /* Brining title closer to meta as per "3 tık" request */
     }
 
     .project-link-btn {
