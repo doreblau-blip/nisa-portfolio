@@ -8,6 +8,17 @@
     --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Custom Selection Color */
+::selection {
+    background-color: #d1d1d1; /* Silver Gray */
+    color: #000;
+}
+
+::-moz-selection {
+    background-color: #d1d1d1;
+    color: #000;
+}
+
 * {
     margin: 0;
     padding: 0;
