@@ -528,6 +528,11 @@ h6 {
         flex-wrap: wrap;
         gap: 0.8rem;
     }
+
+    /* TikTok and others: ensure top part is visible if requested */
+    .pos-top {
+        object-position: top !important;
+    }
 }
 
 /* Lightbox Styles (Shared) */
