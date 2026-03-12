@@ -420,7 +420,12 @@ h6 {
     margin-bottom: 2vw;
 }
 
-/* Flatten wrappers for grid control */
+/* Specific adjustment for TikTok project */
+.tiktok-header .project-title,
+.tiktok-header .project-meta {
+    transform: translateY(-5px); /* Moving up "5 clicks" as requested */
+}
+
 .project-header-top, 
 .project-header-bottom {
     display: contents;
