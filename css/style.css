@@ -588,6 +588,7 @@ h6 {
         gap: 0.8rem 1rem; /* More space for regular projects */
         align-items: start;
         margin-top: 2vw;
+        width: 100%;
     }
 
     /* Standard spacing for all project headers on mobile */
@@ -629,6 +630,7 @@ h6 {
         grid-column: 1 / span 2;
         grid-row: 3;
         margin: 0.8rem 0;
+        width: 100%; /* Ensure it takes full grid width */
     }
 
     .project-description {
@@ -1062,8 +1064,17 @@ body.menu-open {
 
     .navbar {
         background-color: rgba(255, 255, 255, 0.95);
-        /* High opacity for mobile readability */
         padding: 0 5vw;
+    }
+
+    .navbar::after {
+        left: 5vw;
+        right: 5vw;
+    }
+
+    .container {
+        padding-left: 5vw;
+        padding-right: 5vw;
     }
 
     .nav-right {
