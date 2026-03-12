@@ -605,9 +605,27 @@ h6 {
     }
 
 
-    .tiktok-header .project-title,
-    .tiktok-header .project-meta {
+    .tiktok-header.project-header {
+        gap: 0.8rem 1rem !important; /* Force standard mobile gap */
+    }
+
+    .tiktok-header .project-title {
+        grid-column: 1 !important;
+        grid-row: 1 !important;
         transform: none !important;
+        margin-top: 0 !important;
+    }
+
+    .tiktok-header .project-meta {
+        grid-column: 1 / span 2 !important;
+        grid-row: 2 !important;
+        transform: none !important;
+        margin-top: 0 !important;
+    }
+
+    .tiktok-header .project-link-btn {
+        grid-column: 2 !important;
+        grid-row: 1 !important;
         margin-top: 0 !important;
     }
 
@@ -644,11 +662,7 @@ h6 {
         object-position: top !important;
     }
 
-    /* TikTok specific mobile alignment */
-    .tiktok-header .project-meta {
-        justify-self: start !important; /* Sol kısma daya */
-        grid-column: 1 / span 2;
-    }
+    /* TikTok and others: ensure top part is visible if requested */
 }
 
 /* Lightbox Styles (Shared) */
