@@ -577,55 +577,30 @@ h6 {
 
 /* Clean Full-Width Stack for Dore Typeface Detail Page */
 .typeface-grid {
-    display: grid !important;
-    grid-template-columns: repeat(4, 1fr) !important;
-    grid-auto-rows: 280px !important;
-    gap: 15px !important;
-    max-width: 1400px !important;
-    margin: 4vw auto !important;
-}
-
-/* Mosaic logic: targeting images based on their sequence for a dynamic look */
-.typeface-grid .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; } /* Large Hero */
-.typeface-grid .gallery-item:nth-child(2) { grid-column: span 1; grid-row: span 1; }
-.typeface-grid .gallery-item:nth-child(3) { grid-column: span 1; grid-row: span 1; }
-.typeface-grid .gallery-item:nth-child(4) { grid-column: span 2; grid-row: span 2; } /* Secondary Large */
-.typeface-grid .gallery-item:nth-child(5) { grid-column: span 1; grid-row: span 1; }
-.typeface-grid .gallery-item:nth-child(6) { grid-column: span 1; grid-row: span 1; }
-.typeface-grid .gallery-item:nth-child(7) { grid-column: span 2; grid-row: span 1; } /* Horizontal Wide */
-.typeface-grid .gallery-item:nth-child(8) { grid-column: span 1; grid-row: span 2; } /* Vertical Long */
-.typeface-grid .gallery-item:nth-child(9) { grid-column: span 1; grid-row: span 1; }
-.typeface-grid .gallery-item:nth-child(10) { grid-column: span 2; grid-row: span 1; }
-
-@media (max-width: 992px) {
-    .typeface-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        grid-auto-rows: 200px !important;
-    }
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 40px !important;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 @media (max-width: 768px) {
     .typeface-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        grid-auto-rows: 150px !important;
-        gap: 10px !important;
+        gap: 20px !important;
     }
-    /* Simplify for mobile but keep some rhythm */
-    .typeface-grid .gallery-item { grid-column: span 1 !important; grid-row: span 1 !important; }
-    .typeface-grid .gallery-item:nth-child(1),
-    .typeface-grid .gallery-item:nth-child(4) { grid-column: span 2 !important; grid-row: span 2 !important; }
 }
 
 .typeface-grid .gallery-item {
     width: 100% !important;
-    height: 100% !important;
+    height: auto !important;
+    transform: none !important;
 }
 
 .typeface-grid .gallery-item img {
     width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures images fill their mosaic tile perfectly */
+    height: auto;
     display: block;
+    border-radius: 2px;
 }
 
 .typeface-grid .gallery-item img {
