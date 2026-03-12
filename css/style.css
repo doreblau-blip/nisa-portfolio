@@ -328,9 +328,9 @@ h6 {
     text-transform: uppercase;
     letter-spacing: 0.1em;
     border-radius: 100px;
-    margin-top: 1.5rem;
     width: fit-content;
     transition: var(--transition);
+    flex-shrink: 0;
 }
 
 .project-link-btn:hover {
@@ -343,6 +343,22 @@ h6 {
 .project-link-btn svg {
     width: 16px;
     height: 16px;
+}
+
+.project-header-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 3rem;
+    padding-top: 1.2rem;
+}
+
+.project-description {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #555;
+    max-width: 600px;
+    margin: 0;
 }
 
 .project-header-top,
@@ -427,17 +443,25 @@ h6 {
 @media (max-width: 768px) {
     .project-header-top {
         flex-direction: column;
+        align-items: flex-start;
         gap: 0.8rem;
     }
     
-    .project-header-top::before,
+    .project-header-bottom {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .project-meta {
+        width: 100%;
+        justify-content: flex-start;
+    }
+    
     .project-header-top::after,
-    .contact-heading::before,
     .contact-heading::after {
         left: calc(-5vw + 20px); /* Adjust to mobile padding 5vw */
         right: calc(-5vw + 20px);
     }
-
     .project-meta {
         flex-wrap: wrap;
         gap: 0.8rem;
