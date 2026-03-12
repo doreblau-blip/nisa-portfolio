@@ -552,20 +552,39 @@ h6 {
     transform: scale(1.03);
 }
 
-/* Specific 2-column grid for Dore Typeface */
+/* Specific Bento/Masonry grid for Dore Typeface */
 .typeface-grid {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 30px !important;
+    gap: 40px !important;
+    align-items: start; /* Prevent items from stretching to match row height */
 }
 
 .typeface-grid .gallery-item {
     aspect-ratio: auto !important;
+    height: auto !important;
+    background-color: transparent !important;
+}
+
+.typeface-grid .gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain; /* Ensure full visibility */
+}
+
+/* Bento spans for variety */
+.typeface-grid .gallery-item.span-2 {
+    grid-column: span 2;
 }
 
 @media (max-width: 768px) {
     .typeface-grid {
         grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+    .typeface-grid .gallery-item.span-2 {
+        grid-column: span 1;
     }
 }
 
