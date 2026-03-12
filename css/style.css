@@ -420,23 +420,24 @@ h6 {
     margin-bottom: 2vw;
 }
 
-/* Specific adjustment for TikTok project */
 .tiktok-header.project-header {
     column-gap: 2rem;
-    row-gap: 0.6rem; /* Aesthetic gap between title and meta when stacked */
+    row-gap: 0.6rem; 
 }
 
+/* Ensure title and meta stack in column 1 for TikTok Desktop */
 .tiktok-header .project-title {
     grid-row: 1;
     grid-column: 1;
-    transform: translateY(-5px); /* Keep that "5 clicks up" feel for the title */
+    transform: translateY(-5px);
 }
 
 .tiktok-header .project-meta {
-    grid-row: 2; /* Move below title */
-    grid-column: 1; 
-    justify-self: start; /* Left align */
-    transform: translateY(-5px); /* Keep alignment with the title's shift */
+    grid-row: 2;
+    grid-column: 1;
+    justify-self: start;
+    transform: translateY(-5px);
+    margin-top: 0.2rem; /* The "aesthetic gap" */
 }
 
 .project-header-top, 
@@ -460,14 +461,17 @@ h6 {
     margin: 0;
 }
 
-.project-header-top,
+.project-header-top {
+    display: contents !important; /* Force grid behavior to work on children */
+}
+
 .contact-heading {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    padding: 0.5rem 0 1rem; /* Even tighter top/bottom padding */
+    padding: 0.5rem 0 1rem;
     gap: 2rem;
-    position: relative; /* For pseudo-element lines */
+    position: relative;
 }
 
 /* Bottom line now handled by .project-header-divider in the HTML */
