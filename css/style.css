@@ -432,7 +432,7 @@ h6 {
     grid-template-columns: 1fr auto auto;
     column-gap: 3rem;
     align-items: center;
-    margin-top: 5vw; /* Pushed away from navbar */
+    margin-top: 0vw; /* Brought closer back to navbar */
     margin-bottom: 2vw;
 }
 
@@ -613,14 +613,15 @@ h6 {
         grid-template-columns: 1fr auto;
         gap: 0.8rem 1rem;
         align-items: start;
-        margin-top: 10vw; /* Pushed away from mobile navbar */
+        margin-top: 4vw; /* Balanced mobile spacing */
         margin-bottom: 12vw;
         width: 100%;
     }
 
     /* Standard spacing for all project headers on mobile */
 
-    .project-header-top {
+    .project-header-top,
+    .project-header-bottom {
         display: contents;
     }
 
@@ -629,26 +630,7 @@ h6 {
         grid-row: 1;
         margin-bottom: 0.2rem;
         margin-right: 0;
-    }
-
-
-    .tiktok-header.project-header {
-        gap: 0.8rem 1rem !important;
-        /* Force standard mobile gap */
-    }
-
-    .tiktok-header .project-title {
-        grid-column: 1 !important;
-        grid-row: 1 !important;
-        transform: none !important;
-        margin-top: 0 !important;
-    }
-
-    .tiktok-header .project-meta {
-        grid-column: 1 / span 2 !important;
-        grid-row: 2 !important;
-        transform: none !important;
-        margin-top: 0 !important;
+        text-align: left;
     }
 
     .tiktok-header .project-link-btn,
@@ -656,9 +638,11 @@ h6 {
         grid-column: 1 / span 2 !important;
         grid-row: 3 !important;
         justify-self: start !important;
-        margin-top: 1.2rem !important;
+        margin-left: 0 !important;
+        margin-top: 1.5rem !important;
         margin-bottom: 0.5rem !important;
         transform: none !important;
+        text-align: left;
     }
 
     .project-meta {
