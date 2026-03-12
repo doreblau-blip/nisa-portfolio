@@ -73,10 +73,10 @@ h6 {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 20px;
-    right: 20px;
+    left: 4vw;
+    right: 4vw;
     height: 1px;
-    background-color: rgba(0, 0, 0, 0.12); /* Constant thin line with gaps */
+    background-color: rgba(0, 0, 0, 0.12); /* Aligned with logo and links */
     display: block;
 }
 
@@ -438,8 +438,8 @@ h6 {
 .contact-heading::after {
     content: '';
     position: absolute;
-    left: calc(-4vw + 20px);
-    right: calc(-4vw + 20px);
+    left: 0;
+    right: 0;
     height: 1px;
     background-color: rgba(0, 0, 0, 0.12);
     display: block;
@@ -521,8 +521,8 @@ h6 {
     
     .project-header-top::after,
     .contact-heading::after {
-        left: calc(-5vw + 20px); /* Adjust to mobile padding 5vw */
-        right: calc(-5vw + 20px);
+        left: 0;
+        right: 0;
     }
     .project-meta {
         flex-wrap: wrap;
