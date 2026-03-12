@@ -414,30 +414,38 @@ h6 {
 .project-header {
     display: grid;
     grid-template-columns: 1fr auto auto;
-    column-gap: 3rem; /* Restored elegant gap for other projects */
+    column-gap: 3rem; /* Elegant gap restored */
     align-items: center;
     margin-top: -3vw;
     margin-bottom: 2vw;
 }
 
+/* Specific adjustment for TikTok project */
 .tiktok-header.project-header {
-    column-gap: 2rem;
+    column-gap: 3rem; /* Elegant gap for TikTok too */
     row-gap: 0.6rem; 
 }
 
-/* Ensure title and meta stack in column 1 for TikTok Desktop */
+/* TikTok specific: Meta under title on left */
 .tiktok-header .project-title {
     grid-row: 1;
-    grid-column: 1;
+    grid-column: 1 / span 2; /* Take up space to push button to far right */
+    justify-self: start;
     transform: translateY(-5px);
 }
 
 .tiktok-header .project-meta {
     grid-row: 2;
-    grid-column: 1;
-    justify-self: start;
+    grid-column: 1 / span 2;
+    justify-self: start; /* Snap to left as requested earlier */
     transform: translateY(-5px);
-    margin-top: 0.2rem; /* The "aesthetic gap" */
+    margin-top: 0.2rem;
+}
+
+.tiktok-header .project-link-btn {
+    grid-row: 1 / span 2; /* Center vertically relative to title/meta block */
+    grid-column: 3;
+    justify-self: end;
 }
 
 .project-header-top, 
@@ -500,7 +508,7 @@ h6 {
     align-items: center;
     gap: 1.5rem;
     flex-shrink: 0;
-    grid-column: 3; /* Always snap to the far right column */
+    grid-column: 3; /* For other projects, snap to the far right */
     justify-self: end;
 }
 
