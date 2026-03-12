@@ -414,13 +414,17 @@ h6 {
 .project-header {
     display: grid;
     grid-template-columns: 1fr auto auto;
-    column-gap: 0; /* Removed fixed gap to prevent empty column spacing */
+    column-gap: 3rem; /* Restored elegant gap for other projects */
     align-items: center;
     margin-top: -3vw;
     margin-bottom: 2vw;
 }
 
 /* Specific adjustment for TikTok project */
+.tiktok-header.project-header {
+    column-gap: 0.6rem; /* Tight grouping for TikTok */
+}
+
 .tiktok-header .project-title,
 .tiktok-header .project-meta {
     transform: translateY(-5px); /* Moving up "5 clicks" as requested */
@@ -536,9 +540,14 @@ h6 {
 @media (max-width: 768px) {
     .project-header {
         grid-template-columns: 1fr auto;
-        gap: 0.2rem 1rem; /* Even tighter vertical gap */
+        gap: 0.8rem 1rem; /* More space for regular projects */
         align-items: start;
-        margin-top: 2vw; /* Moving the whole header "10 clicks" down from navbar */
+        margin-top: 2vw;
+    }
+
+    /* Keep TikTok tight as requested */
+    .tiktok-header.project-header {
+        gap: 0.2rem 1rem;
     }
 
     .project-header-top {
@@ -548,8 +557,12 @@ h6 {
     .project-title {
         grid-column: 1;
         grid-row: 1;
-        margin-bottom: -1rem; /* Bringing title much closer to meta (10 clicks total approx) */
+        margin-bottom: 0; /* Clear overlap for regular projects */
         margin-right: 0;
+    }
+
+    .tiktok-header .project-title {
+        margin-bottom: -1rem; /* Only TikTok keeps the tight negative margin */
     }
 
     .project-link-btn {
