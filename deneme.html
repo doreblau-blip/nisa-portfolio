@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deneme | Nisa Alkan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css?v=6">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="index.html">
+                <h1 class="nav-name">Nisa Alkan</h1>
+            </a>
+            <span class="nav-subtitle">Art Director & Designer</span>
+        </div>
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="about.html">ABOUT</a>
+                <a href="contact.html">CONTACT</a>
+                <a href="deneme.html" class="nav-heart" aria-label="Deneme">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                </a>
+            </div>
+            <button class="mobile-menu-trigger" id="menu-trigger" aria-label="Menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <main class="spinning-ring-container">
+        <div class="spinning-ring" id="spinning-ring">
+            <!-- Ring items will be positioned by JS -->
+            <div class="spinning-ring-item"><img src="images/melis-karaduman/melis-1.gif" alt="Item 1"></div>
+            <div class="spinning-ring-item"><img src="images/melis-karaduman/melis-2.gif" alt="Item 2"></div>
+            <div class="spinning-ring-item"><img src="images/melis-karaduman/melis-3.gif" alt="Item 3"></div>
+            <div class="spinning-ring-item"><img src="images/melis-karaduman/melis-4.gif" alt="Item 4"></div>
+            <div class="spinning-ring-item"><img src="images/melis-karaduman/melis-5.gif" alt="Item 5"></div>
+            <div class="spinning-ring-item"><img src="images/melis-karaduman/melis-6.gif" alt="Item 6"></div>
+            <div class="spinning-ring-item"><img src="images/ira-typeface/header.gif" alt="Item 7"></div>
+            <div class="spinning-ring-item"><img src="images/ira-typeface/ira-1.gif" alt="Item 8"></div>
+        </div>
+    </main>
+
+    <script src="./cursor.js"></script>
+    <script>
+        const ring = document.getElementById('spinning-ring');
+        const items = document.querySelectorAll('.spinning-ring-item');
+        const radius = 300;
+        const total = items.length;
+
+        items.forEach((item, i) => {
+            const angle = (i / total) * (Math.PI * 2);
+            const x = Math.cos(angle) * radius;
+            const y = Math.sin(angle) * radius;
+            item.style.left = `calc(50% + ${x}px)`;
+            item.style.top = `calc(50% + ${y}px)`;
+        });
+
+        // Mobile Menu Toggle
+        const trigger = document.getElementById('menu-trigger');
+        const menu = document.getElementById('mobile-menu');
+        
+        trigger.addEventListener('click', () => {
+            menu.classList.add('active');
+            document.body.classList.add('menu-open');
+        });
+    </script>
+</body>
+</html>

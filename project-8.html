@@ -25,7 +25,7 @@
         <div class="nav-right">
             <div class="nav-links">
                 <a href="about.html">ABOUT</a>
-                <a href="contact.html">CONTACT</a>
+                <a href="contact.html">CONTACT</a><a href="deneme.html" class="nav-heart" aria-label="Deneme"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></a>
             </div>
             <button class="mobile-menu-trigger" id="menu-trigger" aria-label="Menu">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
@@ -74,7 +74,7 @@
         <nav class="mobile-nav-links">
             <a href="index.html">WORK</a>
             <a href="about.html">ABOUT</a>
-            <a href="contact.html">CONTACT</a>
+            <a href="contact.html">CONTACT</a><a href="deneme.html" class="nav-heart" aria-label="Deneme"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></a>
         </nav>
     </div>
 
@@ -97,28 +97,38 @@
             </div>
         </div>
 
-        <!-- 3D Ring Gallery -->
-        <div class="ring-container">
-            <div class="ring-stage" id="ring-stage">
-                <div class="ring-item">
-                    <img src="images/melis-karaduman/melis-1.gif" alt="Melis Karaduman 1">
-                </div>
-                <div class="ring-item">
-                    <img src="images/melis-karaduman/melis-2.gif" alt="Melis Karaduman 2">
-                </div>
-                <div class="ring-item">
-                    <img src="images/melis-karaduman/melis-3.gif" alt="Melis Karaduman 3">
-                </div>
-                <div class="ring-item">
-                    <img src="images/melis-karaduman/melis-4.gif" alt="Melis Karaduman 4">
-                </div>
-                <div class="ring-item">
-                    <img src="images/melis-karaduman/melis-5.gif" alt="Melis Karaduman 5">
-                </div>
-                <div class="ring-item">
-                    <img src="images/melis-karaduman/melis-6.gif" alt="Melis Karaduman 6">
-                </div>
+        <!-- Slideshow Gallery -->
+        <div class="slideshow-container">
+            <div class="slide active">
+                <img src="images/melis-karaduman/melis-1.gif" alt="Melis Karaduman 1">
             </div>
+            <div class="slide">
+                <img src="images/melis-karaduman/melis-2.gif" alt="Melis Karaduman 2">
+            </div>
+            <div class="slide">
+                <img src="images/melis-karaduman/melis-3.gif" alt="Melis Karaduman 3">
+            </div>
+            <div class="slide">
+                <img src="images/melis-karaduman/melis-4.gif" alt="Melis Karaduman 4">
+            </div>
+            <div class="slide">
+                <img src="images/melis-karaduman/melis-5.gif" alt="Melis Karaduman 5">
+            </div>
+            <div class="slide">
+                <img src="images/melis-karaduman/melis-6.gif" alt="Melis Karaduman 6">
+            </div>
+
+            <!-- Navigation -->
+            <div class="slide-nav">
+                <button class="nav-btn" onclick="nextSlide()" aria-label="Next">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="slide-counter" id="slide-counter">1 / 6</div>
         </div>
     </main>
 
@@ -142,43 +152,21 @@
     <!-- Scripts -->
     <script src="./cursor.js"></script>
     <script>
-        const stage = document.getElementById('ring-stage');
-        const items = document.querySelectorAll('.ring-item');
-        const total = items.length;
-        const radius = window.innerWidth > 768 ? 450 : 250; // Distance from center
-        
-        // Position items in a circle
-        items.forEach((item, i) => {
-            const angle = (360 / total) * i;
-            item.style.transform = `rotateY(${angle}deg) translateZ(${radius}px)`;
-        });
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const counter = document.getElementById('slide-counter');
 
-        let currentRotation = 0;
-        let targetRotation = 0;
-
-        // Smoothly rotate based on mouse movement
-        window.addEventListener('mousemove', (e) => {
-            // Map mouse percentage to -180 to 180 degrees
-            const xPercent = (e.clientX / window.innerWidth) - 0.5;
-            targetRotation = -xPercent * 360; 
-        });
-
-        // Loop for smooth lag effect
-        function animate() {
-            currentRotation += (targetRotation - currentRotation) * 0.05;
-            stage.style.transform = `rotateY(${currentRotation}deg)`;
-            requestAnimationFrame(animate);
+        function updateSlideshow() {
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentSlide);
+            });
+            counter.innerText = `${currentSlide + 1} / ${slides.length}`;
         }
-        animate();
 
-        // Touch support for mobile
-        let startX = 0;
-        window.addEventListener('touchstart', (e) => startX = e.touches[0].clientX);
-        window.addEventListener('touchmove', (e) => {
-            const deltaX = e.touches[0].clientX - startX;
-            targetRotation += deltaX * 0.5;
-            startX = e.touches[0].clientX;
-        });
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlideshow();
+        }
 
         // Mobile Menu Toggle
         const trigger = document.getElementById('menu-trigger');
