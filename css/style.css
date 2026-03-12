@@ -412,7 +412,7 @@ h6 {
 .project-header {
     display: grid;
     grid-template-columns: 1fr auto auto;
-    column-gap: 1.5rem; /* Tighter gap between elements for better grouping */
+    column-gap: 0.8rem; /* Extremely tight aesthetic grouping */
     align-items: center;
     margin-top: -3vw;
     margin-bottom: 2vw;
@@ -522,8 +522,9 @@ h6 {
 @media (max-width: 768px) {
     .project-header {
         grid-template-columns: 1fr auto;
-        gap: 0.4rem 1rem; /* Reduced vertical gap to match other pages' tight feel */
+        gap: 0.2rem 1rem; /* Even tighter vertical gap */
         align-items: start;
+        margin-top: 2vw; /* Moving the whole header "10 clicks" down from navbar */
     }
 
     .project-header-top {
