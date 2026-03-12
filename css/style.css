@@ -333,6 +333,9 @@ h6 {
     flex-shrink: 0;
     position: relative;
     z-index: 1;
+    grid-row: 1; /* Desktop: Move to top row */
+    grid-column: 3;
+    align-self: center; /* Center between nav-line and divider */
 }
 
 .project-link-btn span {
@@ -408,10 +411,10 @@ h6 {
 
 .project-header {
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr auto auto; /* 3 columns to separate title, meta and button */
     column-gap: 3rem;
     align-items: baseline;
-    margin-top: -3vw; /* Pulls content up towards navbar specifically for project pages */
+    margin-top: -3vw;
     margin-bottom: 2vw;
 }
 
@@ -422,13 +425,14 @@ h6 {
 }
 
 .project-header-divider {
-    grid-column: 1 / span 2;
+    grid-column: 1 / span 3;
     height: 1px;
     background-color: rgba(0, 0, 0, 0.12);
     margin: 1.2rem 0;
 }
 
 .project-description {
+    grid-column: 1 / span 2;
     font-size: 0.95rem;
     line-height: 1.7;
     color: #555;
