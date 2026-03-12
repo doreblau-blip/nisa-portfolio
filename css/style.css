@@ -177,7 +177,7 @@ h6 {
 
 /* Main Container */
 .container {
-    padding: calc(var(--nav-height) + 2vw) 4vw 4vw; /* Pushed content up slightly (from 4vw) */
+    padding: var(--nav-height) 4vw 4vw; /* Removed extra top spacing entirely for maximum elevation */
 }
 
 /* Home Grid Layout - 6 Column Grid Math */
@@ -309,7 +309,7 @@ h6 {
 /* Shared Project and Contact Header Styles */
 .project-header,
 .contact-heading {
-    margin-bottom: 3vw; /* Reduced from 4vw to shift gallery up */
+    margin-bottom: 2vw; /* Further reduced from 3vw */
 }
 
 .project-header-top,
@@ -317,7 +317,7 @@ h6 {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    padding: 1rem 0 1.2rem; /* Reduced top padding */
+    padding: 0.5rem 0 1rem; /* Even tighter top/bottom padding */
     gap: 2rem;
     position: relative; /* For pseudo-element lines */
 }
