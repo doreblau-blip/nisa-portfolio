@@ -558,7 +558,7 @@ h6 {
     .project-header {
         grid-template-columns: 1fr auto;
         gap: 0.8rem 1rem;
-        align-items: center;
+        align-items: start;
     }
 
     .project-header-top {
