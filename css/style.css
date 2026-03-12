@@ -319,13 +319,14 @@ h6 {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 10px 20px;
-    background: #000;
-    color: #fff;
-    font-size: 0.8rem;
-    font-weight: 500;
+    padding: 10px 24px;
+    background: transparent;
+    color: #000;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    font-size: 0.75rem;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
     border-radius: 100px;
     margin-top: 1.5rem;
     width: fit-content;
@@ -333,7 +334,9 @@ h6 {
 }
 
 .project-link-btn:hover {
-    background: #333;
+    background: #000;
+    color: #fff;
+    border-color: #000;
     transform: translateY(-2px);
 }
 
