@@ -97,40 +97,28 @@
             </div>
         </div>
 
-        <!-- Carousel Gallery -->
-        <div class="carousel-container">
-            <div class="carousel-stage" id="carousel-stage">
-                <div class="carousel-slide">
+        <!-- 3D Ring Gallery -->
+        <div class="ring-container">
+            <div class="ring-stage" id="ring-stage">
+                <div class="ring-item">
                     <img src="images/melis-karaduman/melis-1.gif" alt="Melis Karaduman 1">
                 </div>
-                <div class="carousel-slide">
+                <div class="ring-item">
                     <img src="images/melis-karaduman/melis-2.gif" alt="Melis Karaduman 2">
                 </div>
-                <div class="carousel-slide">
+                <div class="ring-item">
                     <img src="images/melis-karaduman/melis-3.gif" alt="Melis Karaduman 3">
                 </div>
-                <div class="carousel-slide">
+                <div class="ring-item">
                     <img src="images/melis-karaduman/melis-4.gif" alt="Melis Karaduman 4">
                 </div>
-                <div class="carousel-slide">
+                <div class="ring-item">
                     <img src="images/melis-karaduman/melis-5.gif" alt="Melis Karaduman 5">
                 </div>
-                <div class="carousel-slide">
+                <div class="ring-item">
                     <img src="images/melis-karaduman/melis-6.gif" alt="Melis Karaduman 6">
                 </div>
             </div>
-
-            <!-- Navigation -->
-            <div class="carousel-nav">
-                <button class="carousel-btn" onclick="rotateCarousel(1)" aria-label="Next">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                </button>
-            </div>
-
-            <div class="carousel-counter" id="carousel-counter">1 / 6</div>
         </div>
     </main>
 
@@ -154,43 +142,43 @@
     <!-- Scripts -->
     <script src="./cursor.js"></script>
     <script>
-        let currentIndex = 0;
-        const slides = document.querySelectorAll('.carousel-slide');
-        const counter = document.getElementById('carousel-counter');
-
-        function updateCarousel() {
-            const total = slides.length;
-            
-            slides.forEach((slide, i) => {
-                slide.classList.remove('active', 'prev', 'next');
-                
-                if (i === currentIndex) {
-                    slide.classList.add('active');
-                } else if (i === (currentIndex - 1 + total) % total) {
-                    slide.classList.add('prev');
-                } else if (i === (currentIndex + 1) % total) {
-                    slide.classList.add('next');
-                }
-            });
-            
-            counter.innerText = `${currentIndex + 1} / ${total}`;
-        }
-
-        function rotateCarousel(step) {
-            currentIndex = (currentIndex + step + slides.length) % slides.length;
-            updateCarousel();
-        }
-
-        // Click on peek slides to rotate
-        document.querySelectorAll('.carousel-slide').forEach((slide, index) => {
-            slide.addEventListener('click', () => {
-                if (slide.classList.contains('prev')) rotateCarousel(-1);
-                if (slide.classList.contains('next')) rotateCarousel(1);
-            });
+        const stage = document.getElementById('ring-stage');
+        const items = document.querySelectorAll('.ring-item');
+        const total = items.length;
+        const radius = window.innerWidth > 768 ? 450 : 250; // Distance from center
+        
+        // Position items in a circle
+        items.forEach((item, i) => {
+            const angle = (360 / total) * i;
+            item.style.transform = `rotateY(${angle}deg) translateZ(${radius}px)`;
         });
 
-        // Initialize
-        updateCarousel();
+        let currentRotation = 0;
+        let targetRotation = 0;
+
+        // Smoothly rotate based on mouse movement
+        window.addEventListener('mousemove', (e) => {
+            // Map mouse percentage to -180 to 180 degrees
+            const xPercent = (e.clientX / window.innerWidth) - 0.5;
+            targetRotation = -xPercent * 360; 
+        });
+
+        // Loop for smooth lag effect
+        function animate() {
+            currentRotation += (targetRotation - currentRotation) * 0.05;
+            stage.style.transform = `rotateY(${currentRotation}deg)`;
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        // Touch support for mobile
+        let startX = 0;
+        window.addEventListener('touchstart', (e) => startX = e.touches[0].clientX);
+        window.addEventListener('touchmove', (e) => {
+            const deltaX = e.touches[0].clientX - startX;
+            targetRotation += deltaX * 0.5;
+            startX = e.touches[0].clientX;
+        });
 
         // Mobile Menu Toggle
         const trigger = document.getElementById('menu-trigger');
