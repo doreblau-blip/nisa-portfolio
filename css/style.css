@@ -552,6 +552,23 @@ h6 {
     transform: scale(1.03);
 }
 
+/* Specific 2-column grid for Dore Typeface */
+.typeface-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 30px !important;
+}
+
+.typeface-grid .gallery-item {
+    aspect-ratio: auto !important;
+}
+
+@media (max-width: 768px) {
+    .typeface-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
 /* Responsive adjustments for header elements */
 @media (max-width: 768px) {
     .project-header {
@@ -561,9 +578,9 @@ h6 {
         margin-top: 2vw;
     }
 
-    /* Keep TikTok breathable but distinctive */
+    /* Force extreme space for TikTok mobile to ensure separation */
     .tiktok-header.project-header {
-        gap: 0.8rem 1rem;
+        gap: 2.5rem 1rem !important; 
     }
 
     .project-header-top {
