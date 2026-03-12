@@ -75,7 +75,7 @@ h6 {
 .navbar::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: -1px; /* Forced to the absolute bottom edge to prevent mini gaps */
     left: 4vw;
     right: 4vw;
     height: 1px;
@@ -184,9 +184,10 @@ h6 {
 }
 
 .container.about-main {
+    padding-top: var(--nav-height); /* Starts immediately after nav line */
     padding-left: 0;
     padding-right: 0;
-    padding-bottom: 0; /* Touch footer */
+    padding-bottom: 0;
 }
 
 /* Home Grid Layout - 6 Column Grid Math */
