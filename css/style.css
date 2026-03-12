@@ -177,7 +177,7 @@ h6 {
 
 /* Main Container */
 .container {
-    padding: calc(var(--nav-height) + 4vw) 4vw 4vw;
+    padding: calc(var(--nav-height) + 2vw) 4vw 4vw; /* Pushed content up slightly (from 4vw) */
 }
 
 /* Home Grid Layout - 6 Column Grid Math */
@@ -309,7 +309,7 @@ h6 {
 /* Shared Project and Contact Header Styles */
 .project-header,
 .contact-heading {
-    margin-bottom: 4vw;
+    margin-bottom: 3vw; /* Reduced from 4vw to shift gallery up */
 }
 
 .project-header-top,
@@ -317,15 +317,13 @@ h6 {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    padding: 1.2rem 0;
+    padding: 1rem 0 1.2rem; /* Reduced top padding */
     gap: 2rem;
     position: relative; /* For pseudo-element lines */
 }
 
-/* Match Navbar Line Style (Thinness, Color, and 20px Screen Gaps) */
-.project-header-top::before,
+/* Only bottom line for project headers as per request */
 .project-header-top::after,
-.contact-heading::before,
 .contact-heading::after {
     content: '';
     position: absolute;
@@ -334,15 +332,6 @@ h6 {
     height: 1px;
     background-color: rgba(0, 0, 0, 0.12);
     display: block;
-}
-
-.project-header-top::before,
-.contact-heading::before {
-    top: 0;
-}
-
-.project-header-top::after,
-.contact-heading::after {
     bottom: 0;
 }
 
