@@ -584,10 +584,7 @@ h6 {
         margin-top: 2vw;
     }
 
-    /* Force extreme space for TikTok mobile to ensure separation */
-    .tiktok-header.project-header {
-        gap: 2.5rem 1rem !important; 
-    }
+    /* Standard spacing for all project headers on mobile */
 
     .project-header-top {
         display: contents;
@@ -600,8 +597,11 @@ h6 {
         margin-right: 0;
     }
 
-    .tiktok-header .project-title {
-        margin-bottom: 0; 
+
+    .tiktok-header .project-title,
+    .tiktok-header .project-meta {
+        transform: none !important;
+        margin-top: 0 !important;
     }
 
     .project-link-btn {
