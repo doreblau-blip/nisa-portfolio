@@ -561,9 +561,9 @@ h6 {
         margin-top: 2vw;
     }
 
-    /* Keep TikTok tight as requested */
+    /* Keep TikTok breathable but distinctive */
     .tiktok-header.project-header {
-        gap: 0.2rem 1rem;
+        gap: 0.8rem 1rem;
     }
 
     .project-header-top {
@@ -578,7 +578,7 @@ h6 {
     }
 
     .tiktok-header .project-title {
-        margin-bottom: -1rem; /* Only TikTok keeps the tight negative margin */
+        margin-bottom: 0; 
     }
 
     .project-link-btn {
