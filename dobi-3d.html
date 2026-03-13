@@ -42,8 +42,9 @@
 
         @media (min-width: 769px) {
             body {
-                overflow: hidden;
+                overflow: clip;
                 height: 100vh;
+                scrollbar-gutter: stable;
             }
         }
 
@@ -220,7 +221,8 @@
                 align-items: center !important;
                 justify-content: center !important;
                 perspective: 1000px !important;
-                padding-top: 0 !important;
+                padding-top: 120px !important;
+                padding-bottom: 110px !important;
             }
             .face-nav {
                 right: 0;
