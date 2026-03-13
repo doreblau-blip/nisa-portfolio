@@ -533,8 +533,34 @@ h6 {
 /* Specific adjustment for TikTok project */
 .tiktok-header.project-header {
     column-gap: 3rem;
-    /* Elegant gap for TikTok too */
     row-gap: 0.6rem;
+}
+
+.dore-header.project-header {
+    column-gap: 3rem;
+    row-gap: 0.6rem;
+}
+
+.dore-header .project-title {
+    grid-row: 1;
+    grid-column: 1 / span 2;
+    justify-self: start;
+    transform: translateY(-5px);
+}
+
+.dore-header .project-meta {
+    grid-row: 2;
+    grid-column: 1 / span 2;
+    justify-self: start;
+    transform: translateY(-5px);
+    margin-top: 0.2rem;
+}
+
+.dore-header .project-link-btn {
+    grid-row: 1 / span 2;
+    grid-column: 3;
+    justify-self: end;
+    align-self: center;
 }
 
 /* TikTok specific: Meta under title on left */
