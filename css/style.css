@@ -1,4 +1,5 @@
 /* Reset and Base Variables */
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;400&display=swap');
 @font-face {
     font-family: 'Dore';
     src: url('../fonts/Dore-Thin.otf') format('opentype');
@@ -1037,10 +1038,10 @@ h6 {
 }
 
 .footer-left {
-    font-family: var(--font-family);
+    font-family: 'Lexend', sans-serif;
+    font-weight: 400;
     font-size: calc(0.75rem - 1px);
-    font-weight: 500;
-    color: #666;
+    color: #aaa;
     letter-spacing: 0.05em;
 }
 
@@ -1064,9 +1065,14 @@ h6 {
     transform: translateY(-2px);
 }
 
+.footer-social a:last-child svg {
+    transform: translateX(-2px);
+}
+
 .footer-social svg {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
+    display: block;
 }
 
 
