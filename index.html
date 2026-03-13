@@ -16,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css?v=1773362759">
+    <link rel="stylesheet" href="./css/style.css?v=1773363235">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
 <body>
@@ -226,10 +226,7 @@
             &copy; 2025 Nisa Alkan. All Rights Reserved.
         </div>
         <div class="footer-right">
-            <button id="dark-mode-toggle" class="dark-mode-toggle magnetic" aria-label="Toggle Dark Mode">
-                <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-                <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-            </button>
+
 
             <a href="mailto:hello@doreblau.com" class="footer-email">hello@doreblau.com</a>
         </div>
@@ -237,19 +234,34 @@
         <div class="footer-top">
             <a href="mailto:hello@doreblau.com" class="footer-email">hello@doreblau.com</a>
         </div>
-        <div class="footer-social-mobile">
-            <button id="dark-mode-toggle-mobile" class="dark-mode-toggle" aria-label="Toggle Dark Mode" style="margin-left:0; margin-bottom: 20px;">
-                <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-                <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-            </button>
-        </div>
+
 
         <div class="footer-bottom">
             <span style="display:block;">&copy; 2025 Nisa Alkan. All Rights Reserved.</span>
         </div>
     </footer>
+    
+    <!-- Settings Panel -->
+    <div class="settings-panel" id="settings-panel">
+        <button class="settings-toggle" id="settings-toggle" aria-label="Toggle Settings">
+            <svg viewBox="0 0 24 24" fill="none" class="panel-arrow" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+        </button>
+        <div class="settings-content">
+            <button id="dark-mode-panel-toggle" class="dark-mode-toggle magnetic" aria-label="Toggle Dark Mode">
+                <div class="mode-icons">
+                    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </div>
+                <span>Theme</span>
+            </button>
+            <div class="settings-text">Ah, relief.</div>
+        </div>
+    </div>
+
     <!-- Custom Cursor Logic -->
-    <script src="./cursor.js?v=1773362953"></script>
+    <script src="./cursor.js?v=1773363235"></script>
     <script>
         // Mobile Menu Toggle
         const trigger = document.getElementById('menu-trigger');

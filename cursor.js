@@ -78,30 +78,6 @@ document.addEventListener("DOMContentLoaded", () => {
         item.addEventListener("mouseleave", () => {
             document.body.classList.remove("cursor-hover");
             document.body.classList.remove("cursor-view");
-            // Magnetic effect reset (if applicable)
-            if(item.classList.contains('magnetic')) {
-                item.style.transform = `translate(0px, 0px)`;
-            }
-        });
-    });
-
-    // Magnetic Effect Logic
-    const magneticElements = document.querySelectorAll('.nav-links a, .footer-email, .mobile-overlay-close');
-    magneticElements.forEach(el => {
-        el.classList.add('magnetic');
-        el.addEventListener('mousemove', (e) => {
-            const position = el.getBoundingClientRect();
-            const x = e.pageX - position.left - position.width / 2;
-            const y = e.pageY - position.top - position.height / 2;
-            
-            // Adjust pulling strength - smaller decimal means softer magnetic effect
-            el.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
-            el.style.transition = 'none';
-        });
-        
-        el.addEventListener('mouseleave', () => {
-            el.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
-            el.style.transform = `translate(0px, 0px)`;
         });
     });
 
