@@ -192,6 +192,20 @@
             gap: 8px;
         }
 
+        .next-project {
+            position: absolute;
+            top: 120px;
+            right: 4vw;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: #000;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
         /* Mobile Adjustments */
         @media (max-width: 768px) {
             .navbar {
@@ -224,23 +238,41 @@
                 position: absolute !important;
             }
             .face-nav-item {
-                font-size: 0.6rem;
-                background: none !important;
-                border-radius: 0;
-                padding: 5px 2px;
-                flex: 0 1 auto;
+                font-size: 0.55rem;
+                background: transparent !important;
+                border: 1px solid rgba(0,0,0,0.25);
+                border-radius: 999px;
+                padding: 6px 14px;
+                min-width: 78px;
+                text-align: center;
                 white-space: nowrap;
-                text-decoration: underline;
-                text-underline-offset: 4px;
+                text-decoration: none;
+                letter-spacing: 0.15em;
+                transition: background 0.25s, color 0.25s, border-color 0.25s;
+            }
+            .face-nav-item.active {
+                background: #000 !important;
+                color: #fff;
+                border-color: #000;
+                opacity: 1;
+                transform: none;
+            }
+            .face-nav-item::after {
+                display: none;
             }
             .controls-hint {
                 display: none !important;
             }
             .back-to-project {
                 top: 100px;
-                width: 100%;
-                justify-content: center;
-                left: 0;
+                width: auto;
+                justify-content: flex-start;
+                left: 4vw;
+                padding-top: 10px;
+            }
+            .next-project {
+                top: 100px;
+                right: 4vw;
                 padding-top: 10px;
             }
             .mobile-bottom-spacer {
@@ -298,6 +330,14 @@
             <polyline points="7 7 17 7 17 17"></polyline>
         </svg>
         Back to Lootie
+    </a>
+
+    <a href="./dobi-3d.html" class="next-project">
+        DOBI
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+        </svg>
     </a>
 
     <div class="scene" id="scene">
