@@ -91,10 +91,16 @@
         .control {
             display: flex;
             align-items: center;
-            gap: 16px;
-            padding: 0 32px;
+            gap: 10px;
+            padding: 0 18px;
             height: 100%;
             border-right: 1px solid rgba(0,0,0,0.07);
+            flex-shrink: 0;
+        }
+
+        .control:last-child {
+            border-right: none;
+            padding-right: 0;
         }
 
         .control:first-child {
@@ -117,7 +123,7 @@
 
         input[type="range"] {
             -webkit-appearance: none;
-            width: 160px;
+            width: 100px;
             height: 1px;
             background: #d0d0d0;
             outline: none;
@@ -144,9 +150,9 @@
         }
 
         .pill {
-            font-size: 10px;
-            letter-spacing: 0.1em;
-            padding: 5px 12px;
+            font-size: 9px;
+            letter-spacing: 0.08em;
+            padding: 4px 9px;
             border-radius: 999px;
             border: 1px solid rgba(0,0,0,0.15);
             cursor: pointer;
@@ -176,8 +182,22 @@
             text-transform: uppercase;
             color: #999;
             text-decoration: none;
-            transition: color 0.2s;
+            position: relative;
         }
+
+        .back-btn::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #212121;
+            transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .back-btn:hover { color: #212121; }
+        .back-btn:hover::after { width: 100%; }
 
         .style-btns {
             display: flex;
@@ -194,12 +214,27 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #888;
-            transition: all 0.2s;
+            color: #bbb;
+            transition: color 0.3s ease, border-color 0.3s ease;
         }
 
-        .style-btn:hover { border-color: #212121; color: #212121; }
-        .style-btn.active { background: #212121; color: #f8f8f8; border-color: #212121; }
+        .style-btn:hover {
+            border-color: #212121;
+            color: #212121;
+            animation: pulse-btn 1.2s ease-in-out infinite;
+        }
+
+        .style-btn.active {
+            background: #212121;
+            color: #f8f8f8;
+            border-color: #212121;
+            animation: none;
+        }
+
+        @keyframes pulse-btn {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
 
         @media (max-width: 768px) {
             header { padding: 20px; }
@@ -220,6 +255,7 @@
             }
             .weight-pills { flex-wrap: wrap; gap: 6px; }
             input[type="range"] { flex: 1; min-width: 120px; }
+            .control:first-child { padding-left: 24px; }
         }
     </style>
 </head>
