@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (settingsPanel && settingsToggleBtn) {
         settingsToggleBtn.addEventListener('click', () => {
             if (settingsPanel.style.right === '0px') {
-                settingsPanel.style.right = '-250px';
+                settingsPanel.style.right = '-80px';
                 settingsToggleBtn.querySelector('svg').style.transform = 'rotate(0deg)';
             } else {
                 settingsPanel.style.right = '0px';
