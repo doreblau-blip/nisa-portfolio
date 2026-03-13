@@ -36,15 +36,27 @@ document.addEventListener("DOMContentLoaded", () => {
         }, { duration: 500, fill: "forwards" });
     });
 
-    // Scroll effect for navbar
+    // Scroll effect for navbar (Smart Hide & Scrolled state)
+    let lastScrollY = window.scrollY;
     window.addEventListener('scroll', () => {
         const nav = document.querySelector('.navbar');
         if (nav) {
-            if (window.scrollY > 20) {
+            // Scrolled state
+            if (window.scrollY > 40) {
                 nav.classList.add('scrolled');
             } else {
                 nav.classList.remove('scrolled');
             }
+
+            // Smart Hide logic: Hide when scrolling down, show when scrolling up
+            if (window.scrollY > lastScrollY && window.scrollY > 200) {
+                // Scrolling down & not at the very top
+                nav.classList.add('nav-hidden');
+            } else {
+                // Scrolling up or at the top
+                nav.classList.remove('nav-hidden');
+            }
+            lastScrollY = window.scrollY;
         }
     });
 

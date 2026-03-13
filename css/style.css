@@ -110,6 +110,20 @@ h6 {
     }
 }
 
+/* Smart Hide: Navbar disappears on scroll down */
+.navbar.nav-hidden {
+    transform: translateY(-120%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Ensure pill mode hides a bit further due to its top offset */
+@media (min-width: 1024px) {
+    .navbar.scrolled.nav-hidden {
+        transform: translateY(-160%);
+    }
+}
+
 .navbar::after {
     content: '';
     position: absolute;
