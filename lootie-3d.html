@@ -15,87 +15,113 @@
             --box-d: 230px;
             --text-color: #000000;
             --bg-color: #ffffff;
-        }
-
-        @media (max-width: 768px) {
-            :root {
-                --box-w: 160px;
-                --box-h: 213px;
-                --box-d: 160px;
-            }
+            --accent-gray: #f2f2f2;
         }
 
         body {
             margin: 0;
             padding: 0;
-            overflow-x: hidden;
-            overflow-y: auto;
-            min-height: 100vh;
+            overflow: hidden;
+            height: 100vh;
             width: 100vw;
-            display: flex;
-            flex-direction: column;
             background-color: #ffffff !important;
             color: #000000 !important;
             font-family: 'Syne', sans-serif;
-        }
-
-        @media (min-width: 769px) {
-            body {
-                overflow: hidden;
-                height: 100vh;
-            }
-        }
-
-        /* Enforce theme */
-        * {
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        .scene {
-            flex: 1;
-            position: relative;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            perspective: 2000px;
-            cursor: grab;
-            background: radial-gradient(circle at center, rgba(0, 0, 0, 0.02) 0%, transparent 70%);
-            z-index: 1;
+            flex-direction: column;
         }
 
-        .scene:active {
-            cursor: grabbing;
+        * { -webkit-tap-highlight-color: transparent; box-sizing: border-box; }
+
+        /* --- DESKTOP LAYOUT (Unchanged) --- */
+        @media (min-width: 769px) {
+            .scene {
+                flex: 1;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                perspective: 2000px;
+                cursor: grab;
+                z-index: 1;
+            }
+            .scene:active { cursor: grabbing; }
+            .cube-container {
+                position: relative;
+                width: var(--box-w);
+                height: var(--box-h);
+                transform-style: preserve-3d;
+                pointer-events: none;
+            }
+            .cube {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                transform-style: preserve-3d;
+                transform: rotateX(-20deg) rotateY(45deg);
+            }
+            .face-nav {
+                position: absolute;
+                right: 4vw;
+                top: 50%;
+                transform: translateY(-50%);
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                z-index: 10;
+            }
+            .face-nav-item {
+                font-size: 0.75rem;
+                font-weight: 700;
+                letter-spacing: 0.2em;
+                text-transform: uppercase;
+                color: #000;
+                opacity: 0.4;
+                cursor: pointer;
+                transition: opacity 0.3s;
+                text-align: right;
+            }
+            .face-nav-item.active, .face-nav-item:hover { opacity: 1; }
+            .project-nav {
+                position: absolute;
+                top: 120px;
+                left: 4vw;
+                right: 4vw;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                z-index: 10;
+            }
+            .nav-link {
+                font-size: 0.8rem;
+                font-weight: 700;
+                text-decoration: none;
+                color: #000;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+            .controls-hint {
+                position: absolute;
+                bottom: 60px;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 0.7rem;
+                text-transform: uppercase;
+                letter-spacing: 0.2em;
+                opacity: 0.3;
+            }
+            .footer { display: flex; }
         }
 
-        .cube-container {
-            position: relative;
-            width: var(--box-w);
-            height: var(--box-h);
-            transform-style: preserve-3d;
-            pointer-events: none;
-        }
-
-        .cube {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            transform-style: preserve-3d;
-            transform: rotateX(-20deg) rotateY(45deg);
-        }
-
+        /* --- CUBE FACES (Shared) --- */
         .cube-face {
             position: absolute;
             background-size: cover;
             background-position: center;
             border: 1px solid rgba(0,0,0,0.05);
-            display: flex;
-            align-items: center;
-            justify-content: center;
             backface-visibility: visible;
-            box-sizing: border-box;
         }
-
-        /* Rectangular 3D Logic */
         .front  { width: var(--box-w); height: var(--box-h); transform: rotateY(0deg) translateZ(calc(var(--box-d) / 2)); }
         .back   { width: var(--box-w); height: var(--box-h); transform: rotateY(180deg) translateZ(calc(var(--box-d) / 2)); }
         .right  { width: var(--box-d); height: var(--box-h); transform: rotateY(90deg) translateZ(calc(var(--box-w) / 2)); left: calc((var(--box-w) - var(--box-d)) / 2); }
@@ -103,142 +129,105 @@
         .top    { width: var(--box-w); height: var(--box-d); transform: rotateX(90deg) translateZ(calc(var(--box-h) / 2)); top: calc((var(--box-h) - var(--box-d)) / 2); }
         .bottom { width: var(--box-w); height: var(--box-d); transform: rotateX(-90deg) translateZ(calc(var(--box-h) / 2)); top: calc((var(--box-h) - var(--box-d)) / 2); }
 
-        /* Effects */
-        .shimmer {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(115deg, transparent, rgba(255,255,255,0.2), transparent);
-            background-size: 200% 100%;
-            opacity: 0;
-            z-index: 2;
-            pointer-events: none;
-        }
-        .paper-texture {
-            position: absolute;
-            inset: 0;
-            background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
-            opacity: 0.1;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        /* Nav & UI */
-        .face-nav {
-            position: absolute;
-            right: 4vw;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            z-index: 10;
-        }
-
-        .face-nav-item {
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: #000;
-            opacity: 0.4;
-            cursor: pointer;
-            padding: 10px 0;
-            text-align: right;
-            transition: opacity 0.3s;
-        }
-        .face-nav-item:hover, .face-nav-item.active {
-            opacity: 1;
-        }
-
-        .controls-hint {
-            position: absolute;
-            bottom: 120px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            opacity: 0.3;
-            z-index: 5;
-        }
-
-        .project-nav {
-            position: absolute;
-            top: 120px;
-            left: 4vw;
-            right: 4vw;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 10;
-        }
-        .project-nav .nav-link {
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-decoration: none;
-            color: #000;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        /* Mobile Adjustments */
+        /* --- NEW MOBILE REDESIGN (9:16 Optimized) --- */
         @media (max-width: 768px) {
-            .navbar {
-                background-color: #ffffff !important;
+            :root {
+                --box-w: 180px;
+                --box-h: 240px;
+                --box-d: 180px;
             }
-            .footer {
-                display: none !important;
-            }
-            .scene {
-                align-items: center !important;
-                justify-content: center !important;
-                perspective: 1000px !important;
-                padding-top: 0 !important;
-            }
-            .face-nav {
-                right: 0;
-                left: 0;
-                top: auto;
-                bottom: 40px;
-                transform: none;
-                display: grid !important;
-                grid-template-columns: repeat(3, auto);
+            body { overflow: hidden; }
+            .navbar { background: #fff !important; height: 80px; z-index: 100; position: relative; }
+            .footer { display: none !important; }
+
+            /* App-like structure */
+            .mobile-visual-area {
+                flex: 1;
+                position: relative;
+                display: flex;
+                flex-direction: column;
                 justify-content: center;
-                gap: 12px 10px;
+                align-items: center;
+                background-color: #fff;
+            }
+
+            .mobile-control-center {
+                background: #ffffff;
+                padding-bottom: 40px;
+                display: flex;
+                flex-direction: column;
+                gap: 25px;
+                z-index: 20;
+            }
+
+            /* Cross-Project Nav in visual area top */
+            .project-nav {
                 width: 100%;
-                padding: 0 20px;
-                box-sizing: border-box;
-                position: absolute !important;
+                padding: 0 6vw;
+                position: absolute;
+                top: 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .nav-link {
+                font-size: 0.65rem;
+                font-weight: 800;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                color: #000;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                gap: 4px;
+                opacity: 0.6;
+            }
+
+            .scene {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                perspective: 1200px;
+            }
+
+            .cube-container {
+                position: relative;
+                width: var(--box-w);
+                height: var(--box-h);
+                transform-style: preserve-3d;
+                pointer-events: none;
+            }
+            .cube {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                transform-style: preserve-3d;
+            }
+
+            /* Minimal Text-Only Controllers */
+            .face-nav {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px 0;
+                width: 100%;
+                padding: 0 4vw;
             }
             .face-nav-item {
-                font-size: 0.6rem;
-                background: none !important;
-                border-radius: 0;
-                padding: 5px 2px;
-                flex: 0 1 auto;
-                white-space: nowrap;
+                font-size: 0.65rem;
+                font-weight: 700;
+                letter-spacing: 0.15em;
+                text-align: center;
+                color: #000;
+                opacity: 0.3;
                 text-decoration: underline;
-                text-underline-offset: 4px;
+                text-underline-offset: 6px;
+                transition: opacity 0.3s;
             }
-            .controls-hint {
-                display: none !important;
-            }
-            .project-nav {
-                top: 100px;
-                width: auto;
-                left: 4vw;
-                right: 4vw;
-                justify-content: space-between;
-            }
-            .mobile-bottom-spacer {
-                display: block;
-                height: 150px; /* Breatheable negative space */
-                width: 100%;
-            }
-        }
-        @media (min-width: 769px) {
-            .mobile-bottom-spacer { display: none; }
+            .face-nav-item.active { opacity: 1; font-weight: 800; }
+
+            .controls-hint { display: none; }
         }
     </style>
 </head>
@@ -278,24 +267,53 @@
         </nav>
     </div>
 
-    <div class="project-nav">
-        <a href="./project-2.html" class="nav-link">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" transform="rotate(180)">
-                <line x1="7" y1="17" x2="17" y2="7"></line>
-                <polyline points="7 7 17 7 17 17"></polyline>
-            </svg>
-            Back to Lootie
-        </a>
-        <a href="dobi-3d.html" class="nav-link">
-            DOBI
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="7" y1="17" x2="17" y2="7"></line>
-                <polyline points="7 7 17 7 17 17"></polyline>
-            </svg>
-        </a>
+    <!-- MAIN INTERFACE -->
+    <div class="mobile-visual-area">
+        <div class="project-nav">
+            <a href="./project-2.html" class="nav-link">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" transform="rotate(180)">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+                Back to Lootie
+            </a>
+            <a href="dobi-3d.html" class="nav-link">
+                DOBI
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+            </a>
+        </div>
+
+        <div class="scene" id="scene">
+            <div class="cube-container">
+                <div class="cube" id="cube">
+                    <div class="cube-face front" style="background-image: url('images/lootie/3d/front.svg');"></div>
+                    <div class="cube-face back" style="background-image: url('images/lootie/3d/back.svg');"></div>
+                    <div class="cube-face right" style="background-image: url('images/lootie/3d/right.png');"></div>
+                    <div class="cube-face left" style="background-image: url('images/lootie/3d/left.png');"></div>
+                    <div class="cube-face top" style="background-image: url('images/lootie/3d/top.png');"></div>
+                    <div class="cube-face bottom" style="background-image: url('images/lootie/3d/bottom.png');"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls-hint">Drag to rotate the box</div>
+        
+        <!-- Desktop Nav items (Hidden on mobile redesigned version) -->
+        <div class="face-nav" id="desktop-nav-hidden">
+            <div class="face-nav-item active" data-face="front">FRONT</div>
+            <div class="face-nav-item" data-face="back">BACK</div>
+            <div class="face-nav-item" data-face="top">TOP</div>
+            <div class="face-nav-item" data-face="bottom">BOTTOM</div>
+            <div class="face-nav-item" data-face="left">LEFT</div>
+            <div class="face-nav-item" data-face="right">RIGHT</div>
+        </div>
     </div>
 
-    <div class="scene" id="scene">
+    <!-- Dedicated Mobile Control Bar -->
+    <div class="mobile-control-center">
         <div class="face-nav">
             <div class="face-nav-item active" data-face="front">FRONT</div>
             <div class="face-nav-item" data-face="back">BACK</div>
@@ -304,37 +322,14 @@
             <div class="face-nav-item" data-face="left">LEFT</div>
             <div class="face-nav-item" data-face="right">RIGHT</div>
         </div>
-        <div class="cube-container">
-            <div class="cube" id="cube">
-                <div class="cube-face front" style="background-image: url('images/lootie/3d/front.svg');"></div>
-                <div class="cube-face back" style="background-image: url('images/lootie/3d/back.svg');"></div>
-                <div class="cube-face right" style="background-image: url('images/lootie/3d/right.png');"></div>
-                <div class="cube-face left" style="background-image: url('images/lootie/3d/left.png');"></div>
-                <div class="cube-face top" style="background-image: url('images/lootie/3d/top.png');"></div>
-                <div class="cube-face bottom" style="background-image: url('images/lootie/3d/bottom.png');"></div>
-            </div>
-        </div>
     </div>
 
-    <div class="controls-hint">Drag to rotate the box</div>
-
     <footer class="footer">
-        <div class="footer-left">
-            &copy; 2026 NISA ALKAN. ALL RIGHTS RESERVED.
-        </div>
+        <div class="footer-left">&copy; 2026 NISA ALKAN. ALL RIGHTS RESERVED.</div>
         <div class="footer-right">
             <a href="mailto:hello@doreblau.com" class="footer-email">hello@doreblau.com</a>
         </div>
-        <!-- Mobile layout -->
-        <div class="footer-top">
-            <a href="mailto:hello@doreblau.com" class="footer-email">hello@doreblau.com</a>
-        </div>
-        <div class="footer-bottom">
-            <span style="display:block;">&copy; 2026 NISA ALKAN. ALL RIGHTS RESERVED.</span>
-        </div>
     </footer>
-
-    <div class="mobile-bottom-spacer"></div>
 
     <script src="./cursor.js"></script>
     <script>
@@ -347,14 +342,7 @@
         let velocityX = 0, velocityY = 0;
         let autoRotate = true;
 
-        // Interaction
-        const startMove = (x, y) => {
-            isDragging = true;
-            startX = x;
-            startY = y;
-            autoRotate = false;
-        };
-
+        const startMove = (x, y) => { isDragging = true; startX = x; startY = y; autoRotate = false; };
         const onMove = (x, y) => {
             if (!isDragging) return;
             const dx = x - startX;
@@ -370,12 +358,10 @@
         scene.addEventListener('mousedown', e => startMove(e.clientX, e.clientY));
         window.addEventListener('mousemove', e => onMove(e.clientX, e.clientY));
         window.addEventListener('mouseup', () => isDragging = false);
-
         scene.addEventListener('touchstart', e => startMove(e.touches[0].clientX, e.touches[0].clientY));
         window.addEventListener('touchmove', e => onMove(e.touches[0].clientX, e.touches[0].clientY));
         window.addEventListener('touchend', () => isDragging = false);
 
-        // Navigation
         const faceButtons = document.querySelectorAll('.face-nav-item');
         const faceRotations = {
             'front': { x: 0, y: 0 }, 'back': { x: 0, y: 180 },
@@ -390,39 +376,32 @@
                     autoRotate = false;
                     const rot = faceRotations[face];
                     targetRotX = rot.x;
-                    // Find closest Y path
                     let diffY = rot.y - (targetRotY % 360);
                     if (diffY > 180) diffY -= 360;
                     if (diffY < -180) diffY += 360;
                     targetRotY += diffY;
-                    faceButtons.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
+                    document.querySelectorAll(`.face-nav-item[data-face="${face}"]`).forEach(b => b.classList.add('active'));
+                    document.querySelectorAll(`.face-nav-item:not([data-face="${face}"])`).forEach(b => b.classList.remove('active'));
                 }
             });
         });
 
         function animate() {
             if (!isDragging) {
-                if (autoRotate) {
-                    targetRotY += 0.1;
-                } else {
-                    targetRotY += velocityX;
-                    targetRotX -= velocityY;
-                    velocityX *= 0.95;
-                    velocityY *= 0.95;
+                if (autoRotate) targetRotY += 0.1;
+                else {
+                    targetRotY += velocityX; targetRotX -= velocityY;
+                    velocityX *= 0.95; velocityY *= 0.95;
                     if (Math.abs(velocityX) < 0.01 && Math.abs(velocityY) < 0.01) autoRotate = true;
                 }
             }
-            
             rotX += (targetRotX - rotX) * 0.1;
             rotY += (targetRotY - rotY) * 0.1;
-
             cube.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
             requestAnimationFrame(animate);
         }
         animate();
 
-        // Menu
         const trigger = document.getElementById('menu-trigger');
         const menu = document.getElementById('mobile-menu');
         const close = document.getElementById('menu-close');
