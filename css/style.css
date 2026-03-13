@@ -34,25 +34,9 @@
     --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Dark Mode Theme Variables */
-body.dark-mode {
-    --bg-color: #111111;
-    --text-color: #f5f5f5;
-    --nav-bg: rgba(17, 17, 17, 0.8);
-}
 
-/* Forced Dark Mode for specific areas (Showcase/Type Lab) */
-.dark-mode-fix {
-    background-color: #111111 !important;
-    color: #f5f5f5 !important;
-    --text-color: #f5f5f5;
-    --bg-color: #111111;
-}
 
-/* Base Transition for Dark Mode */
-body {
-    transition: background-color 0.8s ease, color 0.8s ease;
-}
+
 
 /* Custom Selection Color */
 ::selection {
@@ -1683,101 +1667,11 @@ body.menu-open {
     }
 }
 
-/* Dark Mode Elements Overrides */
-body.dark-mode .navbar::after {
-    background-color: var(--text-color);
-    opacity: 0.12;
-}
-body.dark-mode .footer {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-body.dark-mode .about-hero {
-    background-color: #111;
-}
-body.dark-mode .project-navigation {
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-body.dark-mode .nav-link.prev {
-    border-right: 1px solid rgba(255, 255, 255, 0.05);
-}
-body.dark-mode .nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.03);
-}
-body.dark-mode .nav-title {
-    color: #fff;
-}
-body.dark-mode .cursor-outline {
-    border-color: rgba(255, 255, 255, 0.5);
-}
-body.dark-mode .cursor-hover .cursor-outline {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-body.dark-mode .cursor-view .cursor-outline::after {
-    color: #111; /* Text color inside view cursor */
-}
-body.dark-mode .mobile-overlay {
-    background-color: rgba(17, 17, 17, 0.94);
-}
-body.dark-mode .mobile-nav-links a {
-    border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
-}
-body.dark-mode .mobile-nav-links a::after {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='7' y1='17' x2='17' y2='7'%3E%3C/line%3E%3Cpolyline points='7 7 17 7 17 17'%3E%3C/polyline%3E%3C/svg%3E");
-}
 
-body.dark-mode .project-header-divider {
-    background-color: rgba(255, 255, 255, 0.12);
-}
 
-body.dark-mode .project-link-btn {
-    color: #fff;
-    border-color: rgba(255, 255, 255, 0.25);
-}
 
-body.dark-mode .project-link-btn:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.4);
-}
 
-/* Dark Mode Footer Toggle Button Styling */
-.dark-mode-toggle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: none;
-    border: 1px solid rgba(0,0,0,0.1);
-    color: var(--text-color);
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    cursor: none;
-    transition: all 0.3s ease;
-    margin-left: 20px;
-}
-body.dark-mode .dark-mode-toggle {
-    border-color: rgba(255,255,255,0.1);
-}
-.dark-mode-toggle:hover {
-    background: rgba(0,0,0,0.05);
-}
-body.dark-mode .dark-mode-toggle:hover {
-    background: rgba(255,255,255,0.05);
-}
-.dark-mode-toggle svg {
-    width: 16px;
-    height: 16px;
-}
-.dark-mode-toggle .moon-icon {
-    display: none;
-}
-body.dark-mode .dark-mode-toggle .sun-icon {
-    display: none;
-}
-body.dark-mode .dark-mode-toggle .moon-icon {
-    display: block;
-}
 
-/* Settings Panel Slider for Dark Mode */
 .settings-panel {
     position: fixed;
     top: 50%;
@@ -1799,11 +1693,6 @@ body.dark-mode .dark-mode-toggle .moon-icon {
     z-index: 10000;
 }
 
-body.dark-mode .settings-panel {
-    background: rgba(17, 17, 17, 0.65);
-    border: 1px solid rgba(255,255,255,0.05);
-    box-shadow: -15px 0 35px rgba(0,0,0,0.3);
-}
 
 .settings-panel.open {
     right: 0;
@@ -1830,10 +1719,6 @@ body.dark-mode .settings-panel {
     transition: background-color 0.8s ease, border-color 0.8s ease, color 0.8s ease;
 }
 
-body.dark-mode .settings-toggle {
-    background: rgba(17, 17, 17, 0.65);
-    border: 1px solid rgba(255,255,255,0.05);
-}
 
 .settings-toggle svg {
     width: 20px;
@@ -1854,56 +1739,13 @@ body.dark-mode .settings-toggle {
     justify-content: center;
 }
 
-#dark-mode-panel-toggle {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
-    background: transparent;
-    border: none;
-    border-radius: 50%;
-    color: var(--text-color);
-    cursor: pointer;
-    outline: none;
-    -webkit-appearance: none;
-    appearance: none;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
 
-#dark-mode-panel-toggle:active,
-#dark-mode-panel-toggle:focus,
-#dark-mode-panel-toggle:focus-visible {
-    outline: none;
-    box-shadow: none;
-    border: none;
-}
 
 .settings-toggle:focus,
 .settings-toggle:focus-visible,
-#dark-mode-panel-toggle:focus,
-#dark-mode-panel-toggle:focus-visible {
-    outline: none;
-    box-shadow: none;
-}
 
-#dark-mode-panel-toggle span {
-    display: none;
-}
 
-body.dark-mode #dark-mode-panel-toggle {
-    background: rgba(255,255,255,0.03);
-    border-color: rgba(255,255,255,0.05);
-}
 
-#dark-mode-panel-toggle:hover {
-    background: rgba(0,0,0,0.03);
-}
-body.dark-mode #dark-mode-panel-toggle:hover {
-    background: rgba(255,255,255,0.06);
-}
 
 .mode-icons {
     position: relative;
@@ -1926,14 +1768,6 @@ body.dark-mode #dark-mode-panel-toggle:hover {
     transform: rotate(-120deg) scale(0.3);
 }
 
-body.dark-mode .mode-icons .sun-icon {
-    opacity: 0;
-    transform: rotate(120deg) scale(0.3);
-}
-body.dark-mode .mode-icons .moon-icon {
-    opacity: 1;
-    transform: rotate(0) scale(1);
-}
 
 .settings-text {
     display: none;
@@ -1951,9 +1785,6 @@ body.dark-mode .mode-icons .moon-icon {
     box-shadow: 0 40px 100px rgba(0,0,0,0.5);
 }
 
-body.dark-mode .type-lab {
-    border-color: rgba(255,255,255,0.1);
-}
 
 .type-lab-header {
     display: flex;
@@ -1966,9 +1797,6 @@ body.dark-mode .type-lab {
     border-bottom: 1px solid rgba(255, 255, 255, 0.03); 
 }
 
-body.dark-mode .type-lab-header {
-    border-bottom-color: rgba(255,255,255,0.08);
-}
 
 .type-lab-controls {
     display: flex;
@@ -2138,9 +1966,6 @@ body.dark-mode .type-lab-header {
     border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
-body.dark-mode .large-type {
-    border-color: rgba(255,255,255,0.1);
-}
 
 .specimen-col {
     padding: 4rem 0;
@@ -2153,9 +1978,6 @@ body.dark-mode .large-type {
     border-right: none;
 }
 
-body.dark-mode .specimen-col {
-    border-right-color: rgba(255,255,255,0.1);
-}
 
 .weight-thin { font-weight: 100; }
 .weight-regular { font-weight: 400; }
@@ -2195,9 +2017,6 @@ body.dark-mode .specimen-col {
     background: rgba(0,0,0,0.02);
 }
 
-body.dark-mode .contrast-section {
-    background: rgba(255,255,255,0.02);
-}
 
 .main-char {
     font-size: 30vw;
@@ -2230,9 +2049,6 @@ body.dark-mode .contrast-section {
     background: rgba(0,0,0,0.1);
 }
 
-body.dark-mode .detail-grid {
-    background: rgba(255,255,255,0.1);
-}
 
 .detail-box {
     background: var(--bg-color);
@@ -2270,9 +2086,6 @@ body.dark-mode .detail-grid {
     border-top: 1px solid rgba(0,0,0,0.05);
 }
 
-body.dark-mode .char-inspector {
-    border-top-color: rgba(255,255,255,0.05);
-}
 
 .inspector-container {
     display: grid;
@@ -2305,9 +2118,6 @@ body.dark-mode .char-inspector {
     overflow: visible;
 }
 
-body.dark-mode .inspector-display {
-    background: rgba(255,255,255,0.01);
-}
 
 /* Guides fill the display 1:1 */
 .guides {
@@ -2325,9 +2135,6 @@ body.dark-mode .inspector-display {
     border-top: 1px solid rgba(0,0,0,0.08);
 }
 
-body.dark-mode .guide-line {
-    border-top-color: rgba(255,255,255,0.08);
-}
 
 /* Cap Height = 0% */
 .guide-line.cap-height  { top: 0%; border-top-color: rgba(0,0,0,0.18); }
@@ -2338,8 +2145,6 @@ body.dark-mode .guide-line {
 /* Descender = 100% */
 .guide-line.descender   { top: 100%; }
 
-body.dark-mode .guide-line.cap-height  { border-top-color: rgba(255,255,255,0.18); }
-body.dark-mode .guide-line.baseline   { border-top-color: var(--text-color); }
 
 .guide-label {
     position: absolute;
@@ -2433,9 +2238,6 @@ body.dark-mode .guide-line.baseline   { border-top-color: var(--text-color); }
     border: 1px solid rgba(0,0,0,0.05);
 }
 
-body.dark-mode .inspector-grid {
-    border-color: rgba(255,255,255,0.05);
-}
 
 .glyph-item-btn {
     aspect-ratio: 1;
@@ -2450,17 +2252,11 @@ body.dark-mode .inspector-grid {
     color: var(--text-color);
 }
 
-body.dark-mode .glyph-item-btn {
-    border-color: rgba(255,255,255,0.05);
-}
 
 .glyph-item-btn:hover {
     background: rgba(0,0,0,0.02);
 }
 
-body.dark-mode .glyph-item-btn:hover {
-    background: rgba(255,255,255,0.02);
-}
 
 .glyph-item-btn.active {
     background: var(--text-color);
@@ -2573,9 +2369,6 @@ body.dark-mode .glyph-item-btn:hover {
     overflow: hidden;
 }
 
-body.dark-mode .license-card {
-    border-color: rgba(255, 255, 255, 0.1);
-}
 
 .license-card:hover {
     border-color: var(--text-color);
@@ -2587,9 +2380,6 @@ body.dark-mode .license-card {
     background: rgba(0, 0, 0, 0.03);
 }
 
-body.dark-mode .license-card.selected {
-    background: rgba(255, 255, 255, 0.03);
-}
 
 .license-card.selected::before {
     content: '';

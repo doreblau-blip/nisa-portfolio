@@ -83,45 +83,4 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Dark Mode Toggle Logic
-    const toggleBtn = document.getElementById('dark-mode-toggle');
-    const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-
-    // Check localStorage or default to Light
-    const currentTheme = localStorage.getItem("theme");
-    if (currentTheme === "dark") {
-        document.body.classList.add("dark-mode");
-    } else {
-        // Default to light mode
-        document.body.classList.remove("dark-mode");
-    }
-
-    // Use both footer toggle and panel toggle
-    const toggleBtns = document.querySelectorAll('.dark-mode-toggle, #dark-mode-panel-toggle');
-    toggleBtns.forEach(btn => {
-        btn.addEventListener("click", function() {
-            document.body.classList.toggle("dark-mode");
-            let theme = "light";
-            if (document.body.classList.contains("dark-mode")) {
-                theme = "dark";
-            }
-            localStorage.setItem("theme", theme);
-        });
-    });
-
-    // Settings Panel Toggle
-    const settingsPanel = document.getElementById('settings-panel');
-    const settingsToggleBtn = document.getElementById('settings-toggle');
-    
-    if (settingsPanel && settingsToggleBtn) {
-        settingsToggleBtn.addEventListener('click', () => {
-            if (settingsPanel.style.right === '0px') {
-                settingsPanel.style.right = '-80px';
-                settingsToggleBtn.querySelector('svg').style.transform = 'rotate(0deg)';
-            } else {
-                settingsPanel.style.right = '0px';
-                settingsToggleBtn.querySelector('svg').style.transform = 'rotate(180deg)';
-            }
-        });
-    }
 });
