@@ -1683,6 +1683,16 @@ body.dark-mode .project-header-divider {
     background-color: rgba(255, 255, 255, 0.12);
 }
 
+body.dark-mode .project-link-btn {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+body.dark-mode .project-link-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
 /* Dark Mode Footer Toggle Button Styling */
 .dark-mode-toggle {
     display: inline-flex;
