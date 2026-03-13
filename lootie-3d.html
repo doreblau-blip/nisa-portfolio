@@ -580,14 +580,6 @@
                     
                     shim.style.opacity = (highlight * 0.65).toString();
                     shim.style.backgroundPosition = `${(currentRotY * 0.25) % 100}% ${(currentRotX * 0.25) % 100}%`;
-
-                    // Shadow / Darken faces in the background
-                    const faceEl = document.querySelector(face.el);
-                    if (faceEl) {
-                        const isFacing = Math.cos((relY) * Math.PI / 180) > 0;
-                        const depthShadow = isFacing ? 1 : 0.4;
-                        faceEl.style.filter = `brightness(${depthShadow})`;
-                    }
                 }
             });
 
