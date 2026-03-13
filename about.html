@@ -114,6 +114,14 @@
     <!-- Custom Cursor Logic -->
     <script src="./cursor.js?v=1773365975"></script>
     <script>
+        // Force video autoplay on mobile
+        const vid = document.querySelector('.about-bg-media');
+        if (vid) {
+            vid.play().catch(() => {
+                document.addEventListener('touchstart', () => vid.play(), { once: true });
+            });
+        }
+
         // Mobile Menu Toggle
         const trigger = document.getElementById('menu-trigger');
         const menu = document.getElementById('mobile-menu');
