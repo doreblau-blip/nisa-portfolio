@@ -1541,6 +1541,31 @@ body.menu-open {
     transition: background-color 0.4s ease;
 }
 
+/* Blurred project preview on hover */
+.nav-link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: var(--preview-img);
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    filter: blur(8px);
+    transform: scale(1.08);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    z-index: 0;
+}
+
+.nav-link:hover::before {
+    opacity: 0.15;
+    transform: scale(1);
+}
+
+.nav-link > * {
+    position: relative;
+    z-index: 1;
+}
+
 .nav-link.prev {
     align-items: flex-start;
     text-align: left;
@@ -1553,7 +1578,7 @@ body.menu-open {
 }
 
 .nav-link:hover {
-    background-color: rgba(0, 0, 0, 0.02);
+    background-color: rgba(0, 0, 0, 0.01);
 }
 
 .nav-label {
