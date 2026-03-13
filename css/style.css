@@ -265,7 +265,7 @@ h6 {
     position: relative;
     display: block;
     overflow: hidden;
-    background-color: #fff;
+    background-color: transparent;
     border-radius: 4px;
     aspect-ratio: 4/5;
     /* Keep consistent vertical aspect ratio for portfolio */
@@ -285,6 +285,7 @@ h6 {
     -webkit-backface-visibility: hidden;
     /* Forces mask to boundaries to fix scaling bleed */
     -webkit-mask-image: -webkit-radial-gradient(white, black);
+    mask-image: radial-gradient(white, black);
 }
 
 .image-wrapper img {
@@ -1787,20 +1788,23 @@ body.dark-mode .settings-toggle {
 }
 
 #dark-mode-panel-toggle {
-    width: 100%;
+    width: 60px;
+    height: 60px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 12px 16px;
+    justify-content: center;
+    padding: 0;
+    margin: 0 auto;
     background: rgba(0,0,0,0.01);
     border: 1px solid rgba(0,0,0,0.03);
-    border-radius: 8px;
+    border-radius: 50%;
     color: var(--text-color);
-    font-family: var(--font-family);
-    font-size: 0.8rem;
-    font-weight: 600;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#dark-mode-panel-toggle span {
+    display: none;
 }
 
 body.dark-mode #dark-mode-panel-toggle {
