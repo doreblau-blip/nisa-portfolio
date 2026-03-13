@@ -7,15 +7,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css?v=1773365975">
+    <link rel="stylesheet" href="./css/style.css?v=1773366218">
     <style>
         :root {
-            --box-size: 350px;
+            --box-w: 240px;
+            --box-h: 360px;
+            --box-d: 240px;
         }
 
         @media (max-width: 768px) {
             :root {
-                --box-size: 250px;
+                --box-w: 180px;
+                --box-h: 270px;
+                --box-d: 180px;
             }
         }
 
@@ -41,18 +45,16 @@
         }
 
         .cube {
-            width: var(--box-size);
-            height: var(--box-size);
+            width: var(--box-w);
+            height: var(--box-h);
             position: relative;
             transform-style: preserve-3d;
-            transform: rotateX(-25deg) rotateY(45deg);
+            transform: rotateX(-20deg) rotateY(45deg);
             transition: transform 0.1s linear;
         }
 
         .cube-face {
             position: absolute;
-            width: var(--box-size);
-            height: var(--box-size);
             background-size: cover;
             background-position: center;
             box-shadow: inset 0 0 50px rgba(0,0,0,0.1);
@@ -63,13 +65,13 @@
             backface-visibility: visible;
         }
 
-        /* 3D Transform Logic */
-        .front  { transform: rotateY(0deg) translateZ(calc(var(--box-size) / 2)); }
-        .back   { transform: rotateY(180deg) translateZ(calc(var(--box-size) / 2)); }
-        .right  { transform: rotateY(90deg) translateZ(calc(var(--box-size) / 2)); }
-        .left   { transform: rotateY(-90deg) translateZ(calc(var(--box-size) / 2)); }
-        .top    { transform: rotateX(90deg) translateZ(calc(var(--box-size) / 2)); }
-        .bottom { transform: rotateX(-90deg) translateZ(calc(var(--box-size) / 2)); }
+        /* Rectangular 3D Logic */
+        .front  { width: var(--box-w); height: var(--box-h); transform: rotateY(0deg) translateZ(calc(var(--box-d) / 2)); }
+        .back   { width: var(--box-w); height: var(--box-h); transform: rotateY(180deg) translateZ(calc(var(--box-d) / 2)); }
+        .right  { width: var(--box-d); height: var(--box-h); transform: rotateY(90deg) translateZ(calc(var(--box-w) / 2)); left: calc((var(--box-w) - var(--box-d)) / 2); }
+        .left   { width: var(--box-d); height: var(--box-h); transform: rotateY(-90deg) translateZ(calc(var(--box-w) / 2)); left: calc((var(--box-w) - var(--box-d)) / 2); }
+        .top    { width: var(--box-w); height: var(--box-d); transform: rotateX(90deg) translateZ(calc(var(--box-h) / 2)); top: calc((var(--box-h) - var(--box-d)) / 2); }
+        .bottom { width: var(--box-w); height: var(--box-d); transform: rotateX(-90deg) translateZ(calc(var(--box-h) / 2)); top: calc((var(--box-h) - var(--box-d)) / 2); }
 
         .controls-hint {
             position: absolute;
