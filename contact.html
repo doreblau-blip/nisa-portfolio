@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Nisa Alkan | Art Director & Designer">
+    <meta property="og:description" content="Portfolio of Nisa Alkan. Art direction, type design and motion.">
+    <meta property="og:image" content="images/og-image.jpg">
+    <meta property="og:url" content="https://nisaalkan.com">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Nisa Alkan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css?v=1773367552">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <style>
+        .contact-container {
+            min-height: calc(100vh - var(--nav-height) - 8vw);
+            display: flex;
+            align-items: flex-start;
+            padding-bottom: 4vw;
+        }
+
+        .contact-inner {
+            width: 100%;
+            max-width: 640px;
+        }
+
+        .contact-heading {
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: textFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: textFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation-delay: 0.1s;
+        }
+
+        .form-row {
+            display: flex;
+            flex-direction: column;
+            border-bottom: 0.5px solid #ccc;
+            padding: 1rem 0;
+        }
+
+        .form-row label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #aaa;
+            margin-bottom: 0.4rem;
+        }
+
+        .form-row input,
+        .form-row textarea,
+        .form-row select {
+            background: transparent;
+            border: none;
+            outline: none;
+            font-family: 'Syne', sans-serif;
+            font-size: 1rem;
+            color: var(--text-color, #111);
+            width: 100%;
+            resize: none;
+        }
+
+        .form-row textarea {
+            min-height: 120px;
+            line-height: 1.6;
+        }
+
+        .form-row input::placeholder,
+        .form-row textarea::placeholder {
+            color: #ccc;
+        }
+
+        .form-submit {
+            margin-top: 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .submit-btn {
+            background: #111;
+            color: #fff;
+            border: none;
+            font-family: 'Syne', sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            padding: 0.9rem 2.2rem;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .submit-btn:hover {
+            background: #333;
+            transform: translateY(-1px);
+        }
+
+        .submit-note {
+            font-size: 0.75rem;
+            color: #bbb;
+            letter-spacing: 0.04em;
+        }
+
+        @keyframes textFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-inner {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="index.html">
+                <h1 class="nav-name">Nisa Alkan</h1>
+            </a>
+            <span class="nav-subtitle">Art Director & Designer</span>
+        </div>
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="dobi-3d.html"><span class="nav-arrow"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>3D SHOWCASE</a><a href="about.html"><span class="nav-arrow"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>ABOUT</a>
+                <a href="contact.html"><span class="nav-arrow"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>CONTACT</a>
+            </div>
+            <button class="mobile-menu-trigger" id="menu-trigger" aria-label="Menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+            </button>
+        </div>
+    </nav>
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-overlay" id="mobile-menu">
+        <button class="mobile-overlay-close" id="menu-close" aria-label="Close Menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+        <nav class="mobile-nav-links">
+            <a href="index.html">WORK</a>
+            <a href="dobi-3d.html"><span class="nav-arrow"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>3D SHOWCASE</a>
+            <a href="about.html"><span class="nav-arrow"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>ABOUT</a>
+            <a href="contact.html"><span class="nav-arrow"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>CONTACT</a>
+        </nav>
+    </div>
+<main class="container">
+        <div class="contact-container">
+            <div class="contact-inner">
+                <div class="contact-heading">
+                    <h1>Get in touch</h1>
+                </div>
+
+                <form class="contact-form" action="mailto:hello@doreblau.com" method="post" enctype="text/plain">
+                    <div class="form-row">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your name" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="What's this about?">
+                    </div>
+                    <div class="form-row">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Tell me about your project…" required></textarea>
+                    </div>
+                    <div class="form-submit">
+                        <button type="submit" class="submit-btn">Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-left">
+            &copy; 2026 NISA ALKAN. ALL RIGHTS RESERVED.
+        </div>
+        <div class="footer-right">
+
+
+            <a href="mailto:hello@doreblau.com" class="footer-email">hello@doreblau.com</a>
+        </div>
+        <!-- Mobile layout -->
+        <div class="footer-top">
+            <a href="mailto:hello@doreblau.com" class="footer-email">hello@doreblau.com</a>
+        </div>
+
+
+        <div class="footer-bottom">
+            <span style="display:block;">&copy; 2026 NISA ALKAN. ALL RIGHTS RESERVED.</span>
+        </div>
+    </footer>
+
+    
+
+
+    <!-- Custom Cursor -->
+    <script src="./cursor.js?v=1773365975"></script>
+    <script>
+        // Mobile Menu Toggle
+        const trigger = document.getElementById('menu-trigger');
+        const menu = document.getElementById('mobile-menu');
+        
+        trigger.addEventListener('click', () => {
+            menu.classList.add('active');
+            document.body.classList.add('menu-open');
+        });
+
+        const closeBtn = document.getElementById('menu-close');
+        closeBtn.addEventListener('click', () => {
+            menu.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        });
+
+        // Close menu on link click
+        document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                trigger.classList.remove('active');
+                menu.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
+        });
+    </script>
+</body>
+</html>
