@@ -789,6 +789,62 @@ h6 {
     object-fit: contain;
 }
 
+.lightbox-nav-btn {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(33, 33, 33, 0.05);
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10001;
+    transition: background 0.2s, transform 0.2s;
+    color: #212121;
+}
+
+.lightbox-nav-btn:hover {
+    background: rgba(33, 33, 33, 0.1);
+    transform: translateY(-50%) scale(1.05);
+}
+
+.lightbox-prev {
+    left: 4vw;
+}
+
+.lightbox-next {
+    right: 4vw;
+}
+
+.lightbox-nav-btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+@media (max-width: 768px) {
+    .lightbox-nav-btn {
+        width: 44px;
+        height: 44px;
+        top: auto;
+        bottom: 40px;
+        transform: none;
+    }
+    .lightbox-nav-btn:hover {
+        transform: scale(1.05);
+    }
+    .lightbox-prev { left: 20px; }
+    .lightbox-next { right: 20px; }
+    
+    .lightbox-close {
+        top: 20px;
+        right: 20px;
+    }
+}
+
 .lightbox-close {
     position: fixed;
     top: 28px;
@@ -1386,21 +1442,28 @@ body.menu-open {
 
 /* Project Navigation (Prev/Next) */
 .project-navigation {
-    padding: 60px 4vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    margin-top: 10vw;
     border-top: 1px solid rgba(0, 0, 0, 0.05);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 80px;
 }
 
 .nav-link {
+    padding: 6vw 4vw;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
     text-decoration: none;
-    color: rgba(0, 0, 0, 0.4);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: background-color 0.4s ease;
+}
+
+.nav-link.prev {
+    align-items: flex-start;
+    text-align: left;
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .nav-link.next {
@@ -1408,31 +1471,81 @@ body.menu-open {
     text-align: right;
 }
 
+.nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
 .nav-label {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.15em;
+    color: #888;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover .nav-label {
+    color: #444;
+}
+
+.nav-link.prev .nav-label::before {
+    content: '←';
+    font-size: 1.1rem;
+    line-height: 1;
+    transition: transform 0.4s ease;
+}
+
+.nav-link.next .nav-label::after {
+    content: '→';
+    font-size: 1.1rem;
+    line-height: 1;
+    transition: transform 0.4s ease;
 }
 
 .nav-title {
     font-family: 'Syne', sans-serif;
-    font-size: 1.1rem;
+    font-size: 2.2rem;
     font-weight: 700;
     color: #000;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
 }
 
-.nav-link:hover {
-    color: #000;
-    transform: translateY(-2px);
+.nav-link:hover .nav-title {
+    transform: translateY(-4px);
+    opacity: 0.8;
+}
+
+.nav-link.prev:hover .nav-label::before {
+    transform: translateX(-6px);
+}
+
+.nav-link.next:hover .nav-label::after {
+    transform: translateX(6px);
+}
+
+@media (max-width: 900px) {
+    .nav-title {
+        font-size: 1.8rem;
+    }
 }
 
 @media (max-width: 768px) {
     .project-navigation {
-        padding: 40px 6vw;
-        margin-top: 40px;
+        grid-template-columns: 1fr;
+        margin-top: 15vw;
+    }
+    .nav-link.prev {
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    .nav-link {
+        padding: 8vw 6vw;
     }
     .nav-title {
-        font-size: 0.9rem;
+        font-size: 1.5rem;
     }
 }
