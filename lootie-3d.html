@@ -161,6 +161,7 @@
             text-transform: uppercase;
             letter-spacing: 0.1em;
             transition: var(--transition);
+            z-index: 10;
         }
 
         .back-to-project:hover {
@@ -175,6 +176,76 @@
         body.dark-mode .cube-face {
             border-color: rgba(255,255,255,0.05);
             box-shadow: inset 0 0 50px rgba(0,0,0,0.3);
+        }
+
+        /* Side Navigation for 3D Views */
+        .face-nav {
+            position: absolute;
+            right: 4vw;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            z-index: 100;
+            pointer-events: all;
+        }
+
+        .face-nav-item {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 20px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(128, 128, 128, 0.1);
+            text-decoration: none;
+            color: var(--text-color);
+            font-family: var(--font-family);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            transition: all 0.4s cubic-bezier(0.2, 0, 0.2, 1);
+            opacity: 0.4;
+            cursor: pointer;
+        }
+
+        .face-nav-item:last-child {
+            border-bottom: none;
+        }
+
+        .face-nav-item span {
+            position: relative;
+            transform: translateX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .face-nav-item::before {
+            content: '';
+            width: 0;
+            height: 1.5px;
+            background: var(--text-color);
+            transition: width 0.4s ease;
+        }
+
+        .face-nav-item:hover {
+            opacity: 1;
+        }
+
+        .face-nav-item:hover span {
+            transform: translateX(-5px);
+        }
+
+        .face-nav-item:hover::before {
+            width: 30px;
+        }
+
+        .face-nav-item.active {
+            opacity: 1;
+        }
+
+        .face-nav-item.active::before {
+            width: 40px;
         }
     </style>
 </head>
@@ -212,6 +283,14 @@
     </a>
 
     <div class="scene" id="scene">
+        <div class="face-nav">
+            <div class="face-nav-item" data-face="front"><span>FRONT</span></div>
+            <div class="face-nav-item" data-face="back"><span>BACK</span></div>
+            <div class="face-nav-item" data-face="top"><span>TOP</span></div>
+            <div class="face-nav-item" data-face="bottom"><span>BOTTOM</span></div>
+            <div class="face-nav-item" data-face="left"><span>LEFT</span></div>
+            <div class="face-nav-item" data-face="right"><span>RIGHT</span></div>
+        </div>
         <div class="cube" id="cube">
             <!-- Textures from desktop assets -->
             <div class="cube-face front" style="background-image: url('images/lootie/3d/front.svg?v=1741831526');"><div class="shimmer"></div><div class="paper-texture"></div><div class="edge-highlight"></div></div>
@@ -219,7 +298,7 @@
             <div class="cube-face right" style="background-image: url('images/lootie/3d/right.png?v=1741831526');"><div class="shimmer"></div><div class="paper-texture"></div><div class="edge-highlight"></div></div>
             <div class="cube-face left" style="background-image: url('images/lootie/3d/left.png?v=1741831526');"><div class="shimmer"></div><div class="paper-texture"></div><div class="edge-highlight"></div></div>
             <div class="cube-face top" style="background-image: url('images/lootie/3d/top.png?v=1741831526');"><div class="shimmer"></div><div class="paper-texture"></div><div class="edge-highlight"></div></div>
-            <div class="cube-face bottom" style="background-image: url('images/lootie/3d/bottom.png?v=1741831526');"></div>
+            <div class="cube-face bottom" style="background-image: url('images/lootie/3d/bottom.png?v=1741831526');"><div class="shimmer"></div><div class="paper-texture"></div><div class="edge-highlight"></div></div>
         </div>
     </div>
 
@@ -300,6 +379,43 @@
 
         window.addEventListener('touchend', () => {
             isDragging = false;
+        });
+
+        // Face Navigation Logic
+        const faceButtons = document.querySelectorAll('.face-nav-item');
+        const faceRotations = {
+            'front':  { x: 0,   y: 0 },
+            'back':   { x: 0,   y: 180 },
+            'top':    { x: -90, y: 0 },
+            'bottom': { x: 90,  y: 0 },
+            'left':   { x: 0,   y: 90 },
+            'right':  { x: 0,   y: -90 }
+        };
+
+        faceButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const face = btn.getAttribute('data-face');
+                const rot = faceRotations[face];
+                
+                autoRotate = false;
+                isDragging = false;
+                
+                // Find nearest rotation path for Y
+                let diffY = rot.y - (targetRotY % 360);
+                if (diffY > 180) diffY -= 360;
+                if (diffY < -180) diffY += 360;
+                
+                targetRotX = rot.x;
+                targetRotY += diffY;
+                
+                // Active state
+                faceButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Velocity reset
+                velocityX = 0;
+                velocityY = 0;
+            });
         });
 
         // Auto-rotation & Inertia Engine
