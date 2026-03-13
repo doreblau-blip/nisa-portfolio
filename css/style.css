@@ -134,7 +134,7 @@ h6 {
 
 .nav-links {
     display: flex;
-    gap: 1.1rem; /* Slightly tighter About/Contact */
+    gap: 0.8rem; /* Even tighter About/Contact as requested */
     align-items: center;
 }
 
