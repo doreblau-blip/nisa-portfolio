@@ -16,10 +16,51 @@
         }
 
         @media (max-width: 768px) {
-            :root {
-                --box-w: 170px;
-                --box-h: 226px;
-                --box-d: 170px;
+            .scene {
+                align-items: center;
+                justify-content: center;
+                padding-top: 0;
+            }
+            .face-nav {
+                right: auto;
+                left: 50%;
+                top: auto;
+                bottom: 220px;
+                transform: translateX(-50%);
+                flex-direction: row;
+                gap: 12px;
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .face-nav-item {
+                padding: 6px 4px;
+                font-size: 0.65rem;
+                border-bottom: none;
+                gap: 0;
+                opacity: 0.6;
+            }
+            .face-nav-item::before {
+                display: none;
+            }
+            .next-showcase {
+                bottom: 60px;
+                right: 0;
+                left: 0;
+                justify-content: center;
+                font-size: 0.75rem;
+                opacity: 0.8;
+            }
+            .controls-hint {
+                bottom: 150px;
+                font-size: 0.65rem;
+            }
+            .back-to-project {
+                top: 100px;
+                left: 0;
+                right: 0;
+                justify-content: center;
+                font-size: 0.8rem;
             }
         }
 
@@ -327,53 +368,8 @@
             opacity: 1;
         }
 
-        @media (max-width: 768px) {
-            .scene {
-                align-items: center;
-                justify-content: center;
-                padding-top: 0;
-            }
-            .face-nav {
-                right: auto;
-                left: 50%;
-                top: auto;
-                bottom: 220px;
-                transform: translateX(-50%);
-                flex-direction: row;
-                gap: 12px;
-                width: 100%;
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-            .face-nav-item {
-                padding: 6px 4px;
-                font-size: 0.65rem;
-                border-bottom: none;
-                gap: 0;
-                opacity: 0.6;
-            }
-            .face-nav-item::before {
-                display: none;
-            }
-            .next-showcase {
-                bottom: 60px;
-                right: 0;
-                left: 0;
-                justify-content: center;
-                font-size: 0.75rem;
-                opacity: 0.8;
-            }
-            .controls-hint {
-                bottom: 150px;
-                font-size: 0.65rem;
-            }
-            .back-to-project {
-                top: 100px;
-                left: 0;
-                right: 0;
-                justify-content: center;
-                font-size: 0.8rem;
-            }
+        .face-nav-item.active::before {
+            width: 40px;
         }
     </style>
 </head>
