@@ -1,5 +1,17 @@
 // Minimal Custom Cursor Logic
 document.addEventListener("DOMContentLoaded", () => {
+
+    // Project nav link image preview
+    document.querySelectorAll('.nav-link[href]').forEach(link => {
+        // Create a preview div
+        const preview = document.createElement('div');
+        preview.className = 'nav-link-preview';
+        const imgSrc = link.getAttribute('data-preview');
+        if (imgSrc) {
+            preview.style.backgroundImage = `url(${imgSrc})`;
+        }
+        link.insertBefore(preview, link.firstChild);
+    });
     // Inject cursor elements
     const dot = document.createElement("div");
     dot.className = "cursor-dot";
