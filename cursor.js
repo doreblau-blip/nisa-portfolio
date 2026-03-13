@@ -36,18 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }, { duration: 500, fill: "forwards" });
     });
 
-    // Scroll effect for navbar (Scrolled state)
-    window.addEventListener('scroll', () => {
-        const nav = document.querySelector('.navbar');
-        if (nav) {
-            // Scrolled state
-            if (window.scrollY > 40) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        }
-    });
+
 
     // Right-click protection for images
     window.addEventListener('contextmenu', (e) => {
