@@ -87,13 +87,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const toggleBtn = document.getElementById('dark-mode-toggle');
     const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
 
-    // Check localStorage or default to Dark
+    // Check localStorage or default to Light
     const currentTheme = localStorage.getItem("theme");
-    if (currentTheme === "light") {
-        document.body.classList.remove("dark-mode");
-    } else {
-        // If theme is "dark" OR no theme is set yet, default to dark-mode
+    if (currentTheme === "dark") {
         document.body.classList.add("dark-mode");
+    } else {
+        // Default to light mode
+        document.body.classList.remove("dark-mode");
     }
 
     // Use both footer toggle and panel toggle
