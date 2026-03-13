@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css?v=1773367552">
+    <link rel="stylesheet" href="./css/style.css?v=1773367650">
     <style>
         :root {
             --box-w: 260px;
@@ -64,32 +64,59 @@
             overflow: hidden;
         }
 
-        /* Coated Paper / High Gloss Effect */
+        /* Coated Paper / Ultra-Smooth High Gloss Effect */
         .shimmer {
             position: absolute;
             inset: 0;
             background: linear-gradient(
-                105deg,
+                115deg,
                 rgba(255, 255, 255, 0) 0%,
-                rgba(255, 255, 255, 0.05) 30%,
-                rgba(255, 255, 255, 0.6) 50%,
-                rgba(255, 255, 255, 0.05) 70%,
+                rgba(255, 255, 255, 0.02) 15%,
+                rgba(255, 255, 255, 0.1) 35%,
+                rgba(255, 255, 255, 0.3) 50%,
+                rgba(255, 255, 255, 0.1) 65%,
+                rgba(255, 255, 255, 0.02) 85%,
                 rgba(255, 255, 255, 0) 100%
             );
-            background-size: 300% 300%;
+            background-size: 400% 400%;
             pointer-events: none;
-            mix-blend-mode: plus-lighter;
+            mix-blend-mode: screen; /* Switched to screen for silkier blend */
             opacity: 0;
-            transition: opacity 0.4s ease;
+            transition: opacity 0.8s cubic-bezier(0.2, 0, 0.2, 1);
+            z-index: 3;
+        }
+
+        /* Paper Grain & Tactile Texture */
+        .paper-texture {
+            position: absolute;
+            inset: 0;
+            background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+            opacity: 0.15;
+            pointer-events: none;
+            mix-blend-mode: multiply;
+            z-index: 2;
+        }
+
+        /* Embossed / Thick Paper Edge Highlight */
+        .edge-highlight {
+            position: absolute;
+            inset: 0;
+            border: 1.5px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 
+                inset 0 0 10px rgba(0,0,0,0.05),
+                0 0 2px rgba(255,255,255,0.2);
+            pointer-events: none;
+            z-index: 4;
         }
 
         .cube-face::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(to bottom, rgba(255,255,255,0.1) 0%, transparent 100%);
+            background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 100%);
             pointer-events: none;
-            opacity: 0.5;
+            opacity: 0.6;
+            z-index: 1;
         }
 
         body.dark-mode .cube-face::after {
@@ -187,12 +214,12 @@
     <div class="scene" id="scene">
         <div class="cube" id="cube">
             <!-- Textures from desktop assets -->
-            <div class="cube-face front" style="background-image: url('images/lootie/3d/front.svg?v=1773367570');"><div class="shimmer"></div></div>
-            <div class="cube-face back" style="background-image: url('images/lootie/3d/back.svg?v=1773367570');"><div class="shimmer"></div></div>
-            <div class="cube-face right" style="background-image: url('images/lootie/3d/right.png?v=1773367570');"><div class="shimmer"></div></div>
-            <div class="cube-face left" style="background-image: url('images/lootie/3d/left.png?v=1773367570');"><div class="shimmer"></div></div>
-            <div class="cube-face top" style="background-image: url('images/lootie/3d/top.png?v=1773367570');"><div class="shimmer"></div></div>
-            <div class="cube-face bottom" style="background-image: url('images/lootie/3d/bottom.png?v=1773367570');"></div>
+            <div class="cube-face front" style="background-image: url('images/lootie/3d/front.svg?v=1741831526');"><div class="shimmer"></div><div class="paper-texture"></div><div class="edge-highlight"></div></div>
+            <div class="cube-face back" style="background-image: url('images/lootie/3d/back.svg?v=1741831526');"><div class="shimmer"></div><div class="paper-texture"></div><div class="edge-highlight"></div></div>
+            <div class="cube-face right" style="background-image: url('images/lootie/3d/right.png?v=1741831526');"><div class="shimmer"></div><div class="paper-texture"></div><div class="edge-highlight"></div></div>
+            <div class="cube-face left" style="background-image: url('images/lootie/3d/left.png?v=1741831526');"><div class="shimmer"></div><div class="paper-texture"></div><div class="edge-highlight"></div></div>
+            <div class="cube-face top" style="background-image: url('images/lootie/3d/top.png?v=1741831526');"><div class="shimmer"></div><div class="paper-texture"></div><div class="edge-highlight"></div></div>
+            <div class="cube-face bottom" style="background-image: url('images/lootie/3d/bottom.png?v=1741831526');"></div>
         </div>
     </div>
 
@@ -318,11 +345,11 @@
                     // High reflection when face is angled (Fresnel-ish)
                     let brightness = Math.max(0, 1 - (normalizedY / 90));
                     
-                    // Sharp specular highlight at specific angles
-                    const highlight = Math.pow(brightness, 3); 
+                    // Ultra-silky highlight curves
+                    const highlight = Math.pow(brightness, 2.2); 
                     
-                    shim.style.opacity = (highlight * 0.8).toString();
-                    shim.style.backgroundPosition = `${(currentRotY * 0.5) % 100}% ${(currentRotX * 0.5) % 100}%`;
+                    shim.style.opacity = (highlight * 0.65).toString();
+                    shim.style.backgroundPosition = `${(currentRotY * 0.25) % 100}% ${(currentRotX * 0.25) % 100}%`;
                 }
             });
 
