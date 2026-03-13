@@ -8,6 +8,18 @@
     --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Dark Mode Theme Variables */
+body.dark-mode {
+    --bg-color: #111111;
+    --text-color: #f5f5f5;
+    --nav-bg: #111111;
+}
+
+/* Base Transition for Dark Mode */
+body {
+    transition: background-color 0.8s ease, color 0.8s ease;
+}
+
 /* Custom Selection Color */
 ::selection {
     background-color: #d1d1d1; /* Silver Gray */
@@ -1106,6 +1118,41 @@ h6 {
     border-color: transparent;
 }
 
+/* Smart Cursor (View Project) */
+.cursor-view .cursor-outline {
+    width: 80px;
+    height: 80px;
+    background-color: var(--text-color);
+    border-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cursor-view .cursor-outline::after {
+    content: 'VIEW';
+    color: var(--bg-color);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.cursor-view .cursor-dot {
+    opacity: 0;
+}
+
+/* Scroll Reveal Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 @keyframes textFadeIn {
     from {
         opacity: 0;
@@ -1577,4 +1624,89 @@ body.menu-open {
     .nav-title {
         font-size: 1.2rem;
     }
+}
+
+/* Dark Mode Elements Overrides */
+body.dark-mode .navbar {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+body.dark-mode .navbar::after {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+body.dark-mode .navbar.scrolled {
+    background-color: rgba(17, 17, 17, 0.85);
+}
+body.dark-mode .footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+body.dark-mode .about-hero {
+    background-color: #111;
+}
+body.dark-mode .project-navigation {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+body.dark-mode .nav-link.prev {
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+body.dark-mode .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+body.dark-mode .nav-title {
+    color: #fff;
+}
+body.dark-mode .cursor-outline {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+body.dark-mode .cursor-hover .cursor-outline {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+body.dark-mode .cursor-view .cursor-outline::after {
+    color: #111; /* Text color inside view cursor */
+}
+body.dark-mode .mobile-overlay {
+    background-color: rgba(17, 17, 17, 0.94);
+}
+body.dark-mode .mobile-nav-links a {
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
+}
+body.dark-mode .mobile-nav-links a::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='7' y1='17' x2='17' y2='7'%3E%3C/line%3E%3Cpolyline points='7 7 17 7 17 17'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+/* Dark Mode Footer Toggle Button Styling */
+.dark-mode-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: 1px solid rgba(0,0,0,0.1);
+    color: var(--text-color);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: none;
+    transition: all 0.3s ease;
+    margin-left: 20px;
+}
+body.dark-mode .dark-mode-toggle {
+    border-color: rgba(255,255,255,0.1);
+}
+.dark-mode-toggle:hover {
+    background: rgba(0,0,0,0.05);
+}
+body.dark-mode .dark-mode-toggle:hover {
+    background: rgba(255,255,255,0.05);
+}
+.dark-mode-toggle svg {
+    width: 16px;
+    height: 16px;
+}
+.dark-mode-toggle .moon-icon {
+    display: none;
+}
+body.dark-mode .dark-mode-toggle .sun-icon {
+    display: none;
+}
+body.dark-mode .dark-mode-toggle .moon-icon {
+    display: block;
 }

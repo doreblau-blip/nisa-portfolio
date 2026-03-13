@@ -43,14 +43,91 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Add hover states to all links and interactive elements
-    const interactables = document.querySelectorAll("a, button, .work-item");
+    // Scroll element reveal
+    const revealElements = document.querySelectorAll('.project-header, .gallery-item, .work-item');
+    revealElements.forEach(el => {
+        el.classList.add('reveal');
+    });
+
+    const revealOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, revealOptions);
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // Smart Cursor & Standard Hover States
+    const interactables = document.querySelectorAll("a, button, .footer-email");
     interactables.forEach(item => {
         item.addEventListener("mouseenter", () => {
-            document.body.classList.add("cursor-hover");
+            if(item.classList.contains('work-item') || item.classList.contains('gallery-item')) {
+                document.body.classList.add("cursor-view");
+            } else {
+                document.body.classList.add("cursor-hover");
+            }
         });
         item.addEventListener("mouseleave", () => {
             document.body.classList.remove("cursor-hover");
+            document.body.classList.remove("cursor-view");
+            // Magnetic effect reset (if applicable)
+            if(item.classList.contains('magnetic')) {
+                item.style.transform = `translate(0px, 0px)`;
+            }
+        });
+    });
+
+    // Magnetic Effect Logic
+    const magneticElements = document.querySelectorAll('.nav-links a, .footer-email, .mobile-overlay-close');
+    magneticElements.forEach(el => {
+        el.classList.add('magnetic');
+        el.addEventListener('mousemove', (e) => {
+            const position = el.getBoundingClientRect();
+            const x = e.pageX - position.left - position.width / 2;
+            const y = e.pageY - position.top - position.height / 2;
+            
+            // Adjust pulling strength simply with division
+            el.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+            el.style.transition = 'none';
+        });
+        
+        el.addEventListener('mouseleave', () => {
+            el.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+            el.style.transform = `translate(0px, 0px)`;
+        });
+    });
+
+    // Dark Mode Toggle Logic
+    const toggleBtn = document.getElementById('dark-mode-toggle');
+    const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+    // Check localStorage or OS preference
+    const currentTheme = localStorage.getItem("theme");
+    if (currentTheme == "dark") {
+        document.body.classList.add("dark-mode");
+    } else if (currentTheme == "light") {
+        document.body.classList.remove("dark-mode");
+    } else if (prefersDarkScheme.matches) {
+        document.body.classList.add("dark-mode");
+    }
+
+    const toggleBtns = document.querySelectorAll('.dark-mode-toggle');
+    toggleBtns.forEach(btn => {
+        btn.addEventListener("click", function() {
+            document.body.classList.toggle("dark-mode");
+            let theme = "light";
+            if (document.body.classList.contains("dark-mode")) {
+                theme = "dark";
+            }
+            localStorage.setItem("theme", theme);
         });
     });
 });
