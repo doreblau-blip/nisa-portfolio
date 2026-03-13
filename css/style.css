@@ -1811,7 +1811,16 @@ body.dark-mode .settings-toggle {
     border-radius: 50%;
     color: var(--text-color);
     cursor: pointer;
+    outline: none;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.settings-toggle:focus,
+.settings-toggle:focus-visible,
+#dark-mode-panel-toggle:focus,
+#dark-mode-panel-toggle:focus-visible {
+    outline: none;
+    box-shadow: none;
 }
 
 #dark-mode-panel-toggle span {
