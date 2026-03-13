@@ -162,15 +162,21 @@
             z-index: 5;
         }
 
-        .back-to-project {
+        .project-nav {
             position: absolute;
             top: 120px;
             left: 4vw;
+            right: 4vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+        }
+        .project-nav .nav-link {
             font-size: 0.8rem;
             font-weight: 700;
             text-decoration: none;
             color: #000;
-            z-index: 10;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -218,11 +224,12 @@
             .controls-hint {
                 display: none !important;
             }
-            .back-to-project {
+            .project-nav {
                 top: 100px;
-                width: 100%;
-                justify-content: center;
-                left: 0;
+                width: auto;
+                left: 4vw;
+                right: 4vw;
+                justify-content: space-between;
             }
             .mobile-bottom-spacer {
                 display: block;
@@ -271,13 +278,22 @@
         </nav>
     </div>
 
-    <a href="./project-2.html" class="back-to-project">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" transform="rotate(180)">
-            <line x1="7" y1="17" x2="17" y2="7"></line>
-            <polyline points="7 7 17 7 17 17"></polyline>
-        </svg>
-        Back to Lootie
-    </a>
+    <div class="project-nav">
+        <a href="./project-2.html" class="nav-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" transform="rotate(180)">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+            Back to Lootie
+        </a>
+        <a href="dobi-3d.html" class="nav-link">
+            DOBI
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+        </a>
+    </div>
 
     <div class="scene" id="scene">
         <div class="face-nav">
