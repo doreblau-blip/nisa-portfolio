@@ -28,14 +28,22 @@
         body {
             margin: 0;
             padding: 0;
-            overflow: hidden;
-            height: 100vh;
+            overflow-x: hidden;
+            overflow-y: auto;
+            min-height: 100vh;
             width: 100vw;
             display: flex;
             flex-direction: column;
             background-color: #ffffff !important;
             color: #000000 !important;
             font-family: 'Syne', sans-serif;
+        }
+
+        @media (min-width: 769px) {
+            body {
+                overflow: hidden;
+                height: 100vh;
+            }
         }
 
         /* Enforce theme */
@@ -174,21 +182,25 @@
                 background-color: #ffffff !important;
             }
             .scene {
-                padding-top: 0;
+                flex: none !important;
+                height: 60vh !important;
+                padding-top: 20px !important;
             }
             .face-nav {
-                right: 0;
-                left: 0;
+                position: relative !important;
+                right: auto !important;
+                left: auto !important;
                 top: auto;
-                bottom: 80px;
+                bottom: auto !important;
                 transform: none;
                 flex-direction: row;
                 flex-wrap: wrap;
                 justify-content: center;
                 gap: 8px;
                 width: 100%;
-                padding: 0 20px;
+                padding: 20px;
                 box-sizing: border-box;
+                margin-bottom: 20px;
             }
             .face-nav-item {
                 font-size: 0.6rem;
