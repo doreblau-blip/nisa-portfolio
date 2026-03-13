@@ -1,8 +1,8 @@
 /* Reset and Base Variables */
 :root {
-    --bg-color: #ececec;
+    --bg-color: #f0f0f0;
     --text-color: #212121;
-    --nav-bg: #ececec;
+    --nav-bg: #f0f0f0;
     --font-family: 'Syne', sans-serif;
     --nav-height: 80px;
     --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
