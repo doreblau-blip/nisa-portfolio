@@ -280,12 +280,18 @@ h6 {
     width: 100%;
     height: 100%;
     overflow: hidden;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    /* Forces mask to boundaries to fix scaling bleed */
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
 .image-wrapper img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transform: scale(1.02); /* Slight scale to prevent 1px edge artifacts */
     transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -1304,7 +1310,7 @@ body.menu-open {
     }
 
     .navbar {
-        background-color: rgba(255, 255, 255, 0.95);
+        background-color: var(--nav-bg);
         padding: 0 5vw;
     }
 
