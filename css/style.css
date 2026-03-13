@@ -1,5 +1,36 @@
 /* Reset and Base Variables */
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;400&display=swap');
+
+/* Page Loader */
+#page-loader {
+    position: fixed;
+    inset: 0;
+    background: #f8f8f8;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#page-loader .loader-bar-wrap {
+    width: 60px;
+    height: 1px;
+    background: rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+#page-loader .loader-bar {
+    height: 100%;
+    width: 0;
+    background: #212121;
+    animation: loaderBar 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+}
+
+@keyframes loaderBar {
+    to { width: 100%; }
+}
+
 @font-face {
     font-family: 'Dore';
     src: url('../fonts/Dore-Thin.otf') format('opentype');
@@ -134,7 +165,7 @@ h6 {
 }
 
 .nav-name {
-    font-size: 1.25rem;
+    font-size: 1.45rem;
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: -0.02em;

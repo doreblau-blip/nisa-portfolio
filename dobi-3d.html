@@ -306,6 +306,7 @@
     </style>
 </head>
 <body>
+<div id="page-loader"><div class="loader-bar-wrap"><div class="loader-bar"></div></div></div>
     <nav class="navbar">
         <div class="nav-left">
             <a href="index.html">
@@ -504,5 +505,6 @@
         if(trigger && menu) trigger.onclick = () => menu.classList.add('active');
         if(close) close.onclick = () => menu.classList.remove('active');
     </script>
+<script src="./loader.js"></script>
 </body>
 </html>
