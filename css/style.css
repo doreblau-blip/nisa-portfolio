@@ -139,7 +139,8 @@ h6 {
 
 .nav-links {
     display: flex;
-    gap: 1.5rem;
+    gap: 1.2rem; /* Reduced gap */
+    align-items: center;
 }
 
 .nav-links a {
@@ -168,7 +169,19 @@ h6 {
 .nav-links a:hover .nav-arrow,
 .nav-links a.active .nav-arrow {
     opacity: 0.6;
-    transform: translateX(0) translateY(2px);
+    transform: translateX(0) translateY(1.5px);
+}
+
+/* Vertical divider between About & Contact */
+.nav-links a + a::before {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 12px;
+    background-color: var(--text-color);
+    opacity: 0.15;
+    margin-right: 1.2rem;
+    pointer-events: none;
 }
 
 /* Hide nav-arrow in mobile overlay */
@@ -187,6 +200,11 @@ h6 {
     transition: var(--transition);
 }
 
+/* Scope About/Contact specifically if needed, but this handles any adjacent links */
+.nav-links a + a {
+    margin-left: 0;
+}
+
 .nav-links a:hover::after,
 .nav-links a.active::after {
     width: 100%;
@@ -202,10 +220,9 @@ h6 {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: -15px;
-    /* Balanced close spacing */
-    opacity: 0.7;
-    transition: var(--transition);
+    margin-left: -22px; /* Tighter spacing as requested */
+    opacity: 0.75;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .social-icon:first-child {
@@ -1556,7 +1573,7 @@ body.menu-open {
 }
 
 .nav-link:hover .nav-link-preview {
-    opacity: 0.15;
+    opacity: 0.25; /* Boosted visibility */
     transform: scale(1);
 }
 
