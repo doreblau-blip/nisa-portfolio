@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css?v=1773367110">
+    <link rel="stylesheet" href="./css/style.css?v=1773367210">
     <style>
         :root {
             --box-w: 260px;
@@ -81,48 +81,7 @@
             transition: opacity 0.3s ease;
         }
 
-        /* OPEN Button on Top */
-        .open-btn-container {
-            width: 80px;
-            height: 80px;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background: rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(5px);
-            z-index: 10;
-        }
 
-        .open-btn-container:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: scale(1.1);
-        }
-
-        .open-text {
-            color: #fff;
-            font-size: 0.65rem;
-            font-weight: 700;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-        }
-
-        /* Lid Opening logic */
-        .top {
-            transform-origin: center top !important; /* Rotate around the back edge */
-            transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .cube.opened .top {
-            transform: rotateX(110deg) translateZ(calc(var(--box-h) / 2)) translateY(calc(var(--box-d) * -0.5)) !important;
-        }
-
-        .cube.opened .shimmer {
-            opacity: 0.1; /* Reduce shimmer when open to focus on interior */
-        }
 
         /* Rectangular 3D Logic */
         .front  { width: var(--box-w); height: var(--box-h); transform: rotateY(0deg) translateZ(calc(var(--box-d) / 2)); }
@@ -217,12 +176,7 @@
             <div class="cube-face back" style="background-image: url('images/lootie/3d/back.svg');"><div class="shimmer"></div></div>
             <div class="cube-face right" style="background-image: url('images/lootie/3d/right.png');"><div class="shimmer"></div></div>
             <div class="cube-face left" style="background-image: url('images/lootie/3d/left.png');"><div class="shimmer"></div></div>
-            <div class="cube-face top" style="background-image: url('images/lootie/3d/top.png');">
-                <div class="shimmer"></div>
-                <div class="open-btn-container" id="open-lid">
-                    <span class="open-text">OPEN</span>
-                </div>
-            </div>
+            <div class="cube-face top" style="background-image: url('images/lootie/3d/top.png');"><div class="shimmer"></div></div>
             <div class="cube-face bottom" style="background-image: url('images/lootie/3d/bottom.png');"></div>
         </div>
     </div>
@@ -342,21 +296,7 @@
         }
         animate();
 
-        // Lid interaction
-        const openBtn = document.getElementById('open-lid');
-        let isOpened = false;
 
-        openBtn.addEventListener('click', (e) => {
-            e.stopPropagation(); // Don't trigger drag mousedown
-            isOpened = !isOpened;
-            if (isOpened) {
-                cube.classList.add('opened');
-                openBtn.querySelector('.open-text').innerText = 'CLOSE';
-            } else {
-                cube.classList.remove('opened');
-                openBtn.querySelector('.open-text').innerText = 'OPEN';
-            }
-        });
 
         // Interaction logic
         scene.addEventListener('mouseenter', () => autoRotate = false);
