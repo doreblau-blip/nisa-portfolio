@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css?v=1773367650">
     <style>
         :root {
@@ -179,7 +180,9 @@
         /* Mobile Adjustments */
         @media (max-width: 768px) {
             .navbar {
-                background-color: #ffffff !important;
+                background-color: var(--nav-bg) !important;
+                backdrop-filter: blur(15px);
+                -webkit-backdrop-filter: blur(15px);
             }
             .footer {
                 display: none !important;
@@ -223,6 +226,7 @@
                 width: 100%;
                 justify-content: center;
                 left: 0;
+                padding-top: 10px;
             }
             .mobile-bottom-spacer {
                 display: block;
@@ -238,14 +242,15 @@
 <body>
     <nav class="navbar">
         <div class="nav-left">
-            <a href="index.html"><h1 class="nav-name">Nisa Alkan</h1></a>
+            <a href="index.html">
+                <h1 class="nav-name">Nisa Alkan</h1>
+            </a>
             <span class="nav-subtitle">Art Director & Designer</span>
         </div>
         <div class="nav-right">
             <div class="nav-links">
-                <a href="dobi-3d.html">3D SHOWCASE</a>
-                <a href="about.html">ABOUT</a>
-                <a href="contact.html">CONTACT</a>
+                <a href="dobi-3d.html"><span class="nav-arrow"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>3D SHOWCASE</a><a href="about.html"><span class="nav-arrow"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>ABOUT</a>
+                <a href="contact.html"><span class="nav-arrow"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>CONTACT</a>
             </div>
             <button class="mobile-menu-trigger" id="menu-trigger" aria-label="Menu">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
@@ -256,6 +261,7 @@
         </div>
     </nav>
 
+    <!-- Mobile Navigation Overlay -->
     <div class="mobile-overlay" id="mobile-menu">
         <button class="mobile-overlay-close" id="menu-close" aria-label="Close Menu">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
@@ -265,9 +271,9 @@
         </button>
         <nav class="mobile-nav-links">
             <a href="index.html">WORK</a>
-            <a href="dobi-3d.html">3D SHOWCASE</a>
-            <a href="about.html">ABOUT</a>
-            <a href="contact.html">CONTACT</a>
+            <a href="dobi-3d.html"><span class="nav-arrow"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>3D SHOWCASE</a>
+            <a href="about.html"><span class="nav-arrow"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>ABOUT</a>
+            <a href="contact.html"><span class="nav-arrow"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>CONTACT</a>
         </nav>
     </div>
 
