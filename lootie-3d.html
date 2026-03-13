@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Box Showcase | Lootie | Nisa Alkan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css?v=1773365975">
+    <style>
+        :root {
+            --box-size: 350px;
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --box-size: 250px;
+            }
+        }
+
+        body {
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .scene {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1500px;
+            cursor: grab;
+            background: radial-gradient(circle at center, rgba(128, 128, 128, 0.05) 0%, transparent 70%);
+        }
+
+        .scene:active {
+            cursor: grabbing;
+        }
+
+        .cube {
+            width: var(--box-size);
+            height: var(--box-size);
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateX(-25deg) rotateY(45deg);
+            transition: transform 0.1s linear;
+        }
+
+        .cube-face {
+            position: absolute;
+            width: var(--box-size);
+            height: var(--box-size);
+            background-size: cover;
+            background-position: center;
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.1);
+            border: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backface-visibility: visible;
+        }
+
+        /* 3D Transform Logic */
+        .front  { transform: rotateY(0deg) translateZ(calc(var(--box-size) / 2)); }
+        .back   { transform: rotateY(180deg) translateZ(calc(var(--box-size) / 2)); }
+        .right  { transform: rotateY(90deg) translateZ(calc(var(--box-size) / 2)); }
+        .left   { transform: rotateY(-90deg) translateZ(calc(var(--box-size) / 2)); }
+        .top    { transform: rotateX(90deg) translateZ(calc(var(--box-size) / 2)); }
+        .bottom { transform: rotateX(-90deg) translateZ(calc(var(--box-size) / 2)); }
+
+        .controls-hint {
+            position: absolute;
+            bottom: 120px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: var(--font-family);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .back-to-project {
+            position: absolute;
+            top: 120px;
+            left: 4vw;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-family: var(--font-family);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: var(--transition);
+        }
+
+        .back-to-project:hover {
+            transform: translateX(-5px);
+            opacity: 0.7;
+        }
+
+        .back-to-project svg {
+            transform: rotate(180deg);
+        }
+
+        body.dark-mode .cube-face {
+            border-color: rgba(255,255,255,0.05);
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme');
+            if (theme !== 'light') {
+                document.body.classList.add('dark-mode');
+            }
+        })();
+    </script>
+    
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="index.html">
+                <h1 class="nav-name">Nisa Alkan</h1>
+            </a>
+            <span class="nav-subtitle">Art Director & Designer</span>
+        </div>
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="about.html">ABOUT</a>
+                <a href="contact.html">CONTACT</a>
+            </div>
+        </div>
+    </nav>
+
+    <a href="project-2.html" class="back-to-project">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+        </svg>
+        Back to Lootie
+    </a>
+
+    <div class="scene" id="scene">
+        <div class="cube" id="cube">
+            <!-- Textures from images/lootie/ -->
+            <div class="cube-face front" style="background-image: url('images/lootie/01.jpg');"></div>
+            <div class="cube-face back" style="background-image: url('images/lootie/02.jpg');"></div>
+            <div class="cube-face right" style="background-image: url('images/lootie/03.jpg');"></div>
+            <div class="cube-face left" style="background-image: url('images/lootie/04.jpg');"></div>
+            <div class="cube-face top" style="background-image: url('images/lootie/05.jpg');"></div>
+            <div class="cube-face bottom" style="background-image: url('images/lootie/06.jpg');"></div>
+        </div>
+    </div>
+
+    <div class="controls-hint">Drag to rotate the box</div>
+
+    <footer class="footer">
+        <div class="footer-left">&copy; 2025 Nisa Alkan. All Rights Reserved.</div>
+        <div class="footer-right"><a href="mailto:hello@doreblau.com" class="footer-email">hello@doreblau.com</a></div>
+    </footer>
+
+    <script src="./cursor.js?v=1773365975"></script>
+    <script>
+        const cube = document.getElementById('cube');
+        const scene = document.getElementById('scene');
+        let isDragging = false;
+        let startX, startY;
+        let rotX = -25;
+        let rotY = 45;
+
+        scene.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.clientX;
+            startY = e.clientY;
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            const deltaX = e.clientX - startX;
+            const deltaY = e.clientY - startY;
+
+            rotY += deltaX * 0.5;
+            rotX -= deltaY * 0.5;
+
+            cube.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+
+            startX = e.clientX;
+            startY = e.clientY;
+        });
+
+        window.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+
+        // Touch support
+        scene.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+        });
+
+        window.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            const deltaX = e.touches[0].clientX - startX;
+            const deltaY = e.touches[0].clientY - startY;
+
+            rotY += deltaX * 0.5;
+            rotX -= deltaY * 0.5;
+
+            cube.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+        });
+
+        window.addEventListener('touchend', () => {
+            isDragging = false;
+        });
+
+        // Auto-rotation
+        let autoRotate = true;
+        function animate() {
+            if (!isDragging && autoRotate) {
+                rotY += 0.2;
+                cube.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+            }
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        // Pause auto-rotation on user interaction
+        scene.addEventListener('mouseenter', () => autoRotate = false);
+        scene.addEventListener('mouseleave', () => autoRotate = true);
+    </script>
+</body>
+</html>
