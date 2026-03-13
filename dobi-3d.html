@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Box Showcase | Dobi | Nisa Alkan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css?v=1773367650">
+    <style>
+        :root {
+            --box-w: 260px;
+            --box-h: 346px; /* Matching the 1.33 aspect ratio of the visuals (1880/1412) */
+            --box-d: 260px;
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --box-w: 180px;
+                --box-h: 240px;
+                --box-d: 180px;
+            }
+        }
+
+        body {
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .scene {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1500px;
+            cursor: grab;
+            background: radial-gradient(circle at center, rgba(128, 128, 128, 0.05) 0%, transparent 70%);
+        }
+
+        .scene:active {
+            cursor: grabbing;
+        }
+
+        .cube {
+            width: var(--box-w);
+            height: var(--box-h);
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateX(-20deg) rotateY(45deg);
+        }
+
+        .cube-face {
+            position: absolute;
+            background-size: cover;
+            background-position: center;
+            border: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backface-visibility: visible;
+            overflow: hidden;
+        }
+
+        /* Coated Paper / Ultra-Smooth High Gloss Effect */
+        .shimmer {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                115deg,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.02) 15%,
+                rgba(255, 255, 255, 0.1) 35%,
+                rgba(255, 255, 255, 0.3) 50%,
+                rgba(255, 255, 255, 0.1) 65%,
+                rgba(255, 255, 255, 0.02) 85%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            background-size: 400% 400%;
+            pointer-events: none;
+            mix-blend-mode: screen; /* Switched to screen for silkier blend */
+            opacity: 0;
+            transition: opacity 0.8s cubic-bezier(0.2, 0, 0.2, 1);
+            z-index: 3;
+        }
+
+        /* Paper Grain & Tactile Texture */
+        .paper-texture {
+            position: absolute;
+            inset: 0;
+            background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+            opacity: 0.15;
+            pointer-events: none;
+            mix-blend-mode: multiply;
+            z-index: 2;
+        }
+
+        /* Embossed / Thick Paper Edge Highlight */
+        .edge-highlight {
+            position: absolute;
+            inset: 0;
+            border: 1.5px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 
+                inset 0 0 10px rgba(0,0,0,0.05),
+                0 0 2px rgba(255,255,255,0.2);
+            pointer-events: none;
+            z-index: 4;
+        }
+
+        .cube-face::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 100%);
+            pointer-events: none;
+            opacity: 0.6;
+            z-index: 1;
+        }
+
+        body.dark-mode .cube-face::after {
+            background: linear-gradient(to bottom, rgba(255,255,255,0.05) 0%, transparent 100%);
+        }
+
+
+
+        /* Rectangular 3D Logic */
+        .front  { width: var(--box-w); height: var(--box-h); transform: rotateY(0deg) translateZ(calc(var(--box-d) / 2)); }
+        .back   { width: var(--box-w); height: var(--box-h); transform: rotateY(180deg) translateZ(calc(var(--box-d) / 2)); }
+        .right  { width: var(--box-d); height: var(--box-h); transform: rotateY(90deg) translateZ(calc(var(--box-w) / 2)); left: calc((var(--box-w) - var(--box-d)) / 2); }
+        .left   { width: var(--box-d); height: var(--box-h); transform: rotateY(-90deg) translateZ(calc(var(--box-w) / 2)); left: calc((var(--box-w) - var(--box-d)) / 2); }
+        .top    { width: var(--box-w); height: var(--box-d); transform: rotateX(90deg) translateZ(calc(var(--box-h) / 2)); top: calc((var(--box-h) - var(--box-d)) / 2); }
+        .bottom { width: var(--box-w); height: var(--box-d); transform: rotateX(-90deg) translateZ(calc(var(--box-h) / 2)); top: calc((var(--box-h) - var(--box-d)) / 2); }
+
+        .controls-hint {
+            position: absolute;
+            bottom: 120px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: var(--font-family);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .back-to-project {
+            position: absolute;
+            top: 120px;
+            left: 4vw;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-family: var(--font-family);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: var(--transition);
+            z-index: 10;
+        }
+
+        .back-to-project:hover {
+            transform: translateX(-5px);
+            opacity: 0.7;
+        }
+
+        .back-to-project svg {
+            transform: rotate(180deg);
+        }
+
+        body.dark-mode .cube-face {
+            border-color: rgba(255,255,255,0.05);
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.3);
+        }
+
+        /* Side Navigation for 3D Views */
+        .face-nav {
+            position: absolute;
+            right: 4vw;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            z-index: 100;
+            pointer-events: all;
+        }
+
+        .face-nav-item {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 20px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(128, 128, 128, 0.1);
+            text-decoration: none;
+            color: var(--text-color);
+            font-family: var(--font-family);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            transition: all 0.4s cubic-bezier(0.2, 0, 0.2, 1);
+            opacity: 0.4;
+            cursor: pointer;
+        }
+
+        .face-nav-item:last-child {
+            border-bottom: none;
+        }
+
+        .face-nav-item span {
+            position: relative;
+            transform: translateX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .face-nav-item::before {
+            content: '';
+            width: 0;
+            height: 1.5px;
+            background: var(--text-color);
+            transition: width 0.4s ease;
+        }
+
+        .face-nav-item:hover {
+            opacity: 1;
+        }
+
+        .face-nav-item:hover span {
+            transform: translateX(-5px);
+        }
+
+        .face-nav-item:hover::before {
+            width: 30px;
+        }
+
+        .face-nav-item.active {
+            opacity: 1;
+        }
+
+        .face-nav-item.active::before {
+            width: 40px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme');
+            if (theme !== 'light') {
+                document.body.classList.add('dark-mode');
+            }
+        })();
+    </script>
+    
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="index.html">
+                <h1 class="nav-name">Nisa Alkan</h1>
+            </a>
+            <span class="nav-subtitle">Art Director & Designer</span>
+        </div>
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="about.html">ABOUT</a>
+                <a href="contact.html">CONTACT</a>
+            </div>
+        </div>
+    </nav>
+
+    <a href="./project-9.html" class="back-to-project">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+        </svg>
+        Back to IP Design
+    </a>
+
+    <div class="scene" id="scene">
+        <div class="face-nav">
+            <div class="face-nav-item" data-face="front"><span>FRONT</span></div>
+            <div class="face-nav-item" data-face="back"><span>BACK</span></div>
+            <div class="face-nav-item" data-face="top"><span>TOP</span></div>
+            <div class="face-nav-item" data-face="bottom"><span>BOTTOM</span></div>
+            <div class="face-nav-item" data-face="left"><span>LEFT</span></div>
+            <div class="face-nav-item" data-face="right"><span>RIGHT</span></div>
+        </div>
+        <div class="cube" id="cube">
+            <!-- Dobi Textures from Desktop -->
+            <div class="cube-face front" style="background-image: url('images/dobi/3d/front.png?v=1741832626');"><div class="shimmer"></div><div class="paper-texture"></div><div class="edge-highlight"></div></div>
+            <div class="cube-face back" style="background-image: url('images/dobi/3d/back.png?v=1741832626');"><div class="shimmer"></div><div class="paper-texture"></div><div class="edge-highlight"></div></div>
+            <div class="cube-face right" style="background-image: url('images/dobi/3d/right.png?v=1741832626');"><div class="shimmer"></div><div class="paper-texture"></div><div class="edge-highlight"></div></div>
+            <div class="cube-face left" style="background-image: url('images/dobi/3d/left.png?v=1741832626');"><div class="shimmer"></div><div class="paper-texture"></div><div class="edge-highlight"></div></div>
+            <div class="cube-face top" style="background-image: url('images/dobi/3d/top.png?v=1741832626');"><div class="shimmer"></div><div class="paper-texture"></div><div class="edge-highlight"></div></div>
+            <div class="cube-face bottom" style="background-image: url('images/dobi/3d/bottom.png?v=1741832626');"><div class="shimmer"></div><div class="paper-texture"></div><div class="edge-highlight"></div></div>
+        </div>
+    </div>
+
+    <div class="controls-hint">Drag to rotate the box</div>
+
+    <footer class="footer">
+        <div class="footer-left">&copy; 2025 Nisa Alkan. All Rights Reserved.</div>
+        <div class="footer-right"><a href="mailto:hello@doreblau.com" class="footer-email">hello@doreblau.com</a></div>
+    </footer>
+
+    <script src="./cursor.js?v=1773365975"></script>
+    <script>
+        const cube = document.getElementById('cube');
+        const scene = document.getElementById('scene');
+        let isDragging = false;
+        let startX, startY;
+        
+        // Target rotation
+        let targetRotX = -20;
+        let targetRotY = 45;
+        
+        // Current rotation (for smooth lerping)
+        let currentRotX = -20;
+        let currentRotY = 45;
+        
+        let velocityX = 0;
+        let velocityY = 0;
+
+        scene.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.clientX;
+            startY = e.clientY;
+            autoRotate = false;
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            const deltaX = e.clientX - startX;
+            const deltaY = e.clientY - startY;
+
+            targetRotY += deltaX * 0.4;
+            targetRotX -= deltaY * 0.4;
+            
+            velocityX = deltaX * 0.4;
+            velocityY = deltaY * 0.4;
+
+            startX = e.clientX;
+            startY = e.clientY;
+        });
+
+        window.addEventListener('mouseup', () => {
+            isDragging = false;
+            // Re-enable autoRotate after a delay if desired, or let inertia handle it
+        });
+
+        // Touch support
+        scene.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+            autoRotate = false;
+        });
+
+        window.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            const deltaX = e.touches[0].clientX - startX;
+            const deltaY = e.touches[0].clientY - startY;
+
+            targetRotY += deltaX * 0.4;
+            targetRotX -= deltaY * 0.4;
+            
+            velocityX = deltaX * 0.4;
+            velocityY = deltaY * 0.4;
+
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+        });
+
+        window.addEventListener('touchend', () => {
+            isDragging = false;
+        });
+
+        // Face Navigation Logic
+        const faceButtons = document.querySelectorAll('.face-nav-item');
+        const faceRotations = {
+            'front':  { x: 0,   y: 0 },
+            'back':   { x: 0,   y: 180 },
+            'top':    { x: -90, y: 0 },
+            'bottom': { x: 90,  y: 0 },
+            'left':   { x: 0,   y: 90 },
+            'right':  { x: 0,   y: -90 }
+        };
+
+        faceButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const face = btn.getAttribute('data-face');
+                const rot = faceRotations[face];
+                
+                autoRotate = false;
+                isDragging = false;
+                
+                // Find nearest rotation path for Y
+                let diffY = rot.y - (targetRotY % 360);
+                if (diffY > 180) diffY -= 360;
+                if (diffY < -180) diffY += 360;
+                
+                targetRotX = rot.x;
+                targetRotY += diffY;
+                
+                // Active state
+                faceButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Velocity reset
+                velocityX = 0;
+                velocityY = 0;
+            });
+        });
+
+        // Auto-rotation & Inertia Engine
+        let autoRotate = true;
+        function animate() {
+            if (isDragging) {
+                // Direct follow while dragging but with small lerp
+                currentRotX += (targetRotX - currentRotX) * 0.15;
+                currentRotY += (targetRotY - currentRotY) * 0.15;
+            } else {
+                if (autoRotate) {
+                    targetRotY += 0.2;
+                } else {
+                    // Inertia damping
+                    targetRotY += velocityX;
+                    targetRotX -= velocityY;
+                    velocityX *= 0.95;
+                    velocityY *= 0.95;
+                }
+                
+                // Pürüzsüz geçiş (Lerp)
+                currentRotX += (targetRotX - currentRotX) * 0.08;
+                currentRotY += (targetRotY - currentRotY) * 0.08;
+            }
+
+            cube.style.transform = `rotateX(${currentRotX}deg) rotateY(${currentRotY}deg)`;
+            
+            // Realistic Gloss Logic (Angle-based highlights)
+            const faces = [
+                { el: '.front', angle: 0 },
+                { el: '.back', angle: 180 },
+                { el: '.right', angle: 90 },
+                { el: '.left', angle: -90 }
+            ];
+
+            faces.forEach(face => {
+                const shim = document.querySelector(face.el + ' .shimmer');
+                if (shim) {
+                    // Calculate relative angle to "camera"
+                    const relY = (currentRotY + face.angle) % 360;
+                    const normalizedY = Math.abs(((relY + 180) % 360) - 180);
+                    
+                    // High reflection when face is angled (Fresnel-ish)
+                    let brightness = Math.max(0, 1 - (normalizedY / 90));
+                    
+                    // Ultra-silky highlight curves
+                    const highlight = Math.pow(brightness, 2.2); 
+                    
+                    shim.style.opacity = (highlight * 0.65).toString();
+                    shim.style.backgroundPosition = `${(currentRotY * 0.25) % 100}% ${(currentRotX * 0.25) % 100}%`;
+                }
+            });
+
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+
+
+        // Interaction logic
+        scene.addEventListener('mouseenter', () => autoRotate = false);
+        scene.addEventListener('mouseleave', () => {
+            if (!isDragging) autoRotate = true;
+        });
+    </script>
+</body>
+</html>

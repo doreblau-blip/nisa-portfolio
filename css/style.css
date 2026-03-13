@@ -682,6 +682,46 @@ h6 {
     transform: scale(1.06);
 }
 
+.gallery-label-hover {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    font-family: var(--font-family);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #fff;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 5;
+    pointer-events: none;
+}
+
+.gallery-label-hover::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #fff;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-item:hover .gallery-label-hover {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gallery-item:hover .gallery-label-hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
 /* Clean Full-Width Stack for Dore Typeface Detail Page */
 .typeface-grid {
     display: flex !important;
