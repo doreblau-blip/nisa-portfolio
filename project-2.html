@@ -23,7 +23,7 @@
     <script>
         (function() {
             const theme = localStorage.getItem('theme');
-            if (theme !== 'light') {
+            if (theme === 'dark') {
                 document.body.classList.add('dark-mode');
             }
         })();

@@ -26,9 +26,9 @@
 }
 
 :root {
-    --bg-color: #f0f0f0;
+    --bg-color: #f8f8f8;
     --text-color: #212121;
-    --nav-bg: rgba(240, 240, 240, 0.8);
+    --nav-bg: rgba(248, 248, 248, 0.8);
     --font-family: 'Syne', sans-serif;
     --nav-height: 80px;
     --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -39,6 +39,14 @@ body.dark-mode {
     --bg-color: #111111;
     --text-color: #f5f5f5;
     --nav-bg: rgba(17, 17, 17, 0.8);
+}
+
+/* Forced Dark Mode for specific areas (Showcase/Type Lab) */
+.dark-mode-fix {
+    background-color: #111111 !important;
+    color: #f5f5f5 !important;
+    --text-color: #f5f5f5;
+    --bg-color: #111111;
 }
 
 /* Base Transition for Dark Mode */
@@ -2017,7 +2025,9 @@ body.dark-mode .mode-icons .moon-icon {
 /* Type Lab: Experimental Font Tester Styles */
 .type-lab {
     margin: 4vw 0;
-    border: 1px solid rgba(0,0,0,0.1);
+    border: 1px solid rgba(255,255,255,0.1);
+    background-color: #111 !important;
+    color: #f5f5f5 !important;
     transition: var(--transition);
 }
 
@@ -2032,7 +2042,7 @@ body.dark-mode .type-lab {
     align-items: center;
     margin-bottom: 0;
     padding: 1.25rem 2rem;
-    border-bottom: 1px solid rgba(0,0,0,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.08); /* Fixed for dark bg */
 }
 
 body.dark-mode .type-lab-header {
