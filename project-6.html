@@ -391,22 +391,36 @@
         // Auto-fit: shrink font so text never overflows the container
         function autoFitFontSize() {
             const area = tester.parentElement;
-            const available = area.clientWidth - 32; // subtract padding
+            const available = area.clientWidth - 48; // padding factor
+            
+            // Disable transition during measurement
+            tester.style.transition = 'none';
+            
             let fs = maxFontSize;
             tester.style.fontSize = fs + 'px';
 
             // Only shrink if there's actual text
-            if (tester.innerText.trim().length === 0) return;
+            if (tester.innerText.trim().length === 0) {
+                tester.style.transition = '';
+                return;
+            }
 
             // Binary search for the largest fitting size
             let lo = 12, hi = maxFontSize;
-            while (hi - lo > 1) {
-                const mid = Math.floor((lo + hi) / 2);
-                tester.style.fontSize = mid + 'px';
-                if (tester.scrollWidth <= available) lo = mid;
-                else hi = mid;
+            if (tester.scrollWidth > available) {
+                while (hi - lo > 1) {
+                    const mid = Math.floor((lo + hi) / 2);
+                    tester.style.fontSize = mid + 'px';
+                    if (tester.scrollWidth <= available) lo = mid;
+                    else hi = mid;
+                }
+                tester.style.fontSize = lo + 'px';
             }
-            tester.style.fontSize = lo + 'px';
+            
+            // Re-enable transition
+            setTimeout(() => {
+                tester.style.transition = '';
+            }, 10);
         }
 
         window.updateFontSize = function(val) {
