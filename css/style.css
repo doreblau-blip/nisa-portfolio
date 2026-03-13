@@ -139,7 +139,7 @@ h6 {
 
 .nav-links {
     display: flex;
-    gap: 0; /* Managed via divider and margins now */
+    gap: 1.5rem;
     align-items: center;
 }
 
@@ -172,18 +172,7 @@ h6 {
     transform: translateX(0) translateY(1.5px);
 }
 
-/* Vertical divider between About & Contact */
-.nav-links a + a::before {
-    content: '';
-    display: inline-block;
-    width: 1px;
-    height: 12px;
-    background-color: var(--text-color);
-    opacity: 0.2;
-    margin: 0 0.8rem; /* Tight spacing between the links */
-    pointer-events: none;
-    vertical-align: middle;
-}
+
 
 /* Hide nav-arrow in mobile overlay */
 .mobile-nav-links .nav-arrow {
@@ -201,10 +190,7 @@ h6 {
     transition: var(--transition);
 }
 
-/* Scope About/Contact specifically if needed, but this handles any adjacent links */
-.nav-links a + a {
-    margin-left: 0;
-}
+
 
 .nav-links a:hover::after,
 .nav-links a.active::after {
@@ -221,20 +207,17 @@ h6 {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: -24px; /* Even tighter overlap */
-    opacity: 0.8;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    margin-left: -15px;
+    /* Balanced close spacing */
+    opacity: 0.7;
+    transition: var(--transition);
 }
 
 .social-icon:first-child {
     margin-left: 0;
 }
 
-/* Specific fix for Behance (middle icon) gap */
-.social-icon[aria-label="Behance"] {
-    margin-left: -28px;
-    margin-right: -4px;
-}
+
 
 .social-icon svg {
     width: 44px;
