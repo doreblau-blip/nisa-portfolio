@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DORE TYPEFACE - SPECIMEN 01</title>
+    <style>
+        @font-face {
+            font-family: 'Dore';
+            src: url('./fonts/Dore-Thin.otf') format('opentype');
+            font-weight: 100;
+        }
+        @font-face {
+            font-family: 'Dore';
+            src: url('./fonts/Dore-Light.otf') format('opentype');
+            font-weight: 300;
+        }
+        @font-face {
+            font-family: 'Dore';
+            src: url('./fonts/Dore-Regular.otf') format('opentype');
+            font-weight: 400;
+        }
+        @font-face {
+            font-family: 'Dore';
+            src: url('./fonts/Dore-Bold.otf') format('opentype');
+            font-weight: 700;
+        }
+        @font-face {
+            font-family: 'Dore';
+            src: url('./fonts/Dore-Black.otf') format('opentype');
+            font-weight: 900;
+        }
+
+        :root {
+            --black: #000;
+            --white: #fff;
+            --accent: #ff0000;
+            --page-bg: #fff;
+        }
+
+        * { margin:0; padding:0; box-sizing: border-box; }
+        body { 
+            background: #e0e0e0; 
+            font-family: 'Helvetica', 'Arial', sans-serif; 
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .page {
+            width: 210mm;
+            height: 297mm;
+            padding: 15mm;
+            background: var(--page-bg);
+            margin: 40px auto;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 50px rgba(0,0,0,0.1);
+            page-break-after: always;
+            display: flex;
+            flex-direction: column;
+            color: var(--black);
+        }
+
+        .dore-font { font-family: 'Dore', sans-serif; }
+
+        /* Global Elements */
+        .line-border {
+            position: absolute;
+            border: 0.2pt solid var(--black);
+        }
+
+        .meta-text {
+            font-size: 7.5pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-family: 'Helvetica', sans-serif;
+        }
+
+        /* PAGE 1: COVER / IMPACT */
+        .page-01 .title-block {
+            margin-top: 30mm;
+            position: relative;
+        }
+        .page-01 .big-dore {
+            font-size: 150pt;
+            font-weight: 900;
+            line-height: 0.75;
+            letter-spacing: -0.05em;
+        }
+        .page-01 .red-dot {
+            width: 15mm;
+            height: 15mm;
+            background: var(--accent);
+            border-radius: 50%;
+            display: inline-block;
+            margin-left: -5mm;
+        }
+        .page-01 .desc {
+            margin-top: 20mm;
+            font-size: 10pt;
+            line-height: 1.5;
+            max-width: 90mm;
+            font-weight: 400;
+        }
+        .page-01 .grid-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px);
+            background-size: 10mm 10mm;
+            z-index: -1;
+        }
+
+        /* PAGE 2: COMPARISON / ANALYTICS */
+        .page-02 .waterfall {
+            margin-top: 20mm;
+        }
+        .waterfall-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-bottom: 0.1pt solid #ccc;
+            padding-bottom: 2mm;
+            margin-bottom: 8mm;
+        }
+        .waterfall-row .info { font-size: 6pt; color: var(--accent); margin-bottom: 1mm; }
+        .waterfall-row .sample { font-size: 40pt; }
+
+        .glyph-grid {
+            margin-top: 20mm;
+            display: grid;
+            grid-template-columns: repeat(13, 1fr);
+            gap: 5mm;
+        }
+        .glyph-item { font-size: 14pt; text-align: center; }
+
+        /* PAGE 3: EDITORIAL MOCKUP */
+        .page-03 .black-spread {
+            background: var(--black);
+            color: var(--white);
+            flex: 1;
+            margin: -15mm;
+            padding: 30mm 15mm;
+            display: flex;
+            flex-direction: column;
+        }
+        .spread-title { font-size: 60pt; font-weight: 900; line-height: 0.9; margin-bottom: 20mm; }
+        .body-text-sample {
+            font-size: 12pt;
+            line-height: 1.4;
+            column-count: 2;
+            column-gap: 15mm;
+            opacity: 0.9;
+        }
+        .accent-large {
+            position: absolute;
+            bottom: 0;
+            right: -20mm;
+            font-size: 300pt;
+            font-weight: 900;
+            opacity: 0.1;
+            transform: rotate(-10deg);
+        }
+
+        .footer {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 5mm;
+            border-top: 0.2pt solid var(--black);
+        }
+
+        @media print {
+            body { background: none; }
+            .page { margin: 0; box-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PAGE 01: THE COVER -->
+    <div class="page page-01">
+        <div class="grid-overlay"></div>
+        <div class="header meta-text">
+            <span>Specimen 01 / Type System</span>
+            <span style="float: right;">Nisa Alkan &copy; 2025</span>
+        </div>
+
+        <div class="title-block dore-font">
+            <h1 class="big-dore">DORE<br>TYPE<span class="red-dot"></span></h1>
+        </div>
+
+        <div class="desc meta-text" style="color: var(--black); line-height: 1.8;">
+            The Dore Typeface is an experimental structural system. <br>
+            It operates as a visual grid where continuity is deliberately fragmented. <br>
+            designed for high-impact display and architectural editorial.
+        </div>
+
+        <div style="margin-top: auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10mm;">
+            <div class="meta-text" style="font-size: 6pt;">
+                Weights:<br>Thin (100)<br>Light (300)<br>Regular (400)<br>Bold (700)<br>Black (900)
+            </div>
+            <div class="meta-text" style="font-size: 6pt; text-align: right;">
+                Created in: Istanbul/TR<br>Version: 1.2 Beta<br>Status: In Development
+            </div>
+        </div>
+
+        <div class="footer meta-text">
+            <span>D.B.B. FOUNDRY</span>
+            <span>INTERNAL DOCUMENT</span>
+        </div>
+    </div>
+
+    <!-- PAGE 02: TECHNICAL ANALYSIS -->
+    <div class="page page-02">
+        <div class="header meta-text">
+            <span>Section 02 / Weights</span>
+            <span style="float: right;">Dore - Analysis 01</span>
+        </div>
+
+        <div class="waterfall dore-font">
+            <div class="waterfall-row" style="font-weight: 100;">
+                <span class="info">DORE THIN / 100</span>
+                <span class="sample">Architecture of noise</span>
+            </div>
+            <div class="waterfall-row" style="font-weight: 300;">
+                <span class="info">DORE LIGHT / 300</span>
+                <span class="sample">The fragment is the whole</span>
+            </div>
+            <div class="waterfall-row" style="font-weight: 400;">
+                <span class="info">DORE REGULAR / 400</span>
+                <span class="sample">Broken Geometry Systems</span>
+            </div>
+            <div class="waterfall-row" style="font-weight: 700;">
+                <span class="info">DORE BOLD / 700</span>
+                <span class="sample">Structural Consistency</span>
+            </div>
+            <div class="waterfall-row" style="font-weight: 900;">
+                <span class="info">DORE BLACK / 900</span>
+                <span class="sample">NO ALIGNMENT</span>
+            </div>
+        </div>
+
+        <div style="margin-top: 15mm; background: var(--black); color: var(--white); padding: 5mm; text-align: center;" class="meta-text">
+            GLYPH ANALYSIS / FULL SET (LATIN)
+        </div>
+
+        <div class="glyph-grid dore-font">
+            <div class="glyph-item">A</div><div class="glyph-item">B</div><div class="glyph-item">C</div><div class="glyph-item">D</div>
+            <div class="glyph-item">E</div><div class="glyph-item">F</div><div class="glyph-item">G</div><div class="glyph-item">H</div>
+            <div class="glyph-item">I</div><div class="glyph-item">J</div><div class="glyph-item">K</div><div class="glyph-item">L</div>
+            <div class="glyph-item">M</div><div class="glyph-item">N</div><div class="glyph-item">O</div><div class="glyph-item">P</div>
+            <div class="glyph-item">Q</div><div class="glyph-item">R</div><div class="glyph-item">S</div><div class="glyph-item">T</div>
+            <div class="glyph-item">U</div><div class="glyph-item">V</div><div class="glyph-item">W</div><div class="glyph-item">X</div>
+            <div class="glyph-item">Y</div><div class="glyph-item">Z</div>
+        </div>
+
+        <div class="footer meta-text">
+            <span>DORE TECH SPEC</span>
+            <span>A4 - 2025</span>
+        </div>
+    </div>
+
+    <!-- PAGE 03: EDITORIAL APPLICATION -->
+    <div class="page page-03">
+        <div class="black-spread">
+            <div class="header meta-text" style="color: grey; border-bottom-color: grey;">
+                <span>Section 03 / Application</span>
+                <span style="float: right;">Mockup 01</span>
+            </div>
+
+            <h2 class="spread-title dore-font">THE<br>SYSTEM<br>IS NOT<br>BROKEN.</h2>
+            
+            <div class="body-text-sample dore-font" style="font-weight: 300;">
+                Dore operates as a structural element — a visual system rather than just letterform. Glitches, blocks and repetition become the language of broken continuity. In a world of perfect digital alignment, Dore celebrates the fragment. It is a typeface designed for those who see geometry in noise and balance in the irregular. Every weight tells a story of structural evolution.
+            </div>
+
+            <div class="accent-large dore-font">D</div>
+
+            <div class="footer meta-text" style="color: grey; margin-top: auto; border-top-color: grey;">
+                <span>EDITION 01</span>
+                <span>FOR PROFESSIONAL USE ONLY</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
