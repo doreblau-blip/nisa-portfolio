@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dore — Font Tester</title>
+    <style>
+        @font-face { font-family: 'Dore'; src: url('./fonts/Dore-Thin.otf') format('opentype'); font-weight: 100; }
+        @font-face { font-family: 'Dore'; src: url('./fonts/Dore-Light.otf') format('opentype'); font-weight: 300; }
+        @font-face { font-family: 'Dore'; src: url('./fonts/Dore-Regular.otf') format('opentype'); font-weight: 400; }
+        @font-face { font-family: 'Dore'; src: url('./fonts/Dore-Bold.otf') format('opentype'); font-weight: 700; }
+        @font-face { font-family: 'Dore'; src: url('./fonts/Dore-Black.otf') format('opentype'); font-weight: 900; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #f8f8f8;
+            color: #212121;
+            font-family: 'Helvetica Neue', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            padding: 32px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(0,0,0,0.07);
+        }
+
+        .header-title {
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #999;
+        }
+
+        .header-meta {
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            color: #bbb;
+        }
+
+        .canvas {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 40px;
+            cursor: text;
+        }
+
+        #preview-text {
+            font-family: 'Dore', serif;
+            font-size: 96px;
+            font-weight: 400;
+            line-height: 1.05;
+            color: #212121;
+            background: transparent;
+            border: none;
+            outline: none;
+            width: 100%;
+            text-align: center;
+            resize: none;
+            overflow: hidden;
+            min-height: 120px;
+            caret-color: #212121;
+            animation: blink-caret 1.4s ease-in-out infinite;
+        }
+
+        @keyframes blink-caret {
+            0%, 100% { caret-color: #212121; }
+            50% { caret-color: transparent; }
+        }
+
+        #preview-text::placeholder {
+            color: rgba(33,33,33,0.15);
+        }
+
+        footer {
+            border-top: 1px solid rgba(0,0,0,0.07);
+            padding: 0 40px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            gap: 0;
+        }
+
+        .control {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 0 32px;
+            height: 100%;
+            border-right: 1px solid rgba(0,0,0,0.07);
+        }
+
+        .control:first-child {
+            padding-left: 0;
+        }
+
+        .ctrl-label {
+            font-size: 10px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #bbb;
+            white-space: nowrap;
+        }
+
+        .ctrl-value {
+            font-size: 12px;
+            color: #212121;
+            min-width: 36px;
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 160px;
+            height: 1px;
+            background: #d0d0d0;
+            outline: none;
+            cursor: pointer;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #212121;
+            cursor: pointer;
+            transition: transform 0.15s;
+        }
+
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.3);
+        }
+
+        .weight-pills {
+            display: flex;
+            gap: 6px;
+        }
+
+        .pill {
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            padding: 5px 12px;
+            border-radius: 999px;
+            border: 1px solid rgba(0,0,0,0.15);
+            cursor: pointer;
+            color: #888;
+            background: transparent;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .pill:hover {
+            border-color: #212121;
+            color: #212121;
+        }
+
+        .pill.active {
+            background: #212121;
+            color: #f8f8f8;
+            border-color: #212121;
+        }
+
+        .back-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 10px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #999;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .style-btns {
+            display: flex;
+            gap: 6px;
+        }
+
+        .style-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            border: 1px solid rgba(0,0,0,0.15);
+            background: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            transition: all 0.2s;
+        }
+
+        .style-btn:hover { border-color: #212121; color: #212121; }
+        .style-btn.active { background: #212121; color: #f8f8f8; border-color: #212121; }
+
+        @media (max-width: 768px) {
+            header { padding: 20px; }
+            .canvas { padding: 40px 24px; }
+            #preview-text { font-size: 48px; }
+            footer {
+                height: auto;
+                flex-direction: column;
+                padding: 0 0 24px 0;
+            }
+            .control {
+                width: 100%;
+                padding: 16px 24px;
+                border-right: none;
+                border-bottom: 1px solid rgba(0,0,0,0.07);
+                gap: 12px;
+                flex-wrap: wrap;
+            }
+            .weight-pills { flex-wrap: wrap; gap: 6px; }
+            input[type="range"] { flex: 1; min-width: 120px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="back-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            Back
+        </a>
+        <span class="header-meta" id="header-meta">Regular · 96px</span>
+    </header>
+
+    <div class="canvas" onclick="document.getElementById('preview-text').focus()">
+        <textarea id="preview-text" oninput="autoResize(this)" rows="1">Dore</textarea>
+    </div>
+
+    <footer>
+        <div class="control">
+            <span class="ctrl-label">Weight</span>
+            <div class="weight-pills">
+                <button class="pill" onclick="setWeight(100, this)">THIN</button>
+                <button class="pill" onclick="setWeight(300, this)">LIGHT</button>
+                <button class="pill active" onclick="setWeight(400, this)">REGULAR</button>
+                <button class="pill" onclick="setWeight(700, this)">BOLD</button>
+                <button class="pill" onclick="setWeight(900, this)">BLACK</button>
+            </div>
+        </div>
+
+        <div class="control">
+            <span class="ctrl-label">Size</span>
+            <input type="range" id="size-range" min="12" max="240" value="96" oninput="setSize(this.value)">
+            <span class="ctrl-value" id="size-value">96px</span>
+        </div>
+
+        <div class="control">
+            <span class="ctrl-label">Spacing</span>
+            <input type="range" id="spacing-range" min="-5" max="30" value="0" step="0.5" oninput="setSpacing(this.value)">
+            <span class="ctrl-value" id="spacing-value">0</span>
+        </div>
+
+        <div class="control">
+            <span class="ctrl-label">Line Height</span>
+            <input type="range" id="lineheight-range" min="0.8" max="3" value="1.05" step="0.05" oninput="setLineHeight(this.value)">
+            <span class="ctrl-value" id="lineheight-value">1.05</span>
+        </div>
+
+        <div class="control">
+            <span class="ctrl-label">Style</span>
+            <div class="style-btns">
+                <button class="style-btn" id="btn-underline" onclick="toggleStyle('underline')" title="Underline">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4v6a6 6 0 0 0 12 0V4"/><line x1="4" y1="20" x2="20" y2="20"/></svg>
+                </button>
+                <button class="style-btn" id="btn-strikethrough" onclick="toggleStyle('strikethrough')" title="Strikethrough">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="12" x2="20" y2="12"/><path d="M17.5 6.5C17.5 4 15.5 3 12 3s-6 1-6 4c0 2 1.5 3.5 6 4"/><path d="M6.5 17.5C6.5 20 8.5 21 12 21s6-1 6-4c0-1.5-.8-2.8-2.5-3.5"/></svg>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentWeight = 400;
+        let currentSize = 96;
+        let activeStyles = { underline: false, strikethrough: false };
+
+        function setWeight(w, el) {
+            currentWeight = w;
+            document.getElementById('preview-text').style.fontWeight = w;
+            document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+            el.classList.add('active');
+            updateMeta();
+        }
+
+        function setSize(val) {
+            currentSize = val;
+            document.getElementById('preview-text').style.fontSize = val + 'px';
+            document.getElementById('size-value').textContent = val + 'px';
+            autoResize(document.getElementById('preview-text'));
+            updateMeta();
+        }
+
+        function setSpacing(val) {
+            document.getElementById('preview-text').style.letterSpacing = val + 'px';
+            document.getElementById('spacing-value').textContent = val;
+        }
+
+        function setLineHeight(val) {
+            document.getElementById('preview-text').style.lineHeight = val;
+            document.getElementById('lineheight-value').textContent = val;
+            autoResize(document.getElementById('preview-text'));
+        }
+
+        function toggleStyle(type) {
+            activeStyles[type] = !activeStyles[type];
+            document.getElementById('btn-' + type).classList.toggle('active', activeStyles[type]);
+            const el = document.getElementById('preview-text');
+            const u = activeStyles.underline;
+            const s = activeStyles.strikethrough;
+            el.style.textDecoration = u && s ? 'underline line-through' : u ? 'underline' : s ? 'line-through' : 'none';
+        }
+
+        function updateMeta() {
+            const labels = {100:'Thin', 300:'Light', 400:'Regular', 700:'Bold', 900:'Black'};
+            document.getElementById('header-meta').textContent = `${labels[currentWeight]} · ${currentSize}px`;
+        }
+
+        function autoResize(el) {
+            el.style.height = 'auto';
+            el.style.height = el.scrollHeight + 'px';
+        }
+
+        document.getElementById('preview-text').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                const pos = this.selectionStart;
+                this.value = this.value.slice(0, pos) + '\n' + this.value.slice(pos);
+                this.selectionStart = this.selectionEnd = pos + 1;
+                autoResize(this);
+            }
+        });
+
+        autoResize(document.getElementById('preview-text'));
+
+        // Typewriter animation on load
+        const el = document.getElementById('preview-text');
+        const word = 'Dore';
+        el.value = '';
+        autoResize(el);
+
+        let i = 0;
+        function typeNext() {
+            if (i < word.length) {
+                el.value += word[i];
+                i++;
+                autoResize(el);
+                setTimeout(typeNext, 120);
+            }
+        }
+        setTimeout(typeNext, 400);
+    </script>
+</body>
+</html>
