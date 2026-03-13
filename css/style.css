@@ -103,26 +103,14 @@ h6 {
         width: 92%;
         left: 4%;
         height: 60px;
-        border-radius: 100px;
+        border-radius: 12px; /* Reduced curve from 100px to 12px for a subtle pill/box look */
         border: 1px solid rgba(0, 0, 0, 0.05);
         box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
         padding: 0 3rem;
     }
 }
 
-/* Smart Hide: Navbar disappears on scroll down */
-.navbar.nav-hidden {
-    transform: translateY(-120%);
-    opacity: 0;
-    pointer-events: none;
-}
 
-/* Ensure pill mode hides a bit further due to its top offset */
-@media (min-width: 1024px) {
-    .navbar.scrolled.nav-hidden {
-        transform: translateY(-160%);
-    }
-}
 
 .navbar::after {
     content: '';
@@ -173,7 +161,7 @@ h6 {
 
 .nav-links {
     display: flex;
-    gap: 1.5rem;
+    gap: 1.1rem; /* Slightly tighter About/Contact */
     align-items: center;
 }
 
