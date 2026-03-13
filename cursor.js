@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
     revealElements.forEach(el => revealObserver.observe(el));
 
     // Smart Cursor & Standard Hover States
-    const interactables = document.querySelectorAll("a, button, .footer-email");
+    const interactables = document.querySelectorAll("a, button, .footer-email, .face-nav-item");
     interactables.forEach(item => {
         item.addEventListener("mouseenter", () => {
             if(item.classList.contains('work-item') || item.classList.contains('gallery-item')) {
