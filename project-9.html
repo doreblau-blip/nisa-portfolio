@@ -15,10 +15,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css?v=1773365262">
+    <link rel="stylesheet" href="./css/style.css?v=1773365304">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
 <body>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme');
+            if (theme !== 'light') {
+                document.body.classList.add('dark-mode');
+            }
+        })();
+    </script>
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-left">
@@ -148,7 +156,7 @@
     </div>
 
     <!-- Custom Cursor -->
-    <script src="./cursor.js?v=1773365262"></script>
+    <script src="./cursor.js?v=1773365304"></script>
     <script>
         // Lightbox
         const overlay = document.getElementById('lightbox');
