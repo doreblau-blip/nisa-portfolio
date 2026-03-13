@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css?v=1773367210">
+    <link rel="stylesheet" href="./css/style.css?v=1773367552">
     <style>
         :root {
             --box-w: 260px;
@@ -64,21 +64,36 @@
             overflow: hidden;
         }
 
-        /* Coated Paper / Gloss Effect */
+        /* Coated Paper / High Gloss Effect */
         .shimmer {
             position: absolute;
             inset: 0;
             background: linear-gradient(
-                135deg,
+                105deg,
                 rgba(255, 255, 255, 0) 0%,
-                rgba(255, 255, 255, 0.4) 50%,
+                rgba(255, 255, 255, 0.05) 30%,
+                rgba(255, 255, 255, 0.6) 50%,
+                rgba(255, 255, 255, 0.05) 70%,
                 rgba(255, 255, 255, 0) 100%
             );
-            background-size: 200% 200%;
+            background-size: 300% 300%;
             pointer-events: none;
-            mix-blend-mode: soft-light;
-            opacity: 0.3;
-            transition: opacity 0.3s ease;
+            mix-blend-mode: plus-lighter;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .cube-face::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.1) 0%, transparent 100%);
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        body.dark-mode .cube-face::after {
+            background: linear-gradient(to bottom, rgba(255,255,255,0.05) 0%, transparent 100%);
         }
 
 
@@ -285,11 +300,30 @@
 
             cube.style.transform = `rotateX(${currentRotX}deg) rotateY(${currentRotY}deg)`;
             
-            // Dynamic Reflection/Shimmer based on rotation
-            document.querySelectorAll('.shimmer').forEach(shimmer => {
-                const posX = (currentRotY % 360) / 3.6;
-                const posY = (currentRotX % 360) / 3.6;
-                shimmer.style.backgroundPosition = `${posX}% ${posY}%`;
+            // Realistic Gloss Logic (Angle-based highlights)
+            const faces = [
+                { el: '.front', angle: 0 },
+                { el: '.back', angle: 180 },
+                { el: '.right', angle: 90 },
+                { el: '.left', angle: -90 }
+            ];
+
+            faces.forEach(face => {
+                const shim = document.querySelector(face.el + ' .shimmer');
+                if (shim) {
+                    // Calculate relative angle to "camera"
+                    const relY = (currentRotY + face.angle) % 360;
+                    const normalizedY = Math.abs(((relY + 180) % 360) - 180);
+                    
+                    // High reflection when face is angled (Fresnel-ish)
+                    let brightness = Math.max(0, 1 - (normalizedY / 90));
+                    
+                    // Sharp specular highlight at specific angles
+                    const highlight = Math.pow(brightness, 3); 
+                    
+                    shim.style.opacity = (highlight * 0.8).toString();
+                    shim.style.backgroundPosition = `${(currentRotY * 0.5) % 100}% ${(currentRotX * 0.5) % 100}%`;
+                }
             });
 
             requestAnimationFrame(animate);
