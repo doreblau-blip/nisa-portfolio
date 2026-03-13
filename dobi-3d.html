@@ -170,8 +170,11 @@
 
         /* Mobile Adjustments */
         @media (max-width: 768px) {
-            .navbar, .footer {
+            .navbar {
                 background-color: #ffffff !important;
+            }
+            .footer {
+                display: none !important;
             }
             .scene {
                 align-items: center !important;
@@ -183,7 +186,7 @@
                 right: 0;
                 left: 0;
                 top: auto;
-                bottom: 80px;
+                bottom: 110px;
                 transform: none;
                 flex-direction: row;
                 flex-wrap: wrap;
@@ -192,6 +195,7 @@
                 width: 100%;
                 padding: 0 20px;
                 box-sizing: border-box;
+                position: absolute !important;
             }
             .face-nav-item {
                 font-size: 0.6rem;
