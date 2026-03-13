@@ -37,7 +37,7 @@
             justify-content: center;
             perspective: 1500px;
             cursor: grab;
-            background: radial-gradient(circle at center, rgba(128, 128, 128, 0.05) 0%, transparent 70%);
+            background: radial-gradient(circle at center, rgba(0, 0, 0, 0.03) 0%, transparent 70%);
         }
 
         .scene:active {
@@ -159,7 +159,8 @@
         }
 
         .navbar::after {
-            display: none !important;
+            display: block !important;
+            opacity: 0.1;
         }
 
         .back-to-project {
@@ -324,8 +325,45 @@
             opacity: 1;
         }
 
-        .face-nav-item.active::before {
-            width: 40px;
+        @media (max-width: 768px) {
+            .scene {
+                align-items: flex-start;
+                padding-top: 15vh;
+            }
+            .face-nav {
+                right: auto;
+                left: 50%;
+                top: auto;
+                bottom: 180px;
+                transform: translateX(-50%);
+                flex-direction: row;
+                gap: 15px;
+                width: 90%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .face-nav-item {
+                padding: 8px 0;
+                font-size: 0.6rem;
+                border-bottom: none;
+                gap: 5px;
+            }
+            .face-nav-item::before {
+                display: none;
+            }
+            .next-showcase {
+                bottom: 40px;
+                right: 5vw;
+                font-size: 0.7rem;
+            }
+            .controls-hint {
+                bottom: 100px;
+                font-size: 0.65rem;
+            }
+            .back-to-project {
+                top: 100px;
+                font-size: 0.75rem;
+            }
         }
     </style>
 </head>
