@@ -60,7 +60,9 @@
 
 body {
     background-color: var(--bg-color);
+    background-color: #f8f8f8 !important;
     color: var(--text-color);
+    color: #212121 !important;
     font-family: var(--font-family);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
