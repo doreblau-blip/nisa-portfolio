@@ -168,18 +168,6 @@
             gap: 8px;
         }
 
-        .next-showcase {
-            position: absolute;
-            bottom: 40px;
-            right: 4vw;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-decoration: none;
-            color: #000;
-            opacity: 0.5;
-            z-index: 10;
-        }
-
         /* Mobile Adjustments */
         @media (max-width: 768px) {
             .navbar, .footer {
@@ -195,16 +183,20 @@
                 bottom: 80px;
                 transform: none;
                 flex-direction: row;
+                flex-wrap: wrap;
                 justify-content: center;
-                gap: 15px;
+                gap: 8px;
                 width: 100%;
+                padding: 0 20px;
+                box-sizing: border-box;
             }
             .face-nav-item {
-                font-size: 0.65rem;
-                padding: 10px 5px;
+                font-size: 0.6rem;
                 background: rgba(0,0,0,0.03);
                 border-radius: 20px;
-                padding: 6px 12px;
+                padding: 6px 10px;
+                flex: 0 1 auto;
+                white-space: nowrap;
             }
             .controls-hint {
                 display: none !important;
@@ -214,12 +206,6 @@
                 width: 100%;
                 justify-content: center;
                 left: 0;
-            }
-            .next-showcase {
-                bottom: 40px;
-                left: 0;
-                right: 0;
-                text-align: center;
             }
         }
     </style>
@@ -236,9 +222,29 @@
                 <a href="about.html">ABOUT</a>
                 <a href="contact.html">CONTACT</a>
             </div>
-            <button class="mobile-menu-trigger" id="menu-trigger">MENU</button>
+            <button class="mobile-menu-trigger" id="menu-trigger" aria-label="Menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+            </button>
         </div>
     </nav>
+
+    <div class="mobile-overlay" id="mobile-menu">
+        <button class="mobile-overlay-close" id="menu-close" aria-label="Close Menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+        <nav class="mobile-nav-links">
+            <a href="index.html">WORK</a>
+            <a href="dobi-3d.html">3D SHOWCASE</a>
+            <a href="about.html">ABOUT</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+    </div>
 
     <a href="./project-2.html" class="back-to-project">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" transform="rotate(180)">
@@ -270,16 +276,6 @@
     </div>
 
     <div class="controls-hint">Drag to rotate the box</div>
-
-    <div class="mobile-overlay" id="mobile-menu">
-        <button class="mobile-overlay-close" id="menu-close">CLOSE</button>
-        <nav class="mobile-nav-links">
-            <a href="index.html">WORK</a>
-            <a href="dobi-3d.html">3D SHOWCASE</a>
-            <a href="about.html">ABOUT</a>
-            <a href="contact.html">CONTACT</a>
-        </nav>
-    </div>
 
     <footer class="footer">
         <div class="footer-left">
