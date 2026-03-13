@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css?v=1773366854">
+    <link rel="stylesheet" href="./css/style.css?v=1773366913">
     <style>
         :root {
             --box-w: 260px;
@@ -50,7 +50,6 @@
             position: relative;
             transform-style: preserve-3d;
             transform: rotateX(-20deg) rotateY(45deg);
-            transition: transform 0.1s linear;
         }
 
         .cube-face {
@@ -176,13 +175,23 @@
         const scene = document.getElementById('scene');
         let isDragging = false;
         let startX, startY;
-        let rotX = -25;
-        let rotY = 45;
+        
+        // Target rotation
+        let targetRotX = -20;
+        let targetRotY = 45;
+        
+        // Current rotation (for smooth lerping)
+        let currentRotX = -20;
+        let currentRotY = 45;
+        
+        let velocityX = 0;
+        let velocityY = 0;
 
         scene.addEventListener('mousedown', (e) => {
             isDragging = true;
             startX = e.clientX;
             startY = e.clientY;
+            autoRotate = false;
         });
 
         window.addEventListener('mousemove', (e) => {
@@ -190,10 +199,11 @@
             const deltaX = e.clientX - startX;
             const deltaY = e.clientY - startY;
 
-            rotY += deltaX * 0.5;
-            rotX -= deltaY * 0.5;
-
-            cube.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+            targetRotY += deltaX * 0.4;
+            targetRotX -= deltaY * 0.4;
+            
+            velocityX = deltaX * 0.4;
+            velocityY = deltaY * 0.4;
 
             startX = e.clientX;
             startY = e.clientY;
@@ -201,6 +211,7 @@
 
         window.addEventListener('mouseup', () => {
             isDragging = false;
+            // Re-enable autoRotate after a delay if desired, or let inertia handle it
         });
 
         // Touch support
@@ -208,6 +219,7 @@
             isDragging = true;
             startX = e.touches[0].clientX;
             startY = e.touches[0].clientY;
+            autoRotate = false;
         });
 
         window.addEventListener('touchmove', (e) => {
@@ -215,10 +227,11 @@
             const deltaX = e.touches[0].clientX - startX;
             const deltaY = e.touches[0].clientY - startY;
 
-            rotY += deltaX * 0.5;
-            rotX -= deltaY * 0.5;
-
-            cube.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+            targetRotY += deltaX * 0.4;
+            targetRotX -= deltaY * 0.4;
+            
+            velocityX = deltaX * 0.4;
+            velocityY = deltaY * 0.4;
 
             startX = e.touches[0].clientX;
             startY = e.touches[0].clientY;
@@ -228,20 +241,39 @@
             isDragging = false;
         });
 
-        // Auto-rotation
+        // Auto-rotation & Inertia Engine
         let autoRotate = true;
         function animate() {
-            if (!isDragging && autoRotate) {
-                rotY += 0.2;
-                cube.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+            if (isDragging) {
+                // Direct follow while dragging but with small lerp
+                currentRotX += (targetRotX - currentRotX) * 0.15;
+                currentRotY += (targetRotY - currentRotY) * 0.15;
+            } else {
+                if (autoRotate) {
+                    targetRotY += 0.2;
+                } else {
+                    // Inertia damping
+                    targetRotY += velocityX;
+                    targetRotX -= velocityY;
+                    velocityX *= 0.95;
+                    velocityY *= 0.95;
+                }
+                
+                // Pürüzsüz geçiş (Lerp)
+                currentRotX += (targetRotX - currentRotX) * 0.08;
+                currentRotY += (targetRotY - currentRotY) * 0.08;
             }
+
+            cube.style.transform = `rotateX(${currentRotX}deg) rotateY(${currentRotY}deg)`;
             requestAnimationFrame(animate);
         }
         animate();
 
-        // Pause auto-rotation on user interaction
+        // Interaction logic
         scene.addEventListener('mouseenter', () => autoRotate = false);
-        scene.addEventListener('mouseleave', () => autoRotate = true);
+        scene.addEventListener('mouseleave', () => {
+            if (!isDragging) autoRotate = true;
+        });
     </script>
 </body>
 </html>
