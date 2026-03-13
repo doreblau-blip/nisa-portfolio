@@ -1073,7 +1073,7 @@ h6 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     background-color: var(--bg-color);
     font-family: 'Montserrat', sans-serif;
     position: relative; /* needed for absolute center of .footer-socials */
@@ -1098,6 +1098,7 @@ h6 {
 }
 
 .footer-socials .social-icon {
+    margin-left: 0 !important;
     color: #666;
     transition: color 0.3s ease;
 }
@@ -1170,7 +1171,7 @@ h6 {
     }
 
     .footer-socials .social-icon {
-        margin-left: -15px; /* Tight icon spacing */
+        margin-left: 0 !important;
         color: #666;
     }
 
@@ -1517,9 +1518,9 @@ body.menu-open {
 /* Footer Socials */
 .footer-socials {
     display: flex;
-    gap: 1rem;
-    margin-bottom: 0.5rem;
-    justify-content: flex-end;
+    gap: 1.5rem;
+    margin-bottom: 0px;
+    justify-content: center;
 }
 
 .footer-socials a {
@@ -1772,7 +1773,7 @@ body.dark-mode .navbar::after {
     opacity: 0.12;
 }
 body.dark-mode .footer {
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 body.dark-mode .about-hero {
     background-color: #111;
