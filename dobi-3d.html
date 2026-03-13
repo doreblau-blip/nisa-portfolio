@@ -193,6 +193,23 @@
             gap: 8px;
         }
 
+        .back-to-project span, .next-project span {
+            position: relative;
+        }
+
+        .back-to-project span::after, .next-project span::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #000;
+            transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .back-to-project:hover span::after, .next-project:hover span::after { width: 100%; }
+
         .next-project {
             position: absolute;
             top: 120px;
@@ -331,11 +348,11 @@
             <line x1="7" y1="17" x2="17" y2="7"></line>
             <polyline points="7 7 17 7 17 17"></polyline>
         </svg>
-        Back to IP Design
+        <span>BACK TO IP DESIGN</span>
     </a>
 
     <a href="./lootie-3d.html" class="next-project">
-        LOOTIE
+        <span>LOOTIE</span>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="7" y1="17" x2="17" y2="7"></line>
             <polyline points="7 7 17 7 17 17"></polyline>
