@@ -28,14 +28,22 @@
         body {
             margin: 0;
             padding: 0;
-            overflow: hidden;
-            height: 100vh;
+            overflow-x: hidden;
+            overflow-y: auto; /* Allow vertical scroll for extra space */
+            min-height: 100vh;
             width: 100vw;
             display: flex;
             flex-direction: column;
             background-color: #ffffff !important;
             color: #000000 !important;
             font-family: 'Syne', sans-serif;
+        }
+
+        @media (min-width: 769px) {
+            body {
+                overflow: hidden;
+                height: 100vh;
+            }
         }
 
         /* Enforce theme */
@@ -214,6 +222,14 @@
                 justify-content: center;
                 left: 0;
             }
+            .mobile-bottom-spacer {
+                display: block;
+                height: 150px;
+                width: 100%;
+            }
+        }
+        @media (min-width: 769px) {
+            .mobile-bottom-spacer { display: none; }
         }
     </style>
 </head>
@@ -299,6 +315,8 @@
             <span style="display:block;">&copy; 2026 NISA ALKAN. ALL RIGHTS RESERVED.</span>
         </div>
     </footer>
+
+    <div class="mobile-bottom-spacer"></div>
 
     <script src="./cursor.js"></script>
     <script>
