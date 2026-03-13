@@ -1375,7 +1375,7 @@ body.menu-open {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background-color: #000;
+    background-color: #f8f8f8;
 }
 
 .about-bg-container {
