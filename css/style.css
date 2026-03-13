@@ -1045,11 +1045,18 @@ h6 {
     letter-spacing: 0.05em;
 }
 
-/* Center column — social icons */
 .footer-social {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    display: none;
+}
+
+@media (min-width: 769px) {
+    .footer-social {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: center;
+        gap: 10px;
+    }
 }
 
 .footer-social a {
@@ -1117,8 +1124,7 @@ h6 {
 /* Mobile-only footer sections — hidden on desktop */
 .footer-top,
 .footer-bottom,
-.footer-social-mobile,
-.footer-social {
+.footer-social-mobile {
     display: none;
 }
 
