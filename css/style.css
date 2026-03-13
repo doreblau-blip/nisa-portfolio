@@ -1042,7 +1042,10 @@ h6 {
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     background-color: var(--bg-color);
     font-family: 'Montserrat', sans-serif;
+<<<<<<< HEAD
 }
+=======
+>>>>>>> origin/main
 
 .footer-left {
     font-family: var(--font-family);
