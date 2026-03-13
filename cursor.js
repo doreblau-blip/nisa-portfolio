@@ -106,4 +106,20 @@ document.addEventListener("DOMContentLoaded", () => {
             localStorage.setItem("theme", theme);
         });
     });
+
+    // Settings Panel Toggle
+    const settingsPanel = document.getElementById('settings-panel');
+    const settingsToggleBtn = document.getElementById('settings-toggle');
+    
+    if (settingsPanel && settingsToggleBtn) {
+        settingsToggleBtn.addEventListener('click', () => {
+            if (settingsPanel.style.right === '0px') {
+                settingsPanel.style.right = '-250px';
+                settingsToggleBtn.querySelector('svg').style.transform = 'rotate(0deg)';
+            } else {
+                settingsPanel.style.right = '0px';
+                settingsToggleBtn.querySelector('svg').style.transform = 'rotate(180deg)';
+            }
+        });
+    }
 });
