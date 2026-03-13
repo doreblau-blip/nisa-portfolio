@@ -1285,17 +1285,16 @@ h6 {
 }
 
 .mobile-nav-links a {
-    font-size: 2.5rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: var(--text-color);
     text-decoration: none;
-    padding: 2rem 0;
+    padding: 1.25rem 0;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
-    /* Minimal line between links */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     transition: var(--transition);
     position: relative;
     text-transform: uppercase;
