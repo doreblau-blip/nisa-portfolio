@@ -1091,16 +1091,31 @@ h6 {
 .footer-socials {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    justify-content: center;
+    gap: 20px;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    width: auto;
+    margin: 0;
+    padding: 0;
 }
 
 .footer-socials .social-icon {
-    margin-left: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 !important;
+    padding: 0;
     color: #666;
     transition: color 0.3s ease;
+    line-height: 0;
+}
+
+.footer-socials .social-icon svg {
+    display: block;
+    width: 20px;
+    height: 20px;
 }
 
 .footer-socials .social-icon:hover {
