@@ -94,8 +94,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const x = e.pageX - position.left - position.width / 2;
             const y = e.pageY - position.top - position.height / 2;
             
-            // Adjust pulling strength simply with division
-            el.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+            // Adjust pulling strength - smaller decimal means softer magnetic effect
+            el.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
             el.style.transition = 'none';
         });
         
