@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta name="color-scheme" content="light only">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Not Alone | Nisa Alkan</title>
+    <title>Persona | Nisa Alkan</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -68,51 +68,40 @@
         <!-- Editorial header -->
         <div class="project-header" id="project-header">
             <div class="project-header-top">
-                <h1 class="project-title" id="p-title">Not Alone</h1>
+                <h1 class="project-title" id="p-title">Persona</h1>
                 <div class="project-meta">
-                    <span id="p-year">2024</span>
+                    <span id="p-year">2026</span>
                     <span class="meta-divider"></span>
-                    <span id="p-role">3rd Year Anniversary Mark</span>
+                    <span id="p-role">Book Cover Design</span>
                 </div>
             </div>
-            <div class="project-header-divider"></div><div class="project-header-bottom"><p class="project-description" id="p-desc" style="display: none;">
-                <!-- No description provided -->
+            <div class="project-header-divider"></div><div class="project-header-bottom"><p class="project-description" id="p-desc">
+                A personal conceptual magazine project. Not a real publication, but a fictional editorial exploring identity, memory, and art direction. Combines collage, typography, and cinematic composition to examine the reconstruction of the “persona” concept.
             </p></div>
         </div>
 
         <!-- 3 Column Grid Static Colors -->
         <div class="project-gallery" id="project-gallery">
-            <div class="gallery-item"><img src="images/sugo/1.jpg" alt="Not Alone 01"></div>
-            <div class="gallery-item"><img src="images/sugo/2.jpg" alt="Not Alone 02"></div>
-            <div class="gallery-item"><img src="images/sugo/3.jpg" alt="Not Alone 03"></div>
-            <div class="gallery-item"><img src="images/sugo/4.jpg" alt="Not Alone 04"></div>
-            <div class="gallery-item"><img src="images/sugo/5.jpg" alt="Not Alone 05"></div>
-            <div class="gallery-item"><img src="images/sugo/6.jpg" alt="Not Alone 06"></div>
-            <div class="gallery-item"><img src="images/sugo/7.jpg" alt="Not Alone 07"></div>
-            <div class="gallery-item"><img src="images/sugo/8.jpg" alt="Not Alone 08"></div>
-            <div class="gallery-item"><img src="images/sugo/9.jpg" alt="Not Alone 09"></div>
-            <div class="gallery-item"><img src="images/sugo/10.jpg" alt="Not Alone 10"></div>
-            <div class="gallery-item"><img src="images/sugo/11.jpg" alt="Not Alone 11"></div>
-            <div class="gallery-item"><img src="images/sugo/12.jpg" alt="Not Alone 12"></div>
-            <div class="gallery-item"><img src="images/sugo/13.jpg" alt="Not Alone 13"></div>
-            <div class="gallery-item"><img src="images/sugo/14.jpg" alt="Not Alone 14"></div>
-            <div class="gallery-item"><img src="images/sugo/15.jpg" alt="Not Alone 15"></div>
-            <div class="gallery-item"><img src="images/sugo/16.jpg" alt="Not Alone 16"></div>
-            <div class="gallery-item"><img src="images/sugo/17.jpg" alt="Not Alone 17"></div>
-            <div class="gallery-item"><img src="images/sugo/18.jpg" alt="Not Alone 18"></div>
-            <div class="gallery-item"><img src="images/sugo/68812a0d99d6c8799df69b86b74684457a48585e0e8a406754d835b895616d53.jpg" alt="Not Alone Detail"></div>
+            <div class="gallery-item"><img src="images/persona/cover.gif" alt="Persona Animation"></div>
+            <div class="gallery-item"><img src="images/persona/01.jpg" alt="Persona Detail 01"></div>
+            <div class="gallery-item"><img src="images/persona/02.jpg" alt="Persona Detail 02"></div>
+            <div class="gallery-item"><img src="images/persona/03.jpg" alt="Persona Detail 03"></div>
+            <div class="gallery-item"><img src="images/persona/04.jpg" alt="Persona Detail 04"></div>
+            <div class="gallery-item"><img src="images/persona/05.jpg" alt="Persona Detail 05"></div>
+            <div class="gallery-item"><img src="images/persona/06.jpg" alt="Persona Detail 06"></div>
+            <div class="gallery-item"><img src="images/persona/07.jpg" alt="Persona Detail 07"></div>
         </div>
     </main>
 
         <!-- Project Navigation -->
         <nav class="project-navigation">
-            <a href="project-3.html" class="nav-link prev" data-preview="images/persona/cover.gif">
+            <a href="project-3.html" class="nav-link prev" data-preview="images/backgammon/01.png">
                 <span class="nav-label">Previous Project</span>
-                <span class="nav-title">Persona</span>
+                <span class="nav-title">Backgammon Board</span>
             </a>
-            <a href="project-5.html" class="nav-link next" data-preview="images/saline/01.jpg">
+            <a href="project-5.html" class="nav-link next" data-preview="images/sugo/1.jpg">
                 <span class="nav-label">Next Project</span>
-                <span class="nav-title">Saline</span>
+                <span class="nav-title">Not Alone</span>
             </a>
         </nav>
 
@@ -163,6 +152,7 @@
     <script>
         const overlay = document.getElementById('lightbox');
         const lbContent = document.getElementById('lightbox-content');
+
         document.querySelectorAll('.gallery-item').forEach(item => {
             item.addEventListener('click', () => {
                 const imgSource = item.querySelector('img').src;
@@ -176,13 +166,18 @@
                 document.body.style.overflow = 'hidden';
             });
         });
-        function closeLightbox(e) { if (e.target === overlay) closeLightboxBtn(); }
+
+        function closeLightbox(e) {
+            if (e.target === overlay) { closeLightboxBtn(); }
+        }
         function closeLightboxBtn() {
             overlay.classList.remove('active');
             document.body.style.overflow = '';
             lbContent.innerHTML = '';
         }
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightboxBtn(); });
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') closeLightboxBtn();
+        });
 
         // Mobile Menu Toggle
         const trigger = document.getElementById('menu-trigger');

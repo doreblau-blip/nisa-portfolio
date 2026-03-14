@@ -11,14 +11,13 @@
     <meta charset="UTF-8">
     <meta name="color-scheme" content="light only">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Persona | Nisa Alkan</title>
+    <title>Backgammon Board | Nisa Alkan</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css?v=1773999888">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <!-- Internal styles removed as they are now in style.css -->
 </head>
 <body>
 <div id="page-loader"><div class="loader-bar-wrap"><div class="loader-bar"></div></div></div>
@@ -27,7 +26,6 @@
             }
         })();
     </script>
-    <!-- Navigation Bar -->
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-left">
@@ -68,28 +66,31 @@
         <!-- Editorial header -->
         <div class="project-header" id="project-header">
             <div class="project-header-top">
-                <h1 class="project-title" id="p-title">Persona</h1>
+                <h1 class="project-title" id="p-title">Backgammon Board</h1>
                 <div class="project-meta">
                     <span id="p-year">2026</span>
                     <span class="meta-divider"></span>
-                    <span id="p-role">Book Cover Design</span>
+                    <span id="p-role">Backgammon Design</span>
                 </div>
             </div>
             <div class="project-header-divider"></div><div class="project-header-bottom"><p class="project-description" id="p-desc">
-                A personal conceptual magazine project. Not a real publication, but a fictional editorial exploring identity, memory, and art direction. Combines collage, typography, and cinematic composition to examine the reconstruction of the “persona” concept.
+                Backgammon Notebook approaches backgammon through paper as the primary material. The entire set, including the board, cover, pieces, and even the dice, is made from paper. While the checkers are extracted directly from the surface, the dice are produced through folding and hand assembly, reinforcing the material consistency of the object.
             </p></div>
         </div>
 
-        <!-- 3 Column Grid Static Colors -->
+        <!-- Gallery -->
         <div class="project-gallery" id="project-gallery">
-            <div class="gallery-item"><img src="images/persona/cover.gif" alt="Persona Animation"></div>
-            <div class="gallery-item"><img src="images/persona/01.jpg" alt="Persona Detail 01"></div>
-            <div class="gallery-item"><img src="images/persona/02.jpg" alt="Persona Detail 02"></div>
-            <div class="gallery-item"><img src="images/persona/03.jpg" alt="Persona Detail 03"></div>
-            <div class="gallery-item"><img src="images/persona/04.jpg" alt="Persona Detail 04"></div>
-            <div class="gallery-item"><img src="images/persona/05.jpg" alt="Persona Detail 05"></div>
-            <div class="gallery-item"><img src="images/persona/06.jpg" alt="Persona Detail 06"></div>
-            <div class="gallery-item"><img src="images/persona/07.jpg" alt="Persona Detail 07"></div>
+            <div class="gallery-item"><img src="images/backgammon/01.png" alt="Backgammon 01"></div>
+            <div class="gallery-item"><img src="images/backgammon/02.jpg" alt="Backgammon 02"></div>
+            <div class="gallery-item"><img src="images/backgammon/03.png" alt="Backgammon 03"></div>
+            <div class="gallery-item"><img src="images/backgammon/04.png" alt="Backgammon 04"></div>
+            <div class="gallery-item"><img src="images/backgammon/05.png" alt="Backgammon 05"></div>
+            <div class="gallery-item"><img src="images/backgammon/06.png" alt="Backgammon 06"></div>
+            <div class="gallery-item"><img src="images/backgammon/07.png" alt="Backgammon 07"></div>
+            <div class="gallery-item"><img src="images/backgammon/08.jpg" alt="Backgammon 08"></div>
+            <div class="gallery-item"><img src="images/backgammon/09.png" alt="Backgammon 09"></div>
+            <div class="gallery-item"><img src="images/backgammon/10.png" alt="Backgammon 10"></div>
+            <div class="gallery-item"><img src="images/backgammon/11.png" alt="Backgammon 11"></div>
         </div>
     </main>
 
@@ -99,12 +100,11 @@
                 <span class="nav-label">Previous Project</span>
                 <span class="nav-title">Lootie IP Design</span>
             </a>
-            <a href="project-4.html" class="nav-link next" data-preview="images/sugo/1.jpg">
+            <a href="project-4.html" class="nav-link next" data-preview="images/persona/cover.gif">
                 <span class="nav-label">Next Project</span>
-                <span class="nav-title">Not Alone</span>
+                <span class="nav-title">Persona</span>
             </a>
         </nav>
-
 
     <!-- Lightbox -->
     <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox(event)">
@@ -129,23 +129,16 @@
             </a>
         </div>
         <div class="footer-right">
-
-
             <a href="mailto:hello@doreblau.com" class="footer-email">hello@doreblau.com</a>
         </div>
         <!-- Mobile layout -->
         <div class="footer-top">
             <a href="mailto:hello@doreblau.com" class="footer-email">hello@doreblau.com</a>
         </div>
-
-
         <div class="footer-bottom">
             <span style="display:block;">&copy; 2026 Nisa Alkan. All Rights Reserved.</span>
         </div>
     </footer>
-
-    
-     
 
     <!-- Custom Cursor -->
     <script src="./cursor.js?v=1773365975"></script>
@@ -161,7 +154,6 @@
                 img.className = 'lightbox-img';
                 img.src = imgSource;
                 lbContent.appendChild(img);
-                
                 overlay.classList.add('active');
                 document.body.style.overflow = 'hidden';
             });
@@ -179,22 +171,17 @@
             if (e.key === 'Escape') closeLightboxBtn();
         });
 
-        // Mobile Menu Toggle
         const trigger = document.getElementById('menu-trigger');
         const menu = document.getElementById('mobile-menu');
-        
         trigger.addEventListener('click', () => {
             menu.classList.add('active');
             document.body.classList.add('menu-open');
         });
-
         const closeBtn = document.getElementById('menu-close');
         closeBtn.addEventListener('click', () => {
             menu.classList.remove('active');
             document.body.classList.remove('menu-open');
         });
-
-        // Close menu on link click
         document.querySelectorAll('.mobile-nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 trigger.classList.remove('active');
