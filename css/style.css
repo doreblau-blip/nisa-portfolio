@@ -1778,6 +1778,79 @@ body.menu-open {
 
 
 
+/* ── PROJECT LIST NAV ── */
+.project-list-nav {
+    width: 100%;
+    margin-top: 10vw;
+    border-top: 1px solid rgba(0,0,0,0.07);
+    padding: 3.5vw 4vw 4vw;
+}
+
+.project-list-nav-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    row-gap: 10px;
+}
+
+.project-list-nav-inner .pn-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    white-space: nowrap;
+    font-size: 0.72rem;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    color: #111;
+    opacity: 0.38;
+    font-weight: 400;
+    transition: opacity 0.2s ease;
+    position: relative;
+}
+
+.project-list-nav-inner .pn-item::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #111;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+}
+
+.project-list-nav-inner .pn-item:hover { opacity: 0.75; }
+.project-list-nav-inner .pn-item:hover::after { transform: scaleX(1); }
+
+.project-list-nav-inner .pn-item.active {
+    opacity: 1;
+    font-weight: 700;
+    pointer-events: none;
+}
+
+.project-list-nav-inner .pn-bullet {
+    display: inline-block;
+    margin: 0 8px;
+    opacity: 0.25;
+    font-size: 0.6rem;
+    color: #111;
+    user-select: none;
+}
+
+@media (max-width: 768px) {
+    .project-list-nav {
+        margin-top: 15vw;
+        padding: 6vw 5vw 7vw;
+    }
+    .project-list-nav-inner .pn-item {
+        font-size: 0.68rem;
+    }
+}
+
 .settings-panel {
     position: fixed;
     top: 50%;
