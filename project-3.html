@@ -87,8 +87,8 @@
             <div class="notebook-panel-header">
                 <div class="notebook-panel-tabs" id="nbTabs">
                     <button class="nb-tab active" id="nbTabBook" onclick="showNbBook()">Notebook</button>
-                    <button class="nb-tab" id="nbTabExt" onclick="showNbSpread('exterior')">Outer Surface</button>
-                    <button class="nb-tab" id="nbTabInt" onclick="showNbSpread('interior')">Inner Surface</button>
+                    <button class="nb-tab" id="nbTabExt" onclick="showNbSpread('exterior')">Outer</button>
+                    <button class="nb-tab" id="nbTabInt" onclick="showNbSpread('interior')">Inner</button>
                 </div>
                 <span class="nb-hint" id="nbHint">Drag to rotate</span>
             </div>
@@ -313,6 +313,7 @@
         .nb-fold.hidden { display: none; }
 
         @media (max-width: 600px) {
+            .nb-hint { display: none; }
             .nb-book { width: 180px; height: 262px; }
             .nb-front, .nb-back { width:180px; height:262px; }
             .nb-spine { height:262px; }
