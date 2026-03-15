@@ -427,25 +427,28 @@
             const spreadView = document.getElementById('nbSpreadView');
             const img = document.getElementById('nbSpreadImg');
 
-            // If spread already visible → animate out then in
+            function playIn() {
+                img.classList.remove('anim-out', 'anim-in');
+                img.src = newSrc;
+                fold.classList.toggle('hidden', type !== 'interior');
+                void img.offsetWidth;
+                img.classList.add('anim-in');
+                img.addEventListener('animationend', () => img.classList.remove('anim-in'), { once: true });
+            }
+
             if (!spreadView.classList.contains('hidden')) {
                 img.classList.remove('anim-in');
+                void img.offsetWidth;
                 img.classList.add('anim-out');
-                setTimeout(() => {
-                    img.src = newSrc;
+                img.addEventListener('animationend', () => {
                     img.classList.remove('anim-out');
-                    img.classList.add('anim-in');
-                    fold.classList.toggle('hidden', type !== 'interior');
-                }, 220);
+                    playIn();
+                }, { once: true });
             } else {
-                // First time showing spread
-                img.src = newSrc;
-                img.classList.remove('anim-out');
-                img.classList.add('anim-in');
-                fold.classList.toggle('hidden', type !== 'interior');
                 document.getElementById('nbBookView').classList.add('hidden');
                 spreadView.classList.remove('hidden');
                 document.getElementById('nbHint').classList.add('invisible');
+                playIn();
             }
 
             setActiveTab(type === 'exterior' ? 'nbTabExt' : 'nbTabInt');
