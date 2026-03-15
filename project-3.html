@@ -78,8 +78,48 @@
             </p></div>
         </div>
 
+        <!-- ── Interactive Notebook Panel ── -->
+        <div class="notebook-panel">
+            <div class="notebook-panel-header">
+                <div class="notebook-panel-tabs" id="nbTabs">
+                    <button class="nb-tab active" id="nbTabBook" onclick="showNbBook()">Notebook</button>
+                    <button class="nb-tab" id="nbTabExt" onclick="showNbSpread('exterior')">Outer Surface</button>
+                    <button class="nb-tab" id="nbTabInt" onclick="showNbSpread('interior')">Inner Surface</button>
+                </div>
+                <span class="nb-hint" id="nbHint">Drag to rotate</span>
+            </div>
+
+            <!-- 3D Book View -->
+            <div class="nb-view nb-book-view" id="nbBookView">
+                <div class="nb-book-inner">
+                    <div class="nb-scene">
+                        <div class="nb-book" id="nbBook">
+                            <div class="nb-face nb-front"><img src="backgammon-3d/cover-front.png" draggable="false" alt=""></div>
+                            <div class="nb-face nb-back"><img src="backgammon-3d/cover-back.png" draggable="false" alt=""></div>
+                            <div class="nb-face nb-spine"></div>
+                            <div class="nb-face nb-right"></div>
+                            <div class="nb-face nb-top"></div>
+                            <div class="nb-face nb-bottom"></div>
+                        </div>
+                    </div>
+                    <div class="nb-side-nav">
+                        <div class="nb-side-item active" id="nbSideFront" onclick="showNbCover('front')">Front</div>
+                        <div class="nb-side-item" id="nbSideBack" onclick="showNbCover('back')">Back</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spread View -->
+            <div class="nb-view nb-spread-view hidden" id="nbSpreadView">
+                <div class="nb-spread-wrap">
+                    <img id="nbSpreadImg" src="backgammon-3d/open.png" alt="">
+                    <div class="nb-fold" id="nbFold"></div>
+                </div>
+            </div>
+        </div>
+
         <!-- Gallery -->
-        <div class="project-gallery" id="project-gallery">
+        <div class="project-gallery" id="project-gallery" style="margin-top: 80px;">
             <div class="gallery-item"><img src="images/backgammon/01.png" alt="Backgammon 01"></div>
             <div class="gallery-item"><img src="images/backgammon/02.jpg" alt="Backgammon 02"></div>
             <div class="gallery-item"><img src="images/backgammon/03.png" alt="Backgammon 03"></div>
@@ -93,6 +133,323 @@
             <div class="gallery-item"><img src="images/backgammon/11.png" alt="Backgammon 11"></div>
         </div>
     </main>
+
+    <style>
+        .notebook-panel {
+            margin: 80px 0 0;
+            border: 1px solid rgba(0,0,0,0.12);
+        }
+
+        .notebook-panel-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 22px;
+            border-bottom: 1px solid rgba(0,0,0,0.10);
+        }
+
+        .notebook-panel-tabs { display: flex; gap: 6px; }
+
+        .nb-tab {
+            font-family: 'Syne', sans-serif;
+            font-size: 9px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            padding: 7px 16px;
+            background: transparent;
+            border: 1px solid rgba(0,0,0,0.18);
+            color: rgba(0,0,0,0.45);
+            cursor: pointer;
+            transition: background 0.18s, color 0.18s, border-color 0.18s;
+        }
+        .nb-tab:hover { color: #111; border-color: rgba(0,0,0,0.4); }
+        .nb-tab.active { background: #111; color: #fff; border-color: #111; }
+
+        .nb-hint {
+            font-family: 'Syne', sans-serif;
+            font-size: 9px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(0,0,0,0.25);
+            transition: opacity 0.3s;
+        }
+        .nb-hint.invisible { opacity: 0; pointer-events: none; }
+
+        /* Views */
+        .nb-view { display: flex; align-items: center; justify-content: center; padding: 52px 24px; }
+        .nb-view.hidden { display: none; }
+
+        /* 3D Book */
+        .nb-scene {
+            perspective: 1400px;
+            perspective-origin: 50% 45%;
+            user-select: none;
+        }
+        .nb-book {
+            width: 248px;
+            height: 360px;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateX(-6deg) rotateY(28deg);
+            cursor: grab;
+            will-change: transform;
+        }
+        .nb-book:active { cursor: grabbing; }
+        .nb-face { position: absolute; overflow: hidden; }
+        .nb-front { width:248px; height:360px; top:0; left:0; transform:translateZ(4px); }
+        .nb-back  { width:248px; height:360px; top:0; left:0; transform:rotateY(180deg) translateZ(4px); }
+        .nb-spine  { width:8px; height:360px; top:0; left:-4px; transform-origin:50% 50%; transform:rotateY(-90deg); background:linear-gradient(to right,#1a1050,#2d1f6e); }
+        .nb-right  { width:8px; height:360px; top:0; left:244px; transform-origin:50% 50%; transform:rotateY(90deg); background:#261a60; }
+        .nb-top    { width:248px; height:8px; top:-4px; left:0; transform-origin:50% 50%; transform:rotateX(90deg); background:#261a60; }
+        .nb-bottom { width:248px; height:8px; top:356px; left:0; transform-origin:50% 50%; transform:rotateX(-90deg); background:#261a60; }
+        .nb-face img { width:100%; height:100%; object-fit:fill; display:block; -webkit-user-drag:none; pointer-events:none; }
+
+        /* Spread */
+        .nb-spread-wrap {
+            position: relative;
+            max-width: 100%;
+            line-height: 0;
+            display: inline-block;
+            overflow: hidden;
+        }
+        .nb-spread-wrap img {
+            width: 100%;
+            max-width: 680px;
+            height: auto;
+            display: block;
+            transform: scale(1.0);
+        }
+
+        @keyframes nbZoomOut {
+            from { transform: scale(1);   opacity: 1; }
+            to   { transform: scale(0.88); opacity: 0; }
+        }
+        @keyframes nbZoomIn {
+            from { transform: scale(1.12); opacity: 0; }
+            to   { transform: scale(1);   opacity: 1; }
+        }
+        .nb-spread-wrap img.anim-out {
+            animation: nbZoomOut 0.22s cubic-bezier(0.4,0,1,1) forwards;
+        }
+        .nb-spread-wrap img.anim-in {
+            animation: nbZoomIn 0.38s cubic-bezier(0,0,0.2,1) forwards;
+        }
+        .nb-book-inner {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            position: relative;
+            justify-content: center;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .nb-face img {
+            pointer-events: none;
+            -webkit-user-drag: none;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .nb-side-nav {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            position: absolute;
+            right: 0;
+        }
+
+        .nb-side-item {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #000;
+            opacity: 0.35;
+            cursor: pointer;
+            padding: 9px 0;
+            text-align: right;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+        .nb-side-item::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            right: 0;
+            width: 0;
+            height: 1px;
+            background: #000;
+            transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .nb-side-item:hover,
+        .nb-side-item.active {
+            opacity: 1;
+            transform: translateX(-8px);
+        }
+        .nb-side-item:hover::after,
+        .nb-side-item.active::after {
+            width: 100%;
+        }
+
+        .nb-fold {
+            position: absolute;
+            left: calc(50% - 5px);
+            top: 0; width: 10px; height: 100%;
+            background: linear-gradient(to right,
+                transparent 0%,
+                rgba(0,0,0,0.12) 40%,
+                rgba(0,0,0,0.22) 50%,
+                rgba(0,0,0,0.12) 60%,
+                transparent 100%
+            );
+            mix-blend-mode: multiply;
+            pointer-events: none;
+        }
+        .nb-fold.hidden { display: none; }
+
+        @media (max-width: 600px) {
+            .nb-book { width: 180px; height: 262px; }
+            .nb-front, .nb-back { width:180px; height:262px; }
+            .nb-spine { height:262px; }
+            .nb-right { height:262px; left:172px; }
+            .nb-top { width:180px; }
+            .nb-bottom { width:180px; top:254px; }
+        }
+    </style>
+
+    <script>
+        /* ── Notebook 3D Book ── */
+        let rotX = -6, rotY = 28;
+        let dragging = false, lastX = 0, lastY = 0;
+        let velX = 0, velY = 0;
+        let rafId = null, autoId = null, idleTimer = null;
+
+        (function() {
+            const book = document.getElementById('nbBook');
+
+            function apply() { book.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`; }
+
+            function autoRotate() { rotY += 0.28; apply(); autoId = requestAnimationFrame(autoRotate); }
+            window.startAuto = function() { if (!autoId) autoId = requestAnimationFrame(autoRotate); };
+            window.stopAuto  = function() { cancelAnimationFrame(autoId); autoId = null; };
+
+            function inertia() {
+                velX *= 0.91; velY *= 0.91;
+                rotY += velX; rotX -= velY;
+                rotX = Math.max(-35, Math.min(35, rotX));
+                apply();
+                if (Math.abs(velX) > 0.04 || Math.abs(velY) > 0.04) { rafId = requestAnimationFrame(inertia); }
+                else { idleTimer = setTimeout(startAuto, 1200); }
+            }
+
+            startAuto();
+
+            book.addEventListener('mousedown', e => {
+                e.preventDefault();
+                dragging = true; lastX = e.clientX; lastY = e.clientY;
+                velX = velY = 0; stopAuto(); cancelAnimationFrame(rafId); clearTimeout(idleTimer);
+                book.style.transition = 'none';
+            });
+            document.addEventListener('mousemove', e => {
+                if (!dragging) return;
+                const dx = e.clientX - lastX, dy = e.clientY - lastY;
+                velX = dx * 0.45; velY = dy * 0.3;
+                rotY += velX; rotX -= velY;
+                rotX = Math.max(-35, Math.min(35, rotX));
+                apply(); lastX = e.clientX; lastY = e.clientY;
+            });
+            document.addEventListener('mouseup', () => {
+                if (!dragging) return; dragging = false; rafId = requestAnimationFrame(inertia);
+            });
+            book.addEventListener('touchstart', e => {
+                const t = e.touches[0]; dragging = true; lastX = t.clientX; lastY = t.clientY;
+                velX = velY = 0; stopAuto(); cancelAnimationFrame(rafId); clearTimeout(idleTimer);
+            }, { passive: true });
+            document.addEventListener('touchmove', e => {
+                if (!dragging) return;
+                const t = e.touches[0], dx = t.clientX - lastX, dy = t.clientY - lastY;
+                velX = dx * 0.45; velY = dy * 0.3;
+                rotY += velX; rotX -= velY; rotX = Math.max(-35, Math.min(35, rotX));
+                apply(); lastX = t.clientX; lastY = t.clientY;
+            }, { passive: true });
+            document.addEventListener('touchend', () => {
+                if (!dragging) return; dragging = false; rafId = requestAnimationFrame(inertia);
+            });
+        })();
+
+        /* ── Tab switching ── */
+        function showNbCover(side) {
+            const book = document.getElementById('nbBook');
+            stopAuto();
+            clearTimeout(idleTimer);
+            cancelAnimationFrame(rafId);
+
+            const targetY = side === 'back' ? 180 : 0;
+            let diff = targetY - (rotY % 360);
+            if (diff > 180) diff -= 360;
+            if (diff < -180) diff += 360;
+
+            const startRotY = rotY;
+            const startRotX = rotX;
+            const startTime = performance.now();
+            const duration = 650;
+
+            function animate(now) {
+                const t = Math.min((now - startTime) / duration, 1);
+                const ease = t < 0.5 ? 2*t*t : -1+(4-2*t)*t;
+                rotY = startRotY + diff * ease;
+                rotX = startRotX + (-6 - startRotX) * ease;
+                book.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+                if (t < 1) { rafId = requestAnimationFrame(animate); }
+                else { idleTimer = setTimeout(startAuto, 1800); }
+            }
+            rafId = requestAnimationFrame(animate);
+
+            document.getElementById('nbSideFront').classList.toggle('active', side === 'front');
+            document.getElementById('nbSideBack').classList.toggle('active', side === 'back');
+        }
+
+        function showNbBook() {
+            document.getElementById('nbBookView').classList.remove('hidden');
+            document.getElementById('nbSpreadView').classList.add('hidden');
+            document.getElementById('nbHint').classList.remove('invisible');
+            setActiveTab('nbTabBook');
+        }
+        function showNbSpread(type) {
+            const newSrc = type === 'exterior' ? 'backgammon-3d/open.png' : 'backgammon-3d/interior.png';
+            const fold = document.getElementById('nbFold');
+            const spreadView = document.getElementById('nbSpreadView');
+            const img = document.getElementById('nbSpreadImg');
+
+            // If spread already visible → animate out then in
+            if (!spreadView.classList.contains('hidden')) {
+                img.classList.remove('anim-in');
+                img.classList.add('anim-out');
+                setTimeout(() => {
+                    img.src = newSrc;
+                    img.classList.remove('anim-out');
+                    img.classList.add('anim-in');
+                    fold.classList.toggle('hidden', type !== 'interior');
+                }, 220);
+            } else {
+                // First time showing spread
+                img.src = newSrc;
+                img.classList.remove('anim-out');
+                img.classList.add('anim-in');
+                fold.classList.toggle('hidden', type !== 'interior');
+                document.getElementById('nbBookView').classList.add('hidden');
+                spreadView.classList.remove('hidden');
+                document.getElementById('nbHint').classList.add('invisible');
+            }
+
+            setActiveTab(type === 'exterior' ? 'nbTabExt' : 'nbTabInt');
+        }
+        function setActiveTab(id) {
+            ['nbTabBook','nbTabExt','nbTabInt'].forEach(t => document.getElementById(t).classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+    </script>
 
         <!-- Project Navigation -->
         <nav class="project-navigation">

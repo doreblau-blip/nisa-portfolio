@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backgammon Notebook — 3D Book</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #f8f8f8;
+            font-family: 'Syne', sans-serif;
+            user-select: none;
+            overflow: hidden;
+            cursor: default;
+        }
+
+        .hint {
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(0,0,0,0.22);
+            margin-bottom: 52px;
+        }
+
+        .scene {
+            perspective: 1400px;
+            perspective-origin: 50% 45%;
+        }
+
+        /*
+         * W=330  H=480  D=16
+         * Image ratio: 963/1402 ≈ 0.687  →  330/480 ≈ 0.688  ✓
+         * Face centres:
+         *   Spine  : left = -(D/2) = -8,   width = D = 16
+         *   Right  : left = W-(D/2) = 322, width = D = 16
+         *   Top    : top  = -(D/2) = -8,   height = D = 16
+         *   Bottom : top  = H-(D/2) = 472, height = D = 16
+         */
+        .book {
+            width: 330px;
+            height: 480px;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateX(-6deg) rotateY(28deg);
+            cursor: grab;
+            will-change: transform;
+        }
+        .book:active { cursor: grabbing; }
+
+        .face {
+            position: absolute;
+            overflow: hidden;
+        }
+
+        /* Front  z = +8 */
+        .face-front {
+            width: 330px; height: 480px;
+            top: 0; left: 0;
+            transform: translateZ(8px);
+        }
+        .face-front img {
+            width: 100%; height: 100%;
+            object-fit: fill;
+            display: block;
+        }
+
+        /* Back  z = −8, facing backward */
+        .face-back {
+            width: 330px; height: 480px;
+            top: 0; left: 0;
+            transform: rotateY(180deg) translateZ(8px);
+        }
+        .face-back img {
+            width: 100%; height: 100%;
+            object-fit: fill;
+            display: block;
+        }
+
+        /* Spine — center at x=0, spans z ±8 */
+        .face-spine {
+            width: 16px; height: 480px;
+            top: 0; left: -8px;
+            transform-origin: 50% 50%;
+            transform: rotateY(-90deg);
+            background: linear-gradient(to right, #1a1050, #2d1f6e);
+        }
+
+        /* Right edge — center at x=330, spans z ±8 */
+        .face-right {
+            width: 16px; height: 480px;
+            top: 0; left: 322px;
+            transform-origin: 50% 50%;
+            transform: rotateY(90deg);
+            background: #261a60;
+        }
+
+        /* Top edge — center at y=0, spans z ±8 */
+        .face-top {
+            width: 330px; height: 16px;
+            top: -8px; left: 0;
+            transform-origin: 50% 50%;
+            transform: rotateX(90deg);
+            background: #261a60;
+        }
+
+        /* Bottom edge — center at y=480, spans z ±8 */
+        .face-bottom {
+            width: 330px; height: 16px;
+            top: 472px; left: 0;
+            transform-origin: 50% 50%;
+            transform: rotateX(-90deg);
+            background: #261a60;
+        }
+
+        .face img {
+            -webkit-user-drag: none;
+            -webkit-user-select: none;
+            pointer-events: none;
+        }
+
+        .back-link {
+            font-size: 10px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(0,0,0,0.35);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .back-link:hover { color: #212121; border-color: #212121; }
+    </style>
+</head>
+<body>
+
+    <div class="hint">Drag to rotate</div>
+
+    <div class="scene">
+        <div class="book" id="book">
+            <div class="face face-front">
+                <img src="backgammon-3d/cover-front.png" alt="Front Cover" draggable="false">
+            </div>
+            <div class="face face-back">
+                <img src="backgammon-3d/cover-back.png" alt="Back Cover" draggable="false">
+            </div>
+            <div class="face face-spine"></div>
+            <div class="face face-right"></div>
+            <div class="face face-top"></div>
+            <div class="face face-bottom"></div>
+        </div>
+    </div>
+
+    <a class="back-link" href="backgammon-3d-test.html">← Back</a>
+
+    <script>
+        const book = document.getElementById('book');
+        let rotX = -6, rotY = 28;
+        let dragging = false;
+        let lastX = 0, lastY = 0;
+        let velX = 0, velY = 0;
+        let rafId = null;
+        let autoId = null;
+        let idleTimer = null;
+
+        function applyTransform() {
+            book.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+        }
+
+        // Auto-rotate loop
+        function autoRotate() {
+            rotY += 0.3;
+            applyTransform();
+            autoId = requestAnimationFrame(autoRotate);
+        }
+
+        function startAuto() {
+            if (autoId) return;
+            autoId = requestAnimationFrame(autoRotate);
+        }
+
+        function stopAuto() {
+            cancelAnimationFrame(autoId);
+            autoId = null;
+        }
+
+        // Inertia after drag release
+        function inertia() {
+            velX *= 0.91;
+            velY *= 0.91;
+            rotY += velX;
+            rotX -= velY;
+            rotX = Math.max(-35, Math.min(35, rotX));
+            applyTransform();
+            if (Math.abs(velX) > 0.04 || Math.abs(velY) > 0.04) {
+                rafId = requestAnimationFrame(inertia);
+            } else {
+                // Resume auto-rotate after inertia dies
+                idleTimer = setTimeout(startAuto, 1200);
+            }
+        }
+
+        // Start auto on load
+        startAuto();
+
+        book.addEventListener('mousedown', e => {
+            dragging = true;
+            lastX = e.clientX;
+            lastY = e.clientY;
+            velX = velY = 0;
+            stopAuto();
+            cancelAnimationFrame(rafId);
+            clearTimeout(idleTimer);
+            book.style.transition = 'none';
+        });
+
+        document.addEventListener('mousemove', e => {
+            if (!dragging) return;
+            const dx = e.clientX - lastX;
+            const dy = e.clientY - lastY;
+            velX = dx * 0.45;
+            velY = dy * 0.3;
+            rotY += velX;
+            rotX -= velY;
+            rotX = Math.max(-35, Math.min(35, rotX));
+            applyTransform();
+            lastX = e.clientX;
+            lastY = e.clientY;
+        });
+
+        document.addEventListener('mouseup', () => {
+            if (!dragging) return;
+            dragging = false;
+            rafId = requestAnimationFrame(inertia);
+        });
+
+        book.addEventListener('touchstart', e => {
+            const t = e.touches[0];
+            dragging = true;
+            lastX = t.clientX; lastY = t.clientY;
+            velX = velY = 0;
+            stopAuto();
+            cancelAnimationFrame(rafId);
+            clearTimeout(idleTimer);
+        }, { passive: true });
+
+        document.addEventListener('touchmove', e => {
+            if (!dragging) return;
+            const t = e.touches[0];
+            const dx = t.clientX - lastX;
+            const dy = t.clientY - lastY;
+            velX = dx * 0.45; velY = dy * 0.3;
+            rotY += velX; rotX -= velY;
+            rotX = Math.max(-35, Math.min(35, rotX));
+            applyTransform();
+            lastX = t.clientX; lastY = t.clientY;
+        }, { passive: true });
+
+        document.addEventListener('touchend', () => {
+            if (!dragging) return;
+            dragging = false;
+            rafId = requestAnimationFrame(inertia);
+        });
+    </script>
+
+</body>
+</html>
