@@ -32,7 +32,7 @@
             padding: 0;
             overflow-x: hidden;
             overflow-y: auto;
-            min-height: 100vh;
+            min-height: calc(var(--vh, 1vh) * 100);
             width: 100vw;
             display: flex;
             flex-direction: column;
@@ -44,7 +44,7 @@
         @media (min-width: 769px) {
             body {
                 overflow-y: scroll;
-                min-height: 110vh;
+                min-height: calc(var(--vh, 1vh) * 110);
             }
         }
 
@@ -517,6 +517,13 @@
         if(close) close.onclick = () => menu.classList.remove('active');
     </script>
 <script src="./loader.js"></script>
+<script>
+    function setVH() {
+        document.documentElement.style.setProperty('--vh', window.innerHeight * 0.01 + 'px');
+    }
+    setVH();
+    window.addEventListener('resize', setVH);
+</script>
 
 </body>
 </html>
