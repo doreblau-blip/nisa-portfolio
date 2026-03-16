@@ -1784,15 +1784,15 @@ body.menu-open {
     margin-top: 10vw;
     border-top: 1px solid rgba(0,0,0,0.07);
     padding: 3.5vw 4vw 4vw;
+    overflow-x: auto;
 }
 
 .project-list-nav-inner {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
     gap: 0;
-    row-gap: 10px;
 }
 
 .project-list-nav-inner .pn-item {
@@ -1845,6 +1845,12 @@ body.menu-open {
     .project-list-nav {
         margin-top: 15vw;
         padding: 6vw 5vw 7vw;
+        overflow-x: visible;
+    }
+    .project-list-nav-inner {
+        flex-wrap: wrap;
+        justify-content: center;
+        row-gap: 10px;
     }
     .project-list-nav-inner .pn-item {
         font-size: 0.68rem;
