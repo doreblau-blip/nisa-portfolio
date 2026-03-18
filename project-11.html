@@ -17,6 +17,47 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css?v=1773999888">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <style>
+        .interia-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-auto-rows: 32vw;
+            gap: 10px;
+        }
+        .interia-grid .gi {
+            overflow: hidden;
+            border-radius: 4px;
+            cursor: pointer;
+            position: relative;
+            background: #e0e0e0;
+        }
+        .interia-grid .gi img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .interia-grid .gi:hover img { transform: scale(1.04); }
+        .interia-grid .gi-8  { grid-column: span 8; }
+        .interia-grid .gi-4  { grid-column: span 4; }
+        .interia-grid .gi-6  { grid-column: span 6; }
+        .interia-grid .gi-12 { grid-column: span 12; grid-auto-rows: 26vw; }
+        .interia-grid .gi-full { grid-column: span 12; height: 26vw; }
+        @media (max-width: 768px) {
+            .interia-grid {
+                grid-template-columns: 1fr;
+                grid-auto-rows: 70vw;
+            }
+            .interia-grid .gi-8,
+            .interia-grid .gi-4,
+            .interia-grid .gi-6,
+            .interia-grid .gi-full {
+                grid-column: span 1;
+                height: auto;
+            }
+        }
+    </style>
 </head>
 <body>
 <div id="page-loader"><div class="loader-bar-wrap"><div class="loader-bar"></div></div></div>
@@ -74,24 +115,33 @@
             </div>
         </div>
 
-        <div class="project-gallery" id="project-gallery">
-            <div class="gallery-item"><img src="images/interia/01.jpg" alt="Interia 01"></div>
-            <div class="gallery-item"><img src="images/interia/02.jpg" alt="Interia 02"></div>
-            <div class="gallery-item"><img src="images/interia/1.jpg" alt="Interia 1"></div>
-            <div class="gallery-item"><img src="images/interia/2.jpg" alt="Interia 2"></div>
-            <div class="gallery-item"><img src="images/interia/3.jpg" alt="Interia 3"></div>
-            <div class="gallery-item"><img src="images/interia/carrousel-2.jpg" alt="Interia Carrousel"></div>
-            <div class="gallery-item"><img src="images/interia/kitchenaid.jpg" alt="Interia KitchenAid"></div>
-            <div class="gallery-item"><img src="images/interia/mackenzie.jpg" alt="Interia Mackenzie"></div>
-            <div class="gallery-item"><img src="images/interia/mackenzie-(1).jpg" alt="Interia Mackenzie 2"></div>
-            <div class="gallery-item"><img src="images/interia/pip.jpg" alt="Interia PIP"></div>
-            <div class="gallery-item"><img src="images/interia/pip-studio.jpg" alt="Interia PIP Studio"></div>
-            <div class="gallery-item"><img src="images/interia/post.jpg" alt="Interia Post"></div>
-            <div class="gallery-item"><img src="images/interia/smeg.jpg" alt="Interia SMEG"></div>
-            <div class="gallery-item"><img src="images/interia/smeg-2.jpg" alt="Interia SMEG 2"></div>
-            <div class="gallery-item"><img src="images/interia/staub-01.jpg" alt="Interia Staub"></div>
-            <div class="gallery-item"><img src="images/interia/interia_pip_kek-01.jpg" alt="Interia PIP KEK"></div>
-            <div class="gallery-item"><img src="images/interia/pasabahce_vazo-01.jpg" alt="Interia Paşabahçe Vazo"></div>
+        <div class="interia-grid" id="project-gallery">
+            <!-- Row 1: büyük sol (2/3) + küçük sağ (1/3) -->
+            <div class="gi gi-8"><img src="images/interia/01.jpg" alt="Interia 01"></div>
+            <div class="gi gi-4"><img src="images/interia/pip.jpg" alt="Interia PIP"></div>
+            <!-- Row 2: küçük sol (1/3) + büyük sağ (2/3) -->
+            <div class="gi gi-4"><img src="images/interia/smeg.jpg" alt="Interia SMEG"></div>
+            <div class="gi gi-8"><img src="images/interia/02.jpg" alt="Interia 02"></div>
+            <!-- Row 3: tam genişlik -->
+            <div class="gi gi-full"><img src="images/interia/carrousel-2.jpg" alt="Interia Carrousel"></div>
+            <!-- Row 4: üçe bölünmüş eşit -->
+            <div class="gi gi-4"><img src="images/interia/post.jpg" alt="Interia Post"></div>
+            <div class="gi gi-4"><img src="images/interia/kitchenaid.jpg" alt="Interia KitchenAid"></div>
+            <div class="gi gi-4"><img src="images/interia/3.jpg" alt="Interia 3"></div>
+            <!-- Row 5: tam genişlik -->
+            <div class="gi gi-full"><img src="images/interia/pip-studio.jpg" alt="Interia PIP Studio"></div>
+            <!-- Row 6: ikiye eşit bölünmüş -->
+            <div class="gi gi-6"><img src="images/interia/mackenzie.jpg" alt="Interia Mackenzie"></div>
+            <div class="gi gi-6"><img src="images/interia/mackenzie-(1).jpg" alt="Interia Mackenzie 2"></div>
+            <!-- Row 7: büyük sol (2/3) + küçük sağ (1/3) -->
+            <div class="gi gi-8"><img src="images/interia/smeg-2.jpg" alt="Interia SMEG 2"></div>
+            <div class="gi gi-4"><img src="images/interia/staub-01.jpg" alt="Interia Staub"></div>
+            <!-- Row 8: üçe bölünmüş eşit -->
+            <div class="gi gi-4"><img src="images/interia/interia_pip_kek-01.jpg" alt="Interia PIP KEK"></div>
+            <div class="gi gi-4"><img src="images/interia/pasabahce_vazo-01.jpg" alt="Interia Paşabahçe Vazo"></div>
+            <div class="gi gi-4"><img src="images/interia/1.jpg" alt="Interia 1"></div>
+            <!-- Row 9: tam genişlik -->
+            <div class="gi gi-full"><img src="images/interia/2.jpg" alt="Interia 2"></div>
         </div>
     </main>
 
@@ -152,7 +202,7 @@
         const overlay = document.getElementById('lightbox');
         const lbContent = document.getElementById('lightbox-content');
 
-        document.querySelectorAll('.gallery-item').forEach(item => {
+        document.querySelectorAll('.interia-grid .gi').forEach(item => {
             item.addEventListener('click', () => {
                 const imgSource = item.querySelector('img').src;
                 lbContent.innerHTML = '';
