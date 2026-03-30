@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="color-scheme" content="light only">
+    <meta name="color-scheme" content="dark only">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3D Box Showcase | Dobi | Nisa Alkan</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,8 +15,8 @@
             --box-w: 230px;
             --box-h: 306px;
             --box-d: 230px;
-            --text-color: #000000;
-            --bg-color: #ffffff;
+            --text-color: #e8e8e8;
+            --bg-color: #0f0f0f;
         }
 
         @media (max-width: 768px) {
@@ -36,8 +36,8 @@
             width: 100vw;
             display: flex;
             flex-direction: column;
-            background-color: #ffffff !important;
-            color: #000000 !important;
+            background-color: #0f0f0f !important;
+            color: #e8e8e8 !important;
             font-family: 'Syne', sans-serif;
         }
 
@@ -61,7 +61,7 @@
             justify-content: center;
             perspective: 2000px;
             cursor: grab;
-            background: radial-gradient(circle at center, rgba(0, 0, 0, 0.02) 0%, transparent 70%);
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.02) 0%, transparent 70%);
             z-index: 1;
         }
 
@@ -141,7 +141,7 @@
             font-weight: 700;
             letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: #000;
+            color: #e8e8e8;
             opacity: 0.4;
             cursor: pointer;
             padding: 10px 0;
@@ -156,7 +156,7 @@
             right: 0;
             width: 0;
             height: 1px;
-            background-color: #000;
+            background-color: #e8e8e8;
             transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .face-nav-item:hover, .face-nav-item.active {
@@ -186,7 +186,7 @@
             font-size: 0.8rem;
             font-weight: 700;
             text-decoration: none;
-            color: #000;
+            color: #e8e8e8;
             z-index: 10;
             display: flex;
             align-items: center;
@@ -204,7 +204,7 @@
             left: 0;
             width: 0;
             height: 1px;
-            background: #000;
+            background: #1a1a1a;
             transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
@@ -217,7 +217,7 @@
             font-size: 0.8rem;
             font-weight: 700;
             text-decoration: none;
-            color: #000;
+            color: #e8e8e8;
             z-index: 10;
             display: flex;
             align-items: center;
@@ -271,8 +271,8 @@
             }
             .face-nav-item.active {
                 background: #000 !important;
-                color: #fff;
-                border-color: #000;
+                color: #0f0f0f;
+                border-color: #e8e8e8;
                 opacity: 1;
                 transform: none;
             }
