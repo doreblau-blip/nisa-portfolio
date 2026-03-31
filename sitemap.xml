@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://doreblau.com/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image><image:loc>https://doreblau.com/images/tiktok/cover.jpg</image:loc><image:title>Doreblau TikTok Visual Design</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/lootie/01.jpg</image:loc><image:title>Doreblau Lootie IP Design Packaging</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/backgammon/10.jpg</image:loc><image:title>Doreblau Backgammon Board Packaging Design</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/saline/01.jpg</image:loc><image:title>Doreblau Saline Branding Packaging</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/dore-typeface/Cover.jpg</image:loc><image:title>Doreblau Dore Typeface Design</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/interia/cover.jpg</image:loc><image:title>Doreblau Interia Lifestyle Visual Design</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/sehinshah/1.gif</image:loc><image:title>Doreblau Sehinshah Stage Visuals Art Direction</image:title></image:image>
+  </url>
+  <url><loc>https://doreblau.com/project-1.html</loc><priority>0.8</priority></url>
+  <url><loc>https://doreblau.com/project-2.html</loc><priority>0.8</priority></url>
+  <url><loc>https://doreblau.com/project-3.html</loc><priority>0.8</priority></url>
+  <url><loc>https://doreblau.com/project-4.html</loc><priority>0.8</priority></url>
+  <url><loc>https://doreblau.com/project-5.html</loc><priority>0.8</priority></url>
+  <url><loc>https://doreblau.com/project-6.html</loc><priority>0.8</priority></url>
+  <url><loc>https://doreblau.com/project-7.html</loc><priority>0.8</priority></url>
+  <url><loc>https://doreblau.com/project-8.html</loc><priority>0.8</priority></url>
+  <url><loc>https://doreblau.com/project-9.html</loc><priority>0.8</priority></url>
+  <url><loc>https://doreblau.com/project-10.html</loc><priority>0.8</priority></url>
+  <url><loc>https://doreblau.com/project-11.html</loc><priority>0.8</priority></url>
+  <url><loc>https://doreblau.com/project-12.html</loc><priority>0.8</priority></url>
+  <url><loc>https://doreblau.com/about.html</loc><priority>0.6</priority></url>
+  <url><loc>https://doreblau.com/contact.html</loc><priority>0.6</priority></url>
+</urlset>
