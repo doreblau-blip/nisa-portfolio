@@ -14,21 +14,20 @@
 }
 
 #page-loader .loader-bar-wrap {
-    width: 60px;
-    height: 1px;
-    background: rgba(255,255,255,0.1);
-    overflow: hidden;
+    display: none;
 }
 
-#page-loader .loader-bar {
-    height: 100%;
-    width: 0;
-    background: #e8e8e8;
-    animation: loaderBar 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+#page-loader .loader {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
 }
 
-@keyframes loaderBar {
-    to { width: 100%; }
+@keyframes spin {
+    0%   { transform: rotate(0deg);   box-shadow: 0 -1px 0 rgba(255,255,255,0.4); }
+    50%  { transform: rotate(180deg); box-shadow: 0 -1px 0 rgba(255,255,255,0.4); }
+    100% { transform: rotate(360deg); box-shadow: 0 -1px 0 rgba(255,255,255,0.4); }
 }
 
 @font-face {
