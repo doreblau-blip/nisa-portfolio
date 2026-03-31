@@ -203,10 +203,19 @@ h6 {
     font-weight: 600;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    transition: var(--transition);
+    transition: color 0.3s ease, opacity 0.3s ease;
     display: inline-flex;
     align-items: center;
     gap: 4px;
+}
+
+/* Spotlight: dim all on hover */
+.nav-links:has(a:hover) a {
+    color: rgba(255,255,255,0.2);
+}
+
+.nav-links:has(a:hover) a:hover {
+    color: #e8e8e8;
 }
 
 /* Arrow indicator on desktop nav links */
