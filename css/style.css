@@ -236,9 +236,18 @@ h6 {
 
 
 
-/* Hide nav-arrow in mobile overlay */
+/* Mobile nav arrow - hidden by default, shows on hover */
 .mobile-nav-links .nav-arrow {
-    display: none;
+    display: inline-flex;
+    opacity: 0;
+    transform: translateX(-4px) translateY(2px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.mobile-nav-links a:hover .nav-arrow,
+.mobile-nav-links a.active .nav-arrow {
+    opacity: 0.6;
+    transform: translateX(0) translateY(1.5px);
 }
 
 .nav-links a::after {
