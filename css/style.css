@@ -460,7 +460,7 @@ h6 {
     padding: 10px 24px;
     background: transparent;
     color: #e8e8e8;
-    border: 1px solid rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255,255,255,0.25);
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -502,9 +502,9 @@ h6 {
 }
 
 .project-link-btn:hover {
-    background: #ffd1dc;
-    /* Soft Pastel Pink */
-    border-color: #ffd1dc;
+    background: #e8e8e8;
+    border-color: #e8e8e8;
+    color: #0f0f0f;
     transform: translateY(-2px);
 }
 
@@ -621,8 +621,9 @@ h6 {
 }
 
 .melis-header .project-link-btn:hover {
-    background: transparent;
+    background: #e8e8e8;
     border-color: #e8e8e8;
+    color: #0f0f0f;
 }
 
 .project-header-top,
@@ -2541,7 +2542,7 @@ body.menu-open {
 }
 
 .license-card {
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255,255,255,0.25);
     padding: 1.5rem;
     border-radius: 8px;
     cursor: pointer;
