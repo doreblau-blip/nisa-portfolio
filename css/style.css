@@ -506,6 +506,15 @@ h6 {
     transform-origin: bottom left;
 }
 
+.project-link-btn:active,
+.project-link-btn:focus,
+.project-link-btn:focus-visible {
+    background: transparent;
+    color: #e8e8e8;
+    border-color: rgba(255,255,255,0.25);
+    outline: none;
+}
+
 .project-link-btn:hover {
     background: #e8e8e8;
     border-color: #e8e8e8;
