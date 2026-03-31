@@ -234,21 +234,12 @@ h6 {
 }
 
 .nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0%;
-    height: 1px;
-    background-color: var(--text-color);
-    transition: var(--transition);
+    display: none;
 }
-
-
 
 .nav-links a:hover::after,
 .nav-links a.active::after {
-    width: 100%;
+    display: none;
 }
 
 
