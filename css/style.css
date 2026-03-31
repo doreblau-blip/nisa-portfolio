@@ -110,6 +110,10 @@ a {
     text-decoration: none;
 }
 
+a:visited {
+    color: inherit;
+}
+
 img {
     display: block;
     max-width: 100%;
