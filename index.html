@@ -9,7 +9,7 @@
     <meta property="og:url" content="https://nisaalkan.com">
 
     <meta charset="UTF-8">
-    <meta name="color-scheme" content="dark only">
+    <meta name="color-scheme" content="light only">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nisa Alkan | Art Director & Designer</title>
     <!-- Syne Font from Google Fonts -->
@@ -61,10 +61,36 @@
     </div>
 <!-- Main Content -->
     <main class="container">
+        <!-- Filter Bar -->
+        <div class="filter-bar-wrap">
+            <div class="radio-inputs" id="radioGroup">
+                <div class="slider-pill" id="pill"></div>
+                <label class="radio">
+                    <input type="radio" name="filter" value="all" checked>
+                    <span class="name">All</span>
+                </label>
+                <label class="radio">
+                    <input type="radio" name="filter" value="packaging">
+                    <span class="name">Packaging</span>
+                </label>
+                <label class="radio">
+                    <input type="radio" name="filter" value="typeface">
+                    <span class="name">Typeface</span>
+                </label>
+                <label class="radio">
+                    <input type="radio" name="filter" value="mixed-media">
+                    <span class="name">Mixed Media</span>
+                </label>
+                <label class="radio">
+                    <input type="radio" name="filter" value="branding">
+                    <span class="name">Branding</span>
+                </label>
+            </div>
+        </div>
         <!-- Work Grid -->
         <div class="work-grid">
             <!-- First Row (New Project 1 + Shuffled) -->
-            <a href="project-1.html" class="work-item grid-3" data-preview="images/tiktok/cover.jpg">
+            <a href="project-1.html" class="work-item grid-3" data-category="mixed-media" data-preview="images/tiktok/cover.jpg">
                 <div class="image-wrapper">
                     <img src="images/tiktok/Cover.png" alt="KafaKafaya TikTok" class="pos-top">
                 </div>
@@ -78,7 +104,7 @@
                     </div>
                 </div>
             </a>
-            <a href="project-2.html" class="work-item grid-3" data-preview="images/lootie/01.jpg">
+            <a href="project-2.html" class="work-item grid-3" data-category="packaging" data-preview="images/lootie/01.jpg">
                 <div class="image-wrapper">
                     <img src="images/lootie/cover.jpg" alt="Lootie IP Design">
                 </div>
@@ -92,9 +118,9 @@
                     </div>
                 </div>
             </a>
-            <a href="project-3.html" class="work-item grid-3" data-preview="images/backgammon/10.png">
+            <a href="project-3.html" class="work-item grid-3" data-category="packaging" data-preview="images/backgammon/10.jpg">
                 <div class="image-wrapper">
-                    <img src="images/backgammon/10.png" alt="Backgammon Board">
+                    <img src="images/backgammon/10.jpg" alt="Backgammon Board">
                 </div>
                 <div class="work-overlay">
                     <div class="work-info">
@@ -108,7 +134,7 @@
             </a>
             
             <!-- Second Row (4, 5, 6) -->
-            <a href="project-4.html" class="work-item grid-3" data-preview="images/persona/cover.gif">
+            <a href="project-4.html" class="work-item grid-3" data-category="other" data-preview="images/persona/cover.gif">
                 <div class="image-wrapper">
                     <img src="images/persona/cover.gif" alt="Persona Visual Identity">
                 </div>
@@ -122,7 +148,7 @@
                     </div>
                 </div>
             </a>
-            <a href="project-5.html" class="work-item grid-3" data-preview="images/sugo/1.jpg">
+            <a href="project-5.html" class="work-item grid-3" data-category="branding" data-preview="images/sugo/1.jpg">
                 <div class="image-wrapper">
                     <img src="images/sugo/cover.jpg" alt="Not Alone">
                 </div>
@@ -136,7 +162,7 @@
                     </div>
                 </div>
             </a>
-            <a href="project-6.html" class="work-item grid-3" data-preview="images/saline/01.jpg">
+            <a href="project-6.html" class="work-item grid-3" data-category="branding packaging" data-preview="images/saline/01.jpg">
                 <div class="image-wrapper">
                     <img src="images/saline/09.jpg" alt="Saline branding design">
                 </div>
@@ -150,7 +176,7 @@
                     </div>
                 </div>
             </a>
-            <a href="project-7.html" class="work-item grid-3" data-preview="images/dore-typeface/Cover.jpg">
+            <a href="project-7.html" class="work-item grid-3" data-category="typeface" data-preview="images/dore-typeface/Cover.jpg">
                 <div class="image-wrapper">
                     <img src="images/dore-typeface/Cover.jpg" alt="Dore Typeface design">
                 </div>
@@ -164,7 +190,7 @@
                     </div>
                 </div>
             </a>
-            <a href="project-8.html" class="work-item grid-3" data-preview="images/ira-typeface/header.gif">
+            <a href="project-8.html" class="work-item grid-3" data-category="typeface" data-preview="images/ira-typeface/header.gif">
                 <div class="image-wrapper">
                     <img src="images/ira-typeface/cover.gif" alt="Ira Typeface design">
                 </div>
@@ -178,7 +204,7 @@
                     </div>
                 </div>
             </a>
-            <a href="project-9.html" class="work-item grid-3" data-preview="images/melis-karaduman/melis-1.gif">
+            <a href="project-9.html" class="work-item grid-3" data-category="mixed-media" data-preview="images/melis-karaduman/melis-1.gif">
                 <div class="image-wrapper">
                     <img src="images/melis-karaduman/cover.gif" alt="Melis Karaduman">
                 </div>
@@ -192,7 +218,7 @@
                     </div>
                 </div>
             </a>
-            <a href="project-10.html" class="work-item grid-3" data-preview="images/dobi/cover.jpg">
+            <a href="project-10.html" class="work-item grid-3" data-category="packaging" data-preview="images/dobi/cover.jpg">
                 <div class="image-wrapper">
                     <img src="images/dobi/cover.jpg" alt="IP Design">
                 </div>
@@ -206,7 +232,7 @@
                     </div>
                 </div>
             </a>
-            <a href="project-11.html" class="work-item grid-3" data-preview="images/interia/cover.jpg">
+            <a href="project-11.html" class="work-item grid-3" data-category="other" data-preview="images/interia/cover.jpg">
                 <div class="image-wrapper">
                     <img src="images/interia/cover.jpg" alt="Interia">
                 </div>
@@ -220,7 +246,7 @@
                     </div>
                 </div>
             </a>
-            <a href="project-12.html" class="work-item grid-3" data-preview="images/sehinshah/1.gif">
+            <a href="project-12.html" class="work-item grid-3" data-category="mixed-media" data-preview="images/sehinshah/1.gif">
                 <div class="image-wrapper">
                     <img loading="lazy" src="images/sehinshah/1.gif" alt="Şehinşah Stage Visuals">
                 </div>
@@ -295,6 +321,93 @@
                 document.body.classList.remove('menu-open');
             });
         });
+    </script>
+    <script>
+        // Filter pill slider
+        const group = document.getElementById('radioGroup');
+        const pill = document.getElementById('pill');
+        if (group && pill) {
+            function movePill(label) {
+                const groupRect = group.getBoundingClientRect();
+                const labelRect = label.getBoundingClientRect();
+                pill.style.left = (labelRect.left - groupRect.left) + 'px';
+                pill.style.width = labelRect.width + 'px';
+            }
+            group.querySelectorAll('input[type="radio"]').forEach(radio => {
+                radio.addEventListener('change', () => {
+                    movePill(radio.closest('label'));
+                    const val = radio.value;
+                    const items = Array.from(document.querySelectorAll('.work-item'));
+                    const matchFn = item => val === 'all' || item.dataset.category.split(' ').includes(val);
+
+                    const toShow = items.filter(i => matchFn(i));
+                    const toHide = items.filter(i => !matchFn(i) && !i.classList.contains('is-hidden'));
+
+                    // Record positions of currently visible items
+                    const firstRects = new Map();
+                    toShow.forEach(item => {
+                        if (!item.classList.contains('is-hidden')) {
+                            firstRects.set(item, item.getBoundingClientRect());
+                        }
+                    });
+
+                    // Fade out items leaving
+                    toHide.forEach(item => {
+                        item.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.96)';
+                    });
+
+                    setTimeout(() => {
+                        // Hide the leaving items
+                        toHide.forEach(item => {
+                            item.classList.add('is-hidden');
+                            item.style.transition = '';
+                            item.style.opacity = '';
+                            item.style.transform = '';
+                        });
+
+                        // Show arriving items (still invisible)
+                        const arriving = toShow.filter(i => i.classList.contains('is-hidden'));
+                        arriving.forEach(item => {
+                            item.classList.remove('is-hidden');
+                            item.style.transition = 'none';
+                            item.style.opacity = '0';
+                            item.style.transform = 'scale(0.95)';
+                        });
+
+                        // FLIP for items that were already visible
+                        requestAnimationFrame(() => {
+                            toShow.forEach(item => {
+                                const last = item.getBoundingClientRect();
+                                const first = firstRects.get(item);
+                                item.style.transition = 'none';
+                                if (first) {
+                                    const dx = first.left - last.left;
+                                    const dy = first.top - last.top;
+                                    item.style.transform = `translate(${dx}px, ${dy}px)`;
+                                    item.style.opacity = '1';
+                                }
+                            });
+
+                            requestAnimationFrame(() => {
+                                toShow.forEach(item => {
+                                    item.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease';
+                                    item.style.transform = '';
+                                    item.style.opacity = '1';
+                                });
+                            });
+                        });
+                    }, 260);
+                });
+            });
+            const checked = group.querySelector('input:checked');
+            if (checked) movePill(checked.closest('label'));
+            window.addEventListener('resize', () => {
+                const c = group.querySelector('input:checked');
+                if (c) movePill(c.closest('label'));
+            });
+        }
     </script>
 <script src="./loader.js"></script>
 
