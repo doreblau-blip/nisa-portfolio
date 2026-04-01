@@ -1,5 +1,5 @@
 /* Reset and Base Variables */
-@import url('fonts-local.css');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;400&display=swap');
 
 @font-face {
     font-family: 'Dore';
@@ -56,7 +56,7 @@
     --bg-color: #0f0f0f;
     --text-color: #e8e8e8;
     --nav-bg: rgba(15, 15, 15, 0.85);
-    --font-family: 'Helvetica Neue LT Std', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-family: 'Syne', sans-serif;
     --nav-height: 80px;
     --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     color-scheme: dark;
@@ -101,8 +101,6 @@ body {
     position: relative;
     scrollbar-gutter: stable;
 }
-
-
 
 a {
     color: inherit;
@@ -168,10 +166,10 @@ h6 {
 }
 
 .nav-name {
-    font-size: 1.45rem;
+    font-size: 22px;
     font-weight: 700;
     line-height: 1.2;
-    letter-spacing: -0.02em;
+    letter-spacing: 0.2px;
 }
 
 .nav-subtitle {
@@ -179,7 +177,7 @@ h6 {
     font-weight: 500;
     color: var(--text-color); /* Uses main text color for better readability */
     opacity: 0.6; /* Softened but readable */
-    letter-spacing: 0.05em;
+    letter-spacing: 1px;
     text-transform: uppercase;
     margin-top: 2px;
 }
@@ -200,7 +198,7 @@ h6 {
     position: relative;
     font-size: 0.72rem;
     font-weight: 600;
-    letter-spacing: 0.05em;
+    letter-spacing: normal;
     text-transform: uppercase;
     transition: color 0.3s ease, opacity 0.3s ease;
     display: inline-flex;
@@ -279,7 +277,7 @@ h6 {
     font-size: 0.85rem;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: normal;
     text-decoration: none;
     border-radius: 4px;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -351,7 +349,7 @@ h6 {
     border: none;
     padding: 0.45rem 1rem;
     color: rgba(255,255,255,0.35);
-    letter-spacing: 0.08em;
+    letter-spacing: normal;
     text-transform: uppercase;
     font-weight: 600;
     white-space: nowrap;
@@ -560,7 +558,7 @@ h6 {
     font-size: 1rem;
     /* Slightly more minimal */
     font-weight: 500;
-    letter-spacing: 0.02em;
+    letter-spacing: normal;
     margin: 0;
 }
 
@@ -597,7 +595,7 @@ h6 {
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: normal;
     border-radius: 2px;
     width: fit-content;
     transition: var(--transition);
@@ -818,7 +816,7 @@ h6 {
 .project-title,
 .contact-heading h1 {
     font-size: clamp(1.6rem, 3vw, 2.8rem);
-    letter-spacing: -0.02em;
+    letter-spacing: normal;
     margin: 0;
     margin-right: 1.5rem;
     /* Gap between title and next element */
@@ -838,7 +836,7 @@ h6 {
 .project-meta span {
     font-size: 0.72rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: normal;
     color: #888;
 }
 
@@ -883,7 +881,7 @@ h6 {
     font-family: var(--font-family);
     font-size: 0.6rem;
     font-weight: 500;
-    letter-spacing: 0.1em;
+    letter-spacing: normal;
     text-transform: uppercase;
     color: #fff;
     opacity: 0.5;
@@ -1236,7 +1234,7 @@ h6 {
     justify-content: space-between;
     border-top: 1px solid rgba(0, 0, 0, 0.05);
     background-color: var(--bg-color);
-    font-family: var(--font-family);
+    font-family: 'Montserrat', sans-serif;
 }
 
 .footer-right {
@@ -1244,7 +1242,7 @@ h6 {
 }
 
 .footer-left {
-    font-family: var(--font-family);
+    font-family: 'Lexend', sans-serif;
     font-weight: 400;
     font-size: calc(0.75rem - 1px);
     color: #aaa;
@@ -1361,7 +1359,7 @@ h6 {
         display: block;
         font-size: 0.65rem;
         color: #888;        /* Consistent gray color */
-        letter-spacing: 0.05em;
+        letter-spacing: normal;
         margin-top: 0.5rem;
     }
 
@@ -1646,7 +1644,7 @@ body.menu-open {
     font-size: 3rem;
     line-height: 1.3;
     font-weight: 500;
-    letter-spacing: -0.02em;
+    letter-spacing: normal;
     color: #ffffff; /* White text as requested */
     text-shadow: 0 2px 10px rgba(0,0,0,0.3); /* Subtle shadow for readability on bright video parts */
     opacity: 0;
@@ -1757,7 +1755,7 @@ body.menu-open {
     font-size: 0.75rem;
     font-weight: 600;
     color: #bbb;
-    letter-spacing: 0.1em;
+    letter-spacing: normal;
 }
 
 @media (max-width: 768px) {
@@ -1829,7 +1827,7 @@ body.menu-open {
     font-size: 0.65rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: normal;
     color: #888;
     margin-bottom: 1rem;
     display: flex;
@@ -1928,7 +1926,7 @@ body.menu-open {
     gap: 0;
     white-space: nowrap;
     font-size: 0.72rem;
-    letter-spacing: 0.01em;
+    letter-spacing: normal;
     text-decoration: none;
     color: #e8e8e8;
     opacity: 0.38;
@@ -2125,7 +2123,7 @@ body.menu-open {
 .control-group span {
     font-size: 0.6rem;
     font-weight: 800;
-    letter-spacing: 0.15em;
+    letter-spacing: normal;
     color: rgba(255, 255, 255, 0.4);
     min-width: 40px;
     text-transform: uppercase;
@@ -2304,7 +2302,7 @@ body.menu-open {
 }
 
 .alphabet-block .label {
-    font-family: var(--font-family);
+    font-family: 'Syne', sans-serif;
     font-size: 0.65rem;
     font-weight: 700;
     letter-spacing: 0.15em;
@@ -2371,11 +2369,11 @@ body.menu-open {
 }
 
 .detail-label {
-    font-family: var(--font-family);
+    font-family: 'Syne', sans-serif;
     font-size: 0.6rem;
     font-weight: 700;
     color: #888;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
 }
 
 .detail-value {
@@ -2465,7 +2463,7 @@ body.menu-open {
     font-size: 0.58rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: normal;
     color: #aaa;
     line-height: 1;
 }
@@ -2536,7 +2534,7 @@ body.menu-open {
 }
 
 .meta-label {
-    font-family: var(--font-family);
+    font-family: 'Syne', sans-serif;
     font-size: 0.65rem;
     font-weight: 800;
     text-transform: uppercase;
@@ -2735,7 +2733,7 @@ body.menu-open {
 .form-group label {
     font-size: 0.65rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: normal;
     opacity: 0.6;
 }
 
@@ -2782,7 +2780,7 @@ body.menu-open {
     padding: 1.25rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: normal;
     margin-top: 1.5rem;
     border-radius: 4px;
     cursor: pointer;
