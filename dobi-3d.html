@@ -252,8 +252,8 @@
                 flex: 1;
                 min-height: 0;
                 perspective: 1000px !important;
-                /* Extra bottom inset: iPhone Safari tab bar sits below home-indicator safe area */
-                padding: 92px 20px max(32px, calc(env(safe-area-inset-bottom, 0px) + 56px));
+                /* Breathing room below navbar + notch; bottom clears Safari chrome */
+                padding: calc(124px + env(safe-area-inset-top, 0px)) 20px max(32px, calc(env(safe-area-inset-bottom, 0px) + 56px));
                 box-sizing: border-box;
                 touch-action: none;
                 -webkit-user-select: none;
@@ -329,14 +329,14 @@
                 display: none !important;
             }
             .back-to-project {
-                top: 88px;
+                top: 100px;
                 width: auto;
                 justify-content: flex-start;
                 left: 4vw;
                 padding-top: 10px;
             }
             .next-project {
-                top: 88px;
+                top: 100px;
                 right: 4vw;
                 padding-top: 10px;
             }
