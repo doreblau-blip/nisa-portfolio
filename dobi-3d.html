@@ -509,8 +509,20 @@
         const trigger = document.getElementById('menu-trigger');
         const menu = document.getElementById('mobile-menu');
         const close = document.getElementById('menu-close');
-        if(trigger && menu) trigger.onclick = () => menu.classList.add('active');
-        if(close) close.onclick = () => menu.classList.remove('active');
+        if (trigger && menu) trigger.onclick = () => {
+            menu.classList.add('active');
+            document.body.classList.add('menu-open');
+        };
+        if (close && menu) close.onclick = () => {
+            menu.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        };
+        document.querySelectorAll('.mobile-nav-links a').forEach((link) => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
+        });
     </script>
 <script src="./loader.js"></script>
 

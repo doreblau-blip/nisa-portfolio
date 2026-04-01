@@ -177,7 +177,7 @@
                     <h1>Get in touch</h1>
                 </div>
 
-                <form class="contact-form" action="mailto:hello@doreblau.com" method="post" enctype="text/plain">
+                <form class="contact-form" id="contact-form">
                     <div class="form-row">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" placeholder="Your name" required>
@@ -195,9 +195,10 @@
                         <textarea id="message" name="message" placeholder="Tell me about your project…" required></textarea>
                     </div>
                     <div class="form-submit">
-                        <button type="submit" class="submit-btn">Send</button>
+                        <button type="submit" class="submit-btn">Open Email Draft</button>
                     </div>
-                </form>
+                                </form>
+                <p id="contact-form-help" class="contact-help">Your email app will open with your message. If it does not open, email me directly at <a href="mailto:hello@doreblau.com">hello@doreblau.com</a>.</p>
             </div>
         </div>
     </main>
@@ -260,6 +261,28 @@
                 document.body.classList.remove('menu-open');
             });
         });
+
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('name')?.value.trim() || '';
+                const email = document.getElementById('email')?.value.trim() || '';
+                const subjectInput = document.getElementById('subject')?.value.trim() || '';
+                const message = document.getElementById('message')?.value.trim() || '';
+
+                const subject = subjectInput || `Portfolio inquiry from ${name || 'Website visitor'}`;
+                const body = [
+                    `Name: ${name}`,
+                    `Email: ${email}`,
+                    '',
+                    message
+                ].join('\n');
+
+                const mailtoUrl = `mailto:hello@doreblau.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                window.location.href = mailtoUrl;
+            });
+        }
     </script>
 <script src="./loader.js"></script>
 
