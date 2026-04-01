@@ -909,6 +909,21 @@ h6 {
     }
 }
 
+@media (max-width: 768px) {
+    .radio-inputs {
+        flex-wrap: wrap;
+        gap: 0;
+    }
+
+    .radio-inputs .radio {
+        flex: 0 0 auto;
+    }
+
+    .radio-inputs .radio:not(:last-child)::after {
+        display: none;
+    }
+}
+
 .typeface-grid .gallery-item {
     width: 100% !important;
     height: auto !important;
