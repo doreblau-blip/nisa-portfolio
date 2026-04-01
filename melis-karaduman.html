@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="KafaKafaya TikTok | Nisa Alkan">
+    <meta property="og:title" content="Melis Karaduman | Nisa Alkan">
     <meta property="og:description" content="Portfolio of Nisa Alkan. Art direction, type design and motion.">
     <meta property="og:image" content="images/og-image.jpg">
-    <meta property="og:url" content="https://doreblau.com/kafakafaya-tiktok.html">
+    <meta property="og:url" content="https://doreblau.com/melis-karaduman.html">
 
     <meta charset="UTF-8">
     <meta name="color-scheme" content="light only">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KafaKafaya TikTok | Nisa Alkan</title>
+    <title>Melis Karaduman | Nisa Alkan</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css?v=1774940000">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <!-- Internal styles removed as they are now in style.css -->
 </head>
+
 <body>
 <div id="page-loader"><div class="loader"></div></div>
     <script>
@@ -66,13 +67,13 @@
     </div>
 <main class="container">
         <!-- Editorial header -->
-        <div class="project-header tiktok-header" id="project-header">
+        <div class="project-header tiktok-header melis-header" id="project-header">
             <div class="project-header-top">
-                <h1 class="project-title" id="p-title">KafaKafaya TikTok</h1>
+                <h1 class="project-title" id="p-title">Melis Karaduman</h1>
                 <div class="project-meta">
-                    <span id="p-year">2023</span>
+                    <span id="p-year">2024</span>
                     <span class="meta-divider"></span>
-                    <span id="p-role">mixed media motion</span>
+                    <span id="p-role">Visual Content</span>
                 </div>
             </div>
             
@@ -80,9 +81,9 @@
 
             <div class="project-header-bottom">
                 <p class="project-description" id="p-desc">
-                    Contributed as a mixed media artist to TikTok’s collaborative “Kafa Kafaya” campaign. Created experimental collage motion videos that visually accompanied AR effects born out of cross-disciplinary collaborations between creators and designers. Added a layered and playful visual language to the project.
+                    A series of experimental motion collages and visual narratives created for Melis Karaduman. The works explore the intersection of mixed media and digital distortion to craft a unique atmosphere.
                 </p>
-                <a href="https://activity.tiktok.com/magic/eco/runtime/release/64e4c49b0ddc8202fe99499e?appType=tiktok" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                <a href="https://www.youtube.com/watch?v=YV56wuBN4r8" target="_blank" rel="noopener noreferrer" class="project-link-btn">
                     <span>Take a Look</span>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="7" y1="17" x2="17" y2="7"></line>
@@ -92,15 +93,44 @@
             </div>
         </div>
 
-        <!-- Gallery -->
-        <div class="project-gallery" id="project-gallery">
-            <div class="gallery-item"><img loading="lazy" src="images/tiktok/01.gif" alt="KafaKafaya TikTok Detail 01"></div>
+        <!-- Slideshow Gallery -->
+        <div class="slideshow-container">
+            <div class="slide active">
+                <img loading="lazy" src="images/melis-karaduman/melis-1.gif" alt="Melis Karaduman 1">
+            </div>
+            <div class="slide">
+                <img loading="lazy" src="images/melis-karaduman/melis-2.gif" alt="Melis Karaduman 2">
+            </div>
+            <div class="slide">
+                <img loading="lazy" src="images/melis-karaduman/melis-3.gif" alt="Melis Karaduman 3">
+            </div>
+            <div class="slide">
+                <img loading="lazy" src="images/melis-karaduman/melis-4.gif" alt="Melis Karaduman 4">
+            </div>
+            <div class="slide">
+                <img loading="lazy" src="images/melis-karaduman/melis-5.gif" alt="Melis Karaduman 5">
+            </div>
+            <div class="slide">
+                <img loading="lazy" src="images/melis-karaduman/melis-6.gif" alt="Melis Karaduman 6">
+            </div>
+
+            <!-- Navigation -->
+            <div class="slide-nav">
+                <button class="nav-btn" onclick="nextSlide()" aria-label="Next">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="slide-counter" id="slide-counter">1 / 6</div>
         </div>
     </main>
 
         <nav class="project-list-nav">
             <div class="project-list-nav-inner">
-                <span class="pn-item active">KafaKafaya TikTok</span>
+                <a href="kafakafaya-tiktok.html" class="pn-item">KafaKafaya TikTok</a>
                 <span class="pn-bullet">·</span>
                 <a href="lootie-ip-design.html" class="pn-item">Lootie IP Design</a>
                 <span class="pn-bullet">·</span>
@@ -116,7 +146,7 @@
                 <span class="pn-bullet">·</span>
                 <a href="ira-typeface.html" class="pn-item">Ira Typeface</a>
                 <span class="pn-bullet">·</span>
-                <a href="melis-karaduman.html" class="pn-item">Melis Karaduman</a>
+                <span class="pn-item active">Melis Karaduman</span>
                 <span class="pn-bullet">·</span>
                 <a href="ip-design.html" class="pn-item">IP Design</a>
                 <span class="pn-bullet">·</span>
@@ -126,12 +156,6 @@
             </div>
         </nav>
 
-
-    <!-- Lightbox -->
-    <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox(event)">
-        <button class="lightbox-close" onclick="closeLightboxBtn()" aria-label="Kapat">&#x2715;</button>
-        <div class="lightbox-content" id="lightbox-content"></div>
-    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -162,41 +186,24 @@
         </div>
     </footer>
 
-    
-     
-
-    <!-- Custom Cursor -->
+    <!-- Scripts -->
     <script src="./cursor.js?v=1773365975"></script>
     <script>
-        // Lightbox
-        const overlay = document.getElementById('lightbox');
-        const lbContent = document.getElementById('lightbox-content');
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const counter = document.getElementById('slide-counter');
 
-        document.querySelectorAll('.gallery-item').forEach(item => {
-            item.addEventListener('click', () => {
-                const imgSource = item.querySelector('img').src;
-                lbContent.innerHTML = '';
-                const img = document.createElement('img');
-                img.className = 'lightbox-img';
-                img.src = imgSource;
-                lbContent.appendChild(img);
-                
-                overlay.classList.add('active');
-                document.body.style.overflow = 'hidden';
+        function updateSlideshow() {
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentSlide);
             });
-        });
+            counter.innerText = `${currentSlide + 1} / ${slides.length}`;
+        }
 
-        function closeLightbox(e) {
-            if (e.target === overlay) { closeLightboxBtn(); }
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlideshow();
         }
-        function closeLightboxBtn() {
-            overlay.classList.remove('active');
-            document.body.style.overflow = '';
-            lbContent.innerHTML = '';
-        }
-        document.addEventListener('keydown', e => {
-            if (e.key === 'Escape') closeLightboxBtn();
-        });
 
         // Mobile Menu Toggle
         const trigger = document.getElementById('menu-trigger');
@@ -225,4 +232,5 @@
 <script src="./loader.js"></script>
 
 </body>
+
 </html>
