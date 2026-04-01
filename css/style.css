@@ -166,20 +166,26 @@ h6 {
 }
 
 .nav-name {
+    font-family: var(--font-family);
     font-size: 22px;
-    font-weight: 700;
+    font-weight: 500;
+    font-style: normal;
     line-height: 1.2;
     letter-spacing: 0.2px;
+    font-synthesis: none;
 }
 
 .nav-subtitle {
+    font-family: var(--font-family);
     font-size: 0.75rem;
     font-weight: 500;
+    font-style: normal;
     color: var(--text-color); /* Uses main text color for better readability */
     opacity: 0.6; /* Softened but readable */
     letter-spacing: 1px;
     text-transform: uppercase;
     margin-top: 2px;
+    font-synthesis: none;
 }
 
 .nav-right {
