@@ -226,53 +226,96 @@
 
         /* Mobile Adjustments */
         @media (max-width: 768px) {
+            html {
+                height: 100%;
+                height: 100dvh;
+                overflow: hidden;
+                overscroll-behavior: none;
+            }
+            body.page-3d-showcase {
+                overflow: hidden;
+                height: 100%;
+                height: 100dvh;
+                overscroll-behavior: none;
+                -webkit-overflow-scrolling: auto;
+            }
             .navbar {
                 background-color: var(--nav-bg) !important;
                 backdrop-filter: blur(15px);
                 -webkit-backdrop-filter: blur(15px);
+                flex-shrink: 0;
             }
             .footer {
                 display: none !important;
             }
             .scene {
+                flex: 1;
+                min-height: 0;
                 align-items: center !important;
                 justify-content: center !important;
                 perspective: 1000px !important;
-                padding-top: 160px !important;
-                padding-bottom: 110px !important;
+                padding: 120px 20px calc(20px + env(safe-area-inset-bottom, 0px));
+                box-sizing: border-box;
+                touch-action: none;
+                -webkit-user-select: none;
+                user-select: none;
+                display: flex !important;
+                flex-direction: column;
+                gap: 0;
+            }
+            .cube-container {
+                order: 1;
+                flex: 0 0 auto;
             }
             .face-nav {
-                right: 0;
-                left: 0;
+                position: relative !important;
+                order: 2;
+                right: auto;
+                left: auto;
                 top: auto;
-                bottom: 30px;
+                bottom: auto;
                 transform: none;
-                display: grid !important;
-                grid-template-columns: repeat(3, auto);
-                justify-content: center;
-                gap: 12px 10px;
                 width: 100%;
-                padding: 0 20px;
+                max-width: 400px;
+                margin: 48px 0 0;
+                padding: 18px 16px;
                 box-sizing: border-box;
-                position: absolute !important;
+                display: grid !important;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 14px 12px;
+                justify-content: stretch;
+                align-self: center;
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 20px;
+                -webkit-backdrop-filter: blur(12px);
+                backdrop-filter: blur(12px);
+                touch-action: manipulation;
             }
             .face-nav-item {
-                font-size: 0.55rem;
-                background: transparent !important;
-                border: 1px solid rgba(0,0,0,0.25);
+                font-size: 0.62rem;
+                font-weight: 700;
+                background: rgba(255, 255, 255, 0.04) !important;
+                border: 1px solid rgba(255, 255, 255, 0.14);
                 border-radius: 999px;
-                padding: 6px 14px;
-                min-width: 78px;
+                padding: 11px 10px;
+                min-width: 0;
+                width: 100%;
                 text-align: center;
                 white-space: nowrap;
                 text-decoration: none;
-                letter-spacing: 0.15em;
-                transition: background 0.25s, color 0.25s, border-color 0.25s;
+                letter-spacing: 0.12em;
+                color: rgba(232, 232, 232, 0.75);
+                opacity: 1;
+                transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.2s;
+            }
+            .face-nav-item:active {
+                transform: scale(0.97);
             }
             .face-nav-item.active {
                 background: #e8e8e8 !important;
                 color: #0f0f0f;
-                border-color: #e8e8e8;
+                border-color: rgba(232, 232, 232, 0.95);
                 opacity: 1;
                 transform: none;
             }
@@ -295,9 +338,8 @@
                 padding-top: 10px;
             }
             .mobile-bottom-spacer {
-                display: block;
-                height: 150px;
-                width: 100%;
+                display: none !important;
+                height: 0 !important;
             }
         }
         @media (min-width: 769px) {
@@ -305,7 +347,7 @@
         }
     </style>
 </head>
-<body>
+<body class="page-3d-showcase">
 <div id="page-loader"><div class="loader-bar-wrap"><div class="loader-bar"></div></div></div>
     <nav class="navbar">
         <div class="nav-left">
@@ -454,9 +496,21 @@
         window.addEventListener('mousemove', e => onMove(e.clientX, e.clientY));
         window.addEventListener('mouseup', () => isDragging = false);
 
-        scene.addEventListener('touchstart', e => startMove(e.touches[0].clientX, e.touches[0].clientY));
-        window.addEventListener('touchmove', e => onMove(e.touches[0].clientX, e.touches[0].clientY));
-        window.addEventListener('touchend', () => isDragging = false);
+        scene.addEventListener('touchstart', e => {
+            if (e.target.closest('.face-nav')) return;
+            if (e.touches.length === 1) {
+                startMove(e.touches[0].clientX, e.touches[0].clientY);
+            }
+        }, { passive: true });
+
+        scene.addEventListener('touchmove', e => {
+            if (e.touches.length !== 1 || !isDragging) return;
+            if (e.cancelable) e.preventDefault();
+            onMove(e.touches[0].clientX, e.touches[0].clientY);
+        }, { passive: false });
+
+        scene.addEventListener('touchend', () => { isDragging = false; });
+        scene.addEventListener('touchcancel', () => { isDragging = false; });
 
         // Navigation
         const faceButtons = document.querySelectorAll('.face-nav-item');
