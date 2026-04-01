@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="color-scheme" content="dark only">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>3D Box Showcase | Lootie | Nisa Alkan</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -253,7 +253,8 @@
                 flex: 1;
                 min-height: 0;
                 perspective: 1000px !important;
-                padding: 92px 20px calc(12px + env(safe-area-inset-bottom, 0px));
+                /* Extra bottom inset: iPhone Safari tab bar sits below home-indicator safe area */
+                padding: 92px 20px max(32px, calc(env(safe-area-inset-bottom, 0px) + 56px));
                 box-sizing: border-box;
                 touch-action: none;
                 -webkit-user-select: none;
