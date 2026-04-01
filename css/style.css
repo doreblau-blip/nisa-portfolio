@@ -1,30 +1,5 @@
 /* Reset and Base Variables */
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;400&display=swap');
-
-/* Page Loader */
-#page-loader {
-    position: fixed;
-    inset: 0;
-    background: #0f0f0f;
-    z-index: 99999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-#page-loader .loader {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    0%   { transform: rotate(0deg);   box-shadow: 0 -1px 0 rgba(255,255,255,0.4); }
-    50%  { transform: rotate(180deg); box-shadow: 0 -1px 0 rgba(255,255,255,0.4); }
-    100% { transform: rotate(360deg); box-shadow: 0 -1px 0 rgba(255,255,255,0.4); }
-}
+@import url('fonts-local.css');
 
 @font-face {
     font-family: 'Dore';
@@ -52,11 +27,36 @@
     font-weight: 900;
 }
 
+/* Page Loader */
+#page-loader {
+    position: fixed;
+    inset: 0;
+    background: #0f0f0f;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#page-loader .loader {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0%   { transform: rotate(0deg);   box-shadow: 0 -1px 0 rgba(255,255,255,0.4); }
+    50%  { transform: rotate(180deg); box-shadow: 0 -1px 0 rgba(255,255,255,0.4); }
+    100% { transform: rotate(360deg); box-shadow: 0 -1px 0 rgba(255,255,255,0.4); }
+}
+
 :root {
     --bg-color: #0f0f0f;
     --text-color: #e8e8e8;
     --nav-bg: rgba(15, 15, 15, 0.85);
-    --font-family: 'Syne', sans-serif;
+    --font-family: 'Helvetica Neue LT Std', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     --nav-height: 80px;
     --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     color-scheme: dark;
@@ -329,7 +329,7 @@ h6 {
     box-shadow: none;
     padding: 0;
     font-size: 11px;
-    font-family: 'Syne', sans-serif;
+    font-family: var(--font-family);
 }
 
 .radio-inputs .radio {
@@ -1236,7 +1236,7 @@ h6 {
     justify-content: space-between;
     border-top: 1px solid rgba(0, 0, 0, 0.05);
     background-color: var(--bg-color);
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-family);
 }
 
 .footer-right {
@@ -1244,7 +1244,7 @@ h6 {
 }
 
 .footer-left {
-    font-family: 'Lexend', sans-serif;
+    font-family: var(--font-family);
     font-weight: 400;
     font-size: calc(0.75rem - 1px);
     color: #aaa;
@@ -1654,13 +1654,6 @@ body.menu-open {
     animation: textFadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-@keyframes textFadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 @media (max-width: 768px) {
     .about-hero {
         height: 70vh; /* Scaled for mobile */
@@ -1864,7 +1857,7 @@ body.menu-open {
 }
 
 .nav-title {
-    font-family: 'Syne', sans-serif;
+    font-family: var(--font-family);
     font-size: 1.6rem;
     font-weight: 700;
     color: #e8e8e8;
@@ -2311,7 +2304,7 @@ body.menu-open {
 }
 
 .alphabet-block .label {
-    font-family: 'Syne', sans-serif;
+    font-family: var(--font-family);
     font-size: 0.65rem;
     font-weight: 700;
     letter-spacing: 0.15em;
@@ -2378,7 +2371,7 @@ body.menu-open {
 }
 
 .detail-label {
-    font-family: 'Syne', sans-serif;
+    font-family: var(--font-family);
     font-size: 0.6rem;
     font-weight: 700;
     color: #888;
@@ -2543,7 +2536,7 @@ body.menu-open {
 }
 
 .meta-label {
-    font-family: 'Syne', sans-serif;
+    font-family: var(--font-family);
     font-size: 0.65rem;
     font-weight: 800;
     text-transform: uppercase;
@@ -2723,7 +2716,7 @@ body.menu-open {
 .license-price {
     font-size: 1.25rem;
     font-weight: 700;
-    font-family: 'Syne', sans-serif;
+    font-family: var(--font-family);
 }
 
 .payment-form {
