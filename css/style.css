@@ -1094,10 +1094,32 @@ h6 {
     pointer-events: none;
 }
 
-.lightbox-img {
+.lightbox-stage {
     width: 100%;
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.lightbox-img-frame {
+    position: relative;
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.lightbox-img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
     object-fit: contain;
+    display: block;
     pointer-events: auto;
 }
 
@@ -1153,28 +1175,33 @@ h6 {
 }
 
 .lightbox-close {
-    position: fixed;
-    top: calc(22px + env(safe-area-inset-top, 0px));
-    right: calc(22px + env(safe-area-inset-right, 0px));
-    width: 36px;
-    height: 36px;
+    position: absolute;
+    left: auto;
+    right: 0;
+    top: auto;
+    /* Sit just above the image (frame), not the viewport corner */
+    bottom: 100%;
+    margin-bottom: 8px;
+    width: 32px;
+    height: 32px;
     background: rgba(15, 15, 15, 0.42);
-    border: 1px solid rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.14);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    z-index: 1000002;
+    z-index: 2;
     transition: background 0.2s, border-color 0.2s, opacity 0.2s;
     color: rgba(232, 232, 232, 0.92);
-    font-size: 0.95rem;
+    font-size: 0.88rem;
     font-weight: 400;
     line-height: 1;
     box-shadow: none;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     -webkit-tap-highlight-color: transparent;
+    pointer-events: auto;
 }
 
 .lightbox-close:hover {
@@ -1190,13 +1217,12 @@ h6 {
 
     /* Must come after base `.lightbox-close` so positioning actually applies */
     .lightbox-close {
-        /* Slightly larger hit target on touch, still visually light */
-        top: calc(16px + env(safe-area-inset-top, 0px));
-        right: calc(16px + env(safe-area-inset-right, 0px));
-        left: auto;
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
+        right: 0;
+        bottom: 100%;
+        margin-bottom: 6px;
+        width: 36px;
+        height: 36px;
+        font-size: 0.92rem;
     }
 }
 

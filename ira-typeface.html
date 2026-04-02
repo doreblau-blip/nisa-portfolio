@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./css/style.css?v=1775050100">
+    <link rel="stylesheet" href="./css/style.css?v=1775051100">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
 
@@ -223,8 +223,13 @@
 
     <!-- Lightbox -->
     <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox(event)">
-        <button class="lightbox-close" onclick="closeLightboxBtn()" aria-label="Close">&#x2715;</button>
-        <div class="lightbox-content" id="lightbox-content"></div>
+        <div class="lightbox-content" id="lightbox-content">
+            <div class="lightbox-stage">
+                <div class="lightbox-img-frame">
+                    <button type="button" class="lightbox-close" onclick="event.stopPropagation(); closeLightboxBtn();" aria-label="Close">&#x2715;</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Footer -->
@@ -268,12 +273,12 @@
         document.querySelectorAll('.gallery-item').forEach(item => {
             item.addEventListener('click', () => {
                 const imgInItem = item.querySelector('img');
-                lbContent.innerHTML = '';
+                lbContent.querySelector('.lightbox-img-frame').querySelectorAll('img.lightbox-img').forEach((el) => el.remove());
                 if (imgInItem) {
                     const img = document.createElement('img');
                     img.className = 'lightbox-img';
                     img.src = imgInItem.src;
-                    lbContent.appendChild(img);
+                    lbContent.querySelector('.lightbox-img-frame').appendChild(img);
                 }
                 overlay.classList.add('active');
                 document.body.style.overflow = 'hidden';
@@ -283,7 +288,7 @@
         function closeLightboxBtn() {
             overlay.classList.remove('active');
             document.body.style.overflow = '';
-            lbContent.innerHTML = '';
+            lbContent.querySelector('.lightbox-img-frame').querySelectorAll('img.lightbox-img').forEach((el) => el.remove());
         }
         document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightboxBtn(); });
     </script>
