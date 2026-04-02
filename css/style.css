@@ -1061,7 +1061,7 @@ h6 {
     display: none;
     position: fixed;
     inset: 0;
-    z-index: 9999;
+    z-index: 1000001;
     background: rgba(15, 15, 15, 0.98);
     align-items: center;
     justify-content: center;
@@ -1149,15 +1149,15 @@ h6 {
     .lightbox-next { right: 20px; }
     
     .lightbox-close {
-        top: 20px;
-        right: 20px;
+        top: calc(20px + env(safe-area-inset-top, 0px));
+        right: calc(20px + env(safe-area-inset-right, 0px));
     }
 }
 
 .lightbox-close {
     position: fixed;
-    top: 28px;
-    right: 36px;
+    top: calc(28px + env(safe-area-inset-top, 0px));
+    right: calc(36px + env(safe-area-inset-right, 0px));
     width: 44px;
     height: 44px;
     background: rgba(255,255,255,0.04);
@@ -1167,7 +1167,7 @@ h6 {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    z-index: 10001;
+    z-index: 1000002;
     transition: background 0.2s, transform 0.2s;
     color: #e8e8e8;
     font-size: 1.1rem;
