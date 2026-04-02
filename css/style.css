@@ -1154,30 +1154,32 @@ h6 {
 
 .lightbox-close {
     position: fixed;
-    top: calc(28px + env(safe-area-inset-top, 0px));
-    right: calc(36px + env(safe-area-inset-right, 0px));
-    width: 44px;
-    height: 44px;
-    /* High-contrast control: previous styling was nearly invisible on dark overlays */
-    background: rgba(12, 12, 12, 0.72);
-    border: 2px solid rgba(255, 255, 255, 0.35);
+    top: calc(22px + env(safe-area-inset-top, 0px));
+    right: calc(22px + env(safe-area-inset-right, 0px));
+    width: 36px;
+    height: 36px;
+    background: rgba(15, 15, 15, 0.42);
+    border: 1px solid rgba(255, 255, 255, 0.16);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     z-index: 1000002;
-    transition: background 0.2s, transform 0.2s;
-    color: #e8e8e8;
-    font-size: 1.1rem;
+    transition: background 0.2s, border-color 0.2s, opacity 0.2s;
+    color: rgba(232, 232, 232, 0.92);
+    font-size: 0.95rem;
+    font-weight: 400;
     line-height: 1;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    box-shadow: none;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     -webkit-tap-highlight-color: transparent;
 }
 
 .lightbox-close:hover {
-    background: rgba(12, 12, 12, 0.88);
-    transform: scale(1.06);
+    background: rgba(15, 15, 15, 0.58);
+    border-color: rgba(255, 255, 255, 0.28);
 }
 
 @media (max-width: 768px) {
@@ -1188,16 +1190,13 @@ h6 {
 
     /* Must come after base `.lightbox-close` so positioning actually applies */
     .lightbox-close {
-        top: calc(14px + env(safe-area-inset-top, 0px));
-        right: auto;
-        left: calc(14px + env(safe-area-inset-left, 0px));
-        width: 52px;
-        height: 52px;
-        font-size: 1.35rem;
-        font-weight: 700;
-        background: rgba(12, 12, 12, 0.78);
-        border: 2px solid rgba(255, 255, 255, 0.45);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+        /* Slightly larger hit target on touch, still visually light */
+        top: calc(16px + env(safe-area-inset-top, 0px));
+        right: calc(16px + env(safe-area-inset-right, 0px));
+        left: auto;
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
     }
 }
 
