@@ -1506,8 +1506,8 @@ h6 {
 
 .mobile-overlay-close {
     position: absolute;
-    top: 2rem;
-    right: 2rem;
+    top: calc(2rem + env(safe-area-inset-top, 0px));
+    right: calc(2rem + env(safe-area-inset-right, 0px));
     background: none;
     border: none;
     padding: 10px;

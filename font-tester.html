@@ -654,8 +654,30 @@
         const trigger = document.getElementById('menu-trigger');
         const menu = document.getElementById('mobile-menu');
         const close = document.getElementById('menu-close');
-        if (trigger) trigger.addEventListener('click', () => menu.classList.add('active'));
-        if (close) close.addEventListener('click', () => menu.classList.remove('active'));
+        if (trigger && menu) {
+            trigger.addEventListener('click', () => {
+                const willOpen = !menu.classList.contains('active');
+                menu.classList.toggle('active', willOpen);
+                document.body.classList.toggle('menu-open', willOpen);
+                trigger.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+            });
+        }
+        if (close && menu) {
+            close.addEventListener('click', () => {
+                menu.classList.remove('active');
+                document.body.classList.remove('menu-open');
+                if (trigger) trigger.setAttribute('aria-expanded', 'false');
+            });
+        }
+        if (menu) {
+            document.querySelectorAll('.mobile-nav-links a').forEach((link) => {
+                link.addEventListener('click', () => {
+                    menu.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                    if (trigger) trigger.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
     </script>
     <script src="./cursor.js?v=1774950400"></script>
 <script src="./loader.js"></script>

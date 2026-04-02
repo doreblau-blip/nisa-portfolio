@@ -569,17 +569,21 @@
         const menu = document.getElementById('mobile-menu');
         const close = document.getElementById('menu-close');
         if (trigger && menu) trigger.onclick = () => {
-            menu.classList.add('active');
-            document.body.classList.add('menu-open');
+            const willOpen = !menu.classList.contains('active');
+            menu.classList.toggle('active', willOpen);
+            document.body.classList.toggle('menu-open', willOpen);
+            trigger.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
         };
         if (close && menu) close.onclick = () => {
             menu.classList.remove('active');
             document.body.classList.remove('menu-open');
+            trigger.setAttribute('aria-expanded', 'false');
         };
         document.querySelectorAll('.mobile-nav-links a').forEach((link) => {
             link.addEventListener('click', () => {
                 menu.classList.remove('active');
                 document.body.classList.remove('menu-open');
+                trigger.setAttribute('aria-expanded', 'false');
             });
         });
     </script>
