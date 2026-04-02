@@ -9,13 +9,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preload" href="./fonts/Dore-Thin.otf" as="font" type="font/otf">
+    <link rel="preload" href="./fonts/Dore-Light.otf" as="font" type="font/otf">
+    <link rel="preload" href="./fonts/Dore-Regular.otf" as="font" type="font/otf">
+    <link rel="preload" href="./fonts/Dore-Bold.otf" as="font" type="font/otf">
+    <link rel="preload" href="./fonts/Dore-Black.otf" as="font" type="font/otf">
     <link rel="stylesheet" href="./css/style.css?v=1774950400">
     <style>
-        @font-face { font-family: 'Dore'; src: url('./fonts/Dore-Thin.otf') format('opentype'); font-weight: 100; }
-        @font-face { font-family: 'Dore'; src: url('./fonts/Dore-Light.otf') format('opentype'); font-weight: 300; }
-        @font-face { font-family: 'Dore'; src: url('./fonts/Dore-Regular.otf') format('opentype'); font-weight: 400; }
-        @font-face { font-family: 'Dore'; src: url('./fonts/Dore-Bold.otf') format('opentype'); font-weight: 700; }
-        @font-face { font-family: 'Dore'; src: url('./fonts/Dore-Black.otf') format('opentype'); font-weight: 900; }
+        @font-face { font-family: 'Dore'; src: url('./fonts/Dore-Thin.otf') format('opentype'); font-weight: 100; font-display: fallback; }
+        @font-face { font-family: 'Dore'; src: url('./fonts/Dore-Light.otf') format('opentype'); font-weight: 300; font-display: fallback; }
+        @font-face { font-family: 'Dore'; src: url('./fonts/Dore-Regular.otf') format('opentype'); font-weight: 400; font-display: fallback; }
+        @font-face { font-family: 'Dore'; src: url('./fonts/Dore-Bold.otf') format('opentype'); font-weight: 700; font-display: fallback; }
+        @font-face { font-family: 'Dore'; src: url('./fonts/Dore-Black.otf') format('opentype'); font-weight: 900; font-display: fallback; }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -75,6 +80,7 @@
             font-family: 'Dore', serif;
             font-size: 96px;
             font-weight: 400;
+            font-synthesis: none;
             line-height: 1.05;
             color: #e8e8e8;
             background: transparent;
@@ -333,6 +339,7 @@
         .glyph-cell {
             font-family: 'Dore', serif;
             font-size: 28px;
+            font-synthesis: none;
             width: 56px;
             height: 56px;
             display: flex;
@@ -528,7 +535,25 @@
         let currentSize = 96;
         let activeStyles = { underline: false, strikethrough: false };
 
-        function setWeight(w, el) {
+        const doreWeights = [100, 300, 400, 700, 900];
+        const loadedWeights = new Set();
+        let weightRequestToken = 0;
+
+        async function ensureWeightLoaded(weight) {
+            if (!document.fonts || !document.fonts.load) return;
+            if (loadedWeights.has(weight)) return;
+            await document.fonts.load(`${weight} 32px "Dore"`);
+            loadedWeights.add(weight);
+        }
+
+        async function warmupDoreWeights() {
+            await Promise.all(doreWeights.map((weight) => ensureWeightLoaded(weight)));
+        }
+
+        async function setWeight(w, el) {
+            const myToken = ++weightRequestToken;
+            await ensureWeightLoaded(w);
+            if (myToken !== weightRequestToken) return;
             currentWeight = w;
             document.getElementById('preview-text').style.fontWeight = w;
             document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
@@ -585,6 +610,7 @@
         });
 
         autoResize(document.getElementById('preview-text'));
+        warmupDoreWeights().catch(() => {});
 
         // Typewriter animation on load
         const el = document.getElementById('preview-text');
