@@ -163,6 +163,7 @@
 
     <!-- Custom Cursor -->
     <script src="./cursor.js?v=1774950400"></script>
+    <script src="./js/nav-mobile.js?v=1"></script>
     <script>
         const overlay = document.getElementById('lightbox');
         const lbContent = document.getElementById('lightbox-content');
@@ -191,34 +192,6 @@
         }
         document.addEventListener('keydown', e => {
             if (e.key === 'Escape') closeLightboxBtn();
-        });
-
-        // Mobile Menu Toggle
-        const trigger = document.getElementById('menu-trigger');
-        const menu = document.getElementById('mobile-menu');
-        
-        trigger.addEventListener('click', () => {
-            const willOpen = !menu.classList.contains('active');
-            menu.classList.toggle('active', willOpen);
-            document.body.classList.toggle('menu-open', willOpen);
-            trigger.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
-        });
-
-        const closeBtn = document.getElementById('menu-close');
-        closeBtn.addEventListener('click', () => {
-            menu.classList.remove('active');
-            document.body.classList.remove('menu-open');
-            trigger.setAttribute('aria-expanded', 'false');
-        });
-
-        // Close menu on link click
-        document.querySelectorAll('.mobile-nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                trigger.classList.remove('active');
-                menu.classList.remove('active');
-                document.body.classList.remove('menu-open');
-                trigger.setAttribute('aria-expanded', 'false');
-            });
         });
     </script>
 <script src="./loader.js"></script>
