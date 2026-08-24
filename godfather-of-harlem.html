@@ -19,6 +19,26 @@
 
     <link rel="stylesheet" href="./css/style.css?v=1775051103">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <style>
+        .harlem-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            width: 100%;
+        }
+        @media (max-width: 900px) {
+            .harlem-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 12px !important;
+            }
+        }
+        @media (max-width: 500px) {
+            .harlem-grid {
+                grid-template-columns: 1fr !important;
+                gap: 16px !important;
+            }
+        }
+    </style>
 </head>
 <body>
 <div id="page-loader"><div class="loader"></div></div>
@@ -84,7 +104,8 @@
             <div class="gallery-item" style="width: 100%;">
                 <video src="images/godfather-of-harlem/harlem.mp4" autoplay loop muted playsinline controls style="width: 100%; height: auto; border-radius: 4px; display: block;"></video>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; width: 100%;">
+            <!-- 4-Column Grid for GIFs and Images -->
+            <div class="harlem-grid">
                 <div class="gallery-item" style="margin: 0;"><img loading="lazy" src="images/godfather-of-harlem/01.gif" alt="Godfather of Harlem GIF 1"></div>
                 <div class="gallery-item" style="margin: 0;"><img loading="lazy" src="images/godfather-of-harlem/02.gif" alt="Godfather of Harlem GIF 2"></div>
                 <div class="gallery-item" style="margin: 0;"><img loading="lazy" src="images/godfather-of-harlem/03.gif" alt="Godfather of Harlem GIF 3"></div>
