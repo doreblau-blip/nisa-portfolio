@@ -23,8 +23,31 @@
         .harlem-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
+            grid-auto-rows: minmax(180px, auto);
+            gap: 14px;
             width: 100%;
+        }
+        .harlem-grid .gallery-item {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .harlem-grid .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        /* Tetris / Asymmetric Layout rules for desktop */
+        @media (min-width: 901px) {
+            .item-tall {
+                grid-row: span 2;
+            }
+            .item-wide {
+                grid-column: span 2;
+            }
         }
         @media (max-width: 900px) {
             .harlem-grid {
@@ -104,28 +127,28 @@
             <div class="gallery-item" style="width: 100%;">
                 <video src="images/godfather-of-harlem/harlem.mp4" autoplay loop muted playsinline controls style="width: 100%; height: auto; border-radius: 4px; display: block;"></video>
             </div>
-            <!-- 3-Column Grid for all GIFs -->
+            <!-- Asymmetric Tetris Grid for GIFs -->
             <div class="harlem-grid">
-                <div class="gallery-item" style="margin: 0;"><img loading="lazy" src="images/godfather-of-harlem/01.gif" alt="Godfather of Harlem GIF 1"></div>
-                <div class="gallery-item" style="margin: 0;"><img loading="lazy" src="images/godfather-of-harlem/02.gif" alt="Godfather of Harlem GIF 2"></div>
-                <div class="gallery-item" style="margin: 0;"><img loading="lazy" src="images/godfather-of-harlem/03.gif" alt="Godfather of Harlem GIF 3"></div>
-                <div class="gallery-item" style="margin: 0;"><img loading="lazy" src="images/godfather-of-harlem/04.gif" alt="Godfather of Harlem GIF 4"></div>
-                <div class="gallery-item" style="margin: 0;"><img loading="lazy" src="images/godfather-of-harlem/05.gif" alt="Godfather of Harlem GIF 5"></div>
-                <div class="gallery-item" style="margin: 0;"><img loading="lazy" src="images/godfather-of-harlem/06.gif" alt="Godfather of Harlem GIF 6"></div>
-                <div class="gallery-item" style="margin: 0;"><img loading="lazy" src="images/godfather-of-harlem/08.gif" alt="Godfather of Harlem GIF 8"></div>
-                <div class="gallery-item" style="margin: 0;"><img loading="lazy" src="images/godfather-of-harlem/09.gif" alt="Godfather of Harlem GIF 9"></div>
-                <div class="gallery-item" style="margin: 0;"><img loading="lazy" src="images/godfather-of-harlem/10.gif" alt="Godfather of Harlem GIF 10"></div>
-                <div class="gallery-item" style="margin: 0;"><img loading="lazy" src="images/godfather-of-harlem/11.gif" alt="Godfather of Harlem GIF 11"></div>
-                <div class="gallery-item" style="margin: 0;"><img loading="lazy" src="images/godfather-of-harlem/12.gif" alt="Godfather of Harlem GIF 12"></div>
-                <div class="gallery-item" style="margin: 0;"><img loading="lazy" src="images/godfather-of-harlem/13.gif" alt="Godfather of Harlem GIF 13"></div>
-                <div class="gallery-item" style="margin: 0;"><img loading="lazy" src="images/godfather-of-harlem/14.gif" alt="Godfather of Harlem GIF 14"></div>
-                <div class="gallery-item" style="margin: 0;"><img loading="lazy" src="images/godfather-of-harlem/15.gif" alt="Godfather of Harlem GIF 15"></div>
-                <div class="gallery-item" style="margin: 0;"><img loading="lazy" src="images/godfather-of-harlem/16.gif" alt="Godfather of Harlem GIF 16"></div>
-                <div class="gallery-item" style="margin: 0;"><img loading="lazy" src="images/godfather-of-harlem/17.gif" alt="Godfather of Harlem GIF 17"></div>
-                <div class="gallery-item" style="margin: 0;"><img loading="lazy" src="images/godfather-of-harlem/18.gif" alt="Godfather of Harlem GIF 18"></div>
-                <div class="gallery-item" style="margin: 0;"><img loading="lazy" src="images/godfather-of-harlem/20.gif" alt="Godfather of Harlem GIF 20"></div>
-                <div class="gallery-item" style="margin: 0;"><img loading="lazy" src="images/godfather-of-harlem/22.gif" alt="Godfather of Harlem GIF 22"></div>
-                <div class="gallery-item" style="margin: 0;"><img loading="lazy" src="images/godfather-of-harlem/25.gif" alt="Godfather of Harlem GIF 25"></div>
+                <div class="gallery-item"><img loading="lazy" src="images/godfather-of-harlem/01.gif" alt="Godfather of Harlem GIF 1"></div>
+                <div class="gallery-item"><img loading="lazy" src="images/godfather-of-harlem/02.gif" alt="Godfather of Harlem GIF 2"></div>
+                <div class="gallery-item item-tall"><img loading="lazy" src="images/godfather-of-harlem/03.gif" alt="Godfather of Harlem GIF 3"></div>
+                <div class="gallery-item"><img loading="lazy" src="images/godfather-of-harlem/04.gif" alt="Godfather of Harlem GIF 4"></div>
+                <div class="gallery-item"><img loading="lazy" src="images/godfather-of-harlem/05.gif" alt="Godfather of Harlem GIF 5"></div>
+                <div class="gallery-item item-wide"><img loading="lazy" src="images/godfather-of-harlem/06.gif" alt="Godfather of Harlem GIF 6"></div>
+                <div class="gallery-item"><img loading="lazy" src="images/godfather-of-harlem/08.gif" alt="Godfather of Harlem GIF 8"></div>
+                <div class="gallery-item item-tall"><img loading="lazy" src="images/godfather-of-harlem/09.gif" alt="Godfather of Harlem GIF 9"></div>
+                <div class="gallery-item"><img loading="lazy" src="images/godfather-of-harlem/10.gif" alt="Godfather of Harlem GIF 10"></div>
+                <div class="gallery-item"><img loading="lazy" src="images/godfather-of-harlem/11.gif" alt="Godfather of Harlem GIF 11"></div>
+                <div class="gallery-item"><img loading="lazy" src="images/godfather-of-harlem/12.gif" alt="Godfather of Harlem GIF 12"></div>
+                <div class="gallery-item item-wide"><img loading="lazy" src="images/godfather-of-harlem/13.gif" alt="Godfather of Harlem GIF 13"></div>
+                <div class="gallery-item"><img loading="lazy" src="images/godfather-of-harlem/14.gif" alt="Godfather of Harlem GIF 14"></div>
+                <div class="gallery-item"><img loading="lazy" src="images/godfather-of-harlem/15.gif" alt="Godfather of Harlem GIF 15"></div>
+                <div class="gallery-item item-tall"><img loading="lazy" src="images/godfather-of-harlem/16.gif" alt="Godfather of Harlem GIF 16"></div>
+                <div class="gallery-item"><img loading="lazy" src="images/godfather-of-harlem/17.gif" alt="Godfather of Harlem GIF 17"></div>
+                <div class="gallery-item"><img loading="lazy" src="images/godfather-of-harlem/18.gif" alt="Godfather of Harlem GIF 18"></div>
+                <div class="gallery-item"><img loading="lazy" src="images/godfather-of-harlem/20.gif" alt="Godfather of Harlem GIF 20"></div>
+                <div class="gallery-item"><img loading="lazy" src="images/godfather-of-harlem/22.gif" alt="Godfather of Harlem GIF 22"></div>
+                <div class="gallery-item"><img loading="lazy" src="images/godfather-of-harlem/25.gif" alt="Godfather of Harlem GIF 25"></div>
             </div>
         </div>
     </main>
