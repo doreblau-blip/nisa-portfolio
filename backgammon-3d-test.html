@@ -17,16 +17,17 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: #f8f8f8;
+            background: #0f0f0f;
             font-family: 'Syne', sans-serif;
             overflow: hidden;
+            color: #e8e8e8;
         }
 
         .label {
             font-size: 10px;
             letter-spacing: normal;
             text-transform: uppercase;
-            color: rgba(0,0,0,0.28);
+            color: rgba(255,255,255,0.45);
             margin-bottom: 36px;
         }
 
@@ -37,14 +38,14 @@
             border-radius: 4px;
             overflow: hidden;
             box-shadow:
-                0 2px 6px rgba(0,0,0,0.07),
-                0 10px 28px rgba(0,0,0,0.12),
-                0 28px 60px rgba(0,0,0,0.09);
+                0 2px 6px rgba(0,0,0,0.2),
+                0 10px 28px rgba(0,0,0,0.3),
+                0 28px 60px rgba(0,0,0,0.4);
             transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), box-shadow 0.35s ease;
         }
         .spread.closing {
             transform: scale(0.93);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
         }
 
         .spread img {
@@ -89,14 +90,14 @@
             letter-spacing: normal;
             text-transform: uppercase;
             background: transparent;
-            border: 1px solid rgba(0,0,0,0.22);
-            color: #212121;
+            border: 1px solid rgba(255,255,255,0.22);
+            color: #e8e8e8;
             cursor: pointer;
             font-family: 'Syne', sans-serif;
             transition: background 0.2s, color 0.2s, border-color 0.2s;
         }
-        .btn:hover { background: #212121; color: #f8f8f8; border-color: #212121; }
-        .btn.active { background: #212121; color: #f8f8f8; border-color: #212121; }
+        .btn:hover { background: #e8e8e8; color: #0f0f0f; border-color: #e8e8e8; }
+        .btn.active { background: #e8e8e8; color: #0f0f0f; border-color: #e8e8e8; }
     </style>
 </head>
 <body>
@@ -112,7 +113,7 @@
     <div class="controls">
         <button class="btn active" id="btnExterior">Exterior</button>
         <button class="btn" id="btnInterior">Interior</button>
-        <div style="width:1px;height:20px;background:rgba(0,0,0,0.15);margin:0 4px;"></div>
+        <div style="width:1px;height:20px;background:rgba(255,255,255,0.15);margin:0 4px;"></div>
         <a href="backgammon-book.html" class="btn" style="text-decoration:none;">Deneme →</a>
     </div>
 

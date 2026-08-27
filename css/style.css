@@ -83,6 +83,10 @@
     box-sizing: border-box;
 }
 
+html {
+    background-color: #0f0f0f;
+}
+
 /* Only hide the system cursor after custom cursor JS successfully initialises */
 html.cursor-active,
 html.cursor-active * {
