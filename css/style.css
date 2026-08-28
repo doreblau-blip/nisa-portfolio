@@ -599,8 +599,8 @@ h6 {
     gap: 8px;
     padding: 10px 24px;
     background: transparent;
-    color: #1a1a1a;
-    border: 1px solid rgba(0,0,0,0.25);
+    color: var(--text-color);
+    border: 1px solid rgba(255,255,255,0.25);
     -webkit-tap-highlight-color: transparent;
     font-size: 0.75rem;
     font-weight: 600;
@@ -646,15 +646,15 @@ h6 {
 .project-link-btn:focus,
 .project-link-btn:focus-visible {
     background: transparent;
-    color: #1a1a1a;
-    border-color: rgba(0,0,0,0.25);
+    color: var(--text-color);
+    border-color: rgba(255,255,255,0.25);
     outline: none;
 }
 
 .project-link-btn:hover {
-    background: #1a1a1a;
-    border-color: #1a1a1a;
-    color: #ffffff;
+    background: var(--text-color);
+    border-color: var(--text-color);
+    color: var(--bg-color);
     transform: translateY(-2px);
 }
 
@@ -771,9 +771,9 @@ h6 {
 }
 
 .melis-header .project-link-btn:hover {
-    background: #1a1a1a;
-    border-color: #1a1a1a;
-    color: #ffffff;
+    background: var(--text-color);
+    border-color: var(--text-color);
+    color: var(--bg-color);
 }
 
 .project-header-top,
