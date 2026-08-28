@@ -402,7 +402,7 @@ h6 {
 }
 
 .radio-inputs .radio input:checked + .name {
-    color: #1a1a1a;
+    color: var(--text-color);
 }
 
 .radio-inputs .radio:not(:last-child)::after {
@@ -412,7 +412,7 @@ h6 {
     top: 20%;
     height: 60%;
     width: 1px;
-    background: rgba(0,0,0,0.12);
+    background: rgba(255,255,255,0.12);
     transition: opacity 0.4s ease;
     z-index: 2;
 }
