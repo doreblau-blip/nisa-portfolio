@@ -218,11 +218,11 @@ h6 {
 
 /* Spotlight: dim all on hover */
 .nav-links:has(a:hover) a {
-    color: rgba(0,0,0,0.2);
+    color: rgba(245, 245, 247, 0.35);
 }
 
 .nav-links:has(a:hover) a:hover {
-    color: #1a1a1a;
+    color: var(--text-color);
 }
 
 /* Arrow indicator on desktop nav links */
@@ -1533,7 +1533,7 @@ h6 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.95); /* Background opacity set to ~94% for a solid but premium look */
+    background-color: rgba(11, 11, 12, 0.96); /* Dark background opacity set to ~96% for a premium dark look */
     backdrop-filter: blur(15px); /* Slightly increased blur for premium glass feel */
     -webkit-backdrop-filter: blur(15px);
     z-index: 10000;
@@ -1594,7 +1594,7 @@ h6 {
     align-items: center;
     justify-content: flex-start;
     gap: 0.45rem;
-    border-bottom: 1px solid rgba(0,0,0,0.12);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     transition: var(--transition);
     position: relative;
     text-transform: uppercase;
