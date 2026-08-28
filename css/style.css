@@ -1339,7 +1339,7 @@ h6 {
 }
 
 .footer-social a:hover {
-    color: #1a1a1a;
+    color: var(--text-color);
     transform: translateY(-2px);
 }
 
@@ -1798,14 +1798,14 @@ body.menu-open {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    color: #1a1a1a;
+    color: var(--text-color);
     transition: all 0.3s ease;
     backdrop-filter: blur(2px);
 }
 
 .nav-btn:hover {
-    background-color: rgba(0, 0, 0, 0.08);
-    border-color: #1a1a1a;
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: var(--text-color);
     transform: scale(1.05);
 }
 
@@ -1925,7 +1925,7 @@ body.menu-open {
     font-family: var(--font-family);
     font-size: 1.6rem;
     font-weight: 700;
-    color: #1a1a1a;
+    color: var(--text-color);
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
 }
 
