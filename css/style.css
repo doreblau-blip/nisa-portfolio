@@ -358,7 +358,7 @@ h6 {
     border-radius: 0.45rem;
     border: none;
     padding: 0.45rem 1rem;
-    color: rgba(0,0,0,0.35);
+    color: rgba(255,255,255,0.35);
     letter-spacing: normal;
     text-transform: uppercase;
     font-weight: 600;
@@ -376,17 +376,17 @@ h6 {
 /* Spotlight: dim all when any is hovered */
 .radio-inputs:has(.radio:hover) .radio .name,
 .radio-inputs:has(input:checked) .radio .name {
-    color: rgba(0,0,0,0.2);
+    color: rgba(255,255,255,0.2);
 }
 
 /* Hovered option brightens */
 .radio-inputs .radio:hover .name {
-    color: rgba(0,0,0,0.9) !important;
+    color: rgba(245,245,247,0.9) !important;
 }
 
 /* Selected option stays bright */
 .radio-inputs .radio input:checked + .name {
-    color: #1a1a1a !important;
+    color: var(--text-color) !important;
 }
 
 .radio-inputs .radio .name .nav-arrow {
