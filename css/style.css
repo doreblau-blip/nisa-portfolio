@@ -55,7 +55,7 @@
 :root {
     --bg-color: #0b0b0c;
     --text-color: #f5f5f7;
-    --nav-bg: rgba(11, 11, 12, 0.88);
+    --nav-bg: rgba(11, 11, 12, 0.35);
     --font-family: 'Syne', sans-serif;
     --nav-height: 80px;
     --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -139,13 +139,14 @@ h6 {
     width: 100%;
     height: var(--nav-height);
     background-color: var(--nav-bg);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(24px) saturate(1.6);
+    -webkit-backdrop-filter: blur(24px) saturate(1.6);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 4vw;
     z-index: 999999;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 
@@ -914,6 +915,13 @@ h6 {
     margin: 0 auto;
 }
 
+/* When tetris layout is active, override the flex column stack */
+.typeface-grid.tetris-grid {
+    display: grid !important;
+    flex-direction: unset !important;
+    max-width: none !important;
+}
+
 @media (max-width: 768px) {
     .typeface-grid {
         gap: 20px !important;
@@ -931,11 +939,20 @@ h6 {
     height: auto !important;
 }
 
+.tetris-grid .gallery-item {
+    height: 100% !important;
+}
+
 .typeface-grid .gallery-item img {
     width: 100%;
     height: auto;
     display: block;
     border-radius: 2px;
+}
+
+.tetris-grid .gallery-item img {
+    height: 100% !important;
+    object-fit: cover !important;
 }
 
 /* Ira Typeface Specific Grid */
@@ -1517,7 +1534,7 @@ h6 {
     z-index: 10001;
     /* Above cursor and everything else */
     transition: var(--transition);
-    color: #1a1a1a;
+    color: var(--text-color);
     cursor: pointer;
 }
 
