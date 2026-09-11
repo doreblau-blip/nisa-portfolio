@@ -16,9 +16,70 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="./css/style.css?v=1775051100">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <style>
+    /* ═══ HUD PANEL ═══ */
+    .hud-panel { display: inline-flex; align-items: center; gap: 14px; font-family: 'Space Grotesk', monospace; font-size: 0.62rem; letter-spacing: 0.5px; color: rgba(255,255,255,0.35); margin-left: 20px; }
+    .hud-item { display: flex; align-items: center; gap: 5px; }
+    .hud-dot { width: 4px; height: 4px; border-radius: 50%; background: #4ade80; animation: hudPulse 1.5s ease-in-out infinite alternate; }
+    @keyframes hudPulse { 0% { opacity: 0.3; transform: scale(0.8); } 100% { opacity: 1; transform: scale(1.2); } }
+
+    /* ═══ CAPSULE CLOCK ═══ */
+    .capsule-clock { display: inline-flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.12); border-radius: 50%; width: 72px; height: 36px; font-family: 'Space Grotesk', monospace; font-size: 0.75rem; font-weight: 500; color: rgba(255,255,255,0.5); margin-right: 16px; letter-spacing: 0.3px; }
+
+    /* ═══ NOISE OVERLAY ═══ */
+    .noise-overlay { position: fixed; top: -50%; left: -50%; right: -50%; bottom: -50%; width: 200%; height: 200%; background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); opacity: 0.035; pointer-events: none; z-index: 9998; animation: noiseAnim 0.25s steps(4) infinite; }
+    @keyframes noiseAnim { 0% { transform: translate(0,0); } 25% { transform: translate(-1%,-1%); } 50% { transform: translate(1%,-2%); } 75% { transform: translate(-2%,1%); } 100% { transform: translate(0,0); } }
+
+    /* ═══ HERO SECTION ═══ */
+    .exp-hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .exp-hero-content { text-align: center; z-index: 5; opacity: 0; animation: heroFadeUp 1.2s cubic-bezier(0.16,1,0.3,1) 0.3s forwards; }
+    .exp-hero-title { font-family: 'Instrument Serif', serif; font-size: clamp(5rem, 18vw, 16rem); font-weight: 400; font-style: italic; line-height: 0.82; letter-spacing: -0.03em; color: var(--text-color); margin: 0; }
+    .exp-hero-role { font-family: 'Space Grotesk', sans-serif; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-top: 2.5rem; }
+    .exp-hero-coords { display: flex; gap: 2rem; justify-content: center; font-family: 'Space Grotesk', monospace; font-size: 0.55rem; letter-spacing: 0.5px; color: rgba(255,255,255,0.15); margin-top: 1.5rem; }
+
+    /* ═══ VIEWFINDER ═══ */
+    .vf-bracket { position: absolute; width: 30px; height: 30px; border-color: rgba(255,255,255,0.08); border-style: solid; border-width: 0; z-index: 3; }
+    .vf-tl { top: 4vw; left: 4vw; border-top-width: 1px; border-left-width: 1px; }
+    .vf-tr { top: 4vw; right: 4vw; border-top-width: 1px; border-right-width: 1px; }
+    .vf-bl { bottom: 4vw; left: 4vw; border-bottom-width: 1px; border-left-width: 1px; }
+    .vf-br { bottom: 4vw; right: 4vw; border-bottom-width: 1px; border-right-width: 1px; }
+    .vf-crosshair-h, .vf-crosshair-v { position: absolute; background: rgba(255,255,255,0.04); }
+    .vf-crosshair-h { top: 50%; left: 4vw; right: 4vw; height: 1px; }
+    .vf-crosshair-v { left: 50%; top: 4vw; bottom: 4vw; width: 1px; }
+    .vf-ring { position: absolute; top: 50%; left: 50%; width: 140px; height: 140px; transform: translate(-50%,-50%); border: 1px dashed rgba(255,255,255,0.06); border-radius: 50%; animation: ringSpin 25s linear infinite; z-index: 2; }
+    @keyframes ringSpin { to { transform: translate(-50%,-50%) rotate(360deg); } }
+
+    /* ═══ SCROLL INDICATOR ═══ */
+    .exp-scroll-indicator { position: absolute; bottom: 4vw; left: 4vw; display: flex; flex-direction: column; align-items: center; gap: 8px; z-index: 5; opacity: 0; animation: heroFadeIn 0.8s ease 1.3s forwards; }
+    .exp-scroll-label { font-family: 'Space Grotesk', sans-serif; font-size: 0.5rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.2); writing-mode: vertical-rl; }
+    .exp-scroll-line { width: 1px; height: 40px; background: rgba(255,255,255,0.12); position: relative; overflow: hidden; }
+    .exp-scroll-line::after { content: ''; position: absolute; top: -100%; left: 0; width: 100%; height: 100%; background: var(--text-color); animation: scrollPulse 2s ease-in-out infinite; }
+    @keyframes scrollPulse { 0% { top: -100%; } 50% { top: 100%; } 100% { top: 100%; } }
+
+    /* ═══ MARQUEE ═══ */
+    .exp-marquee { overflow: hidden; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); padding: 1.2rem 0; }
+    .exp-marquee-track { display: flex; width: max-content; }
+    .exp-marquee-content { display: flex; align-items: center; }
+    .exp-marquee-content span { display: inline-flex; padding: 0 20px; font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.3); white-space: nowrap; }
+    .mq-star { color: rgba(255,255,255,0.1) !important; font-size: 0.5rem !important; padding: 0 10px !important; }
+
+    /* ═══ ANIMATIONS ═══ */
+    @keyframes heroFadeUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes heroFadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    /* ═══ MOBILE ═══ */
+    @media (max-width: 768px) {
+        .hud-panel, .capsule-clock { display: none; }
+        .exp-hero-title { font-size: clamp(4rem, 22vw, 8rem); }
+        .vf-bracket { width: 20px; height: 20px; }
+        .vf-crosshair-h, .vf-crosshair-v { display: none; }
+        .vf-ring { width: 100px; height: 100px; }
+    }
+    </style>
 </head>
 <body>
 <div id="page-loader"><div class="loader"></div></div>
@@ -30,10 +91,17 @@
                 <h1 class="nav-name">Nisa Alkan</h1>
             </a>
             <span class="nav-subtitle">Art Director & Designer</span>
+            <!-- HUD Panel -->
+            <div class="hud-panel">
+                <span class="hud-item"><span class="hud-dot"></span>SYS: OK</span>
+                <span class="hud-item">SCRL: <span id="hud-scroll">00</span>%</span>
+            </div>
         </div>
         <div class="nav-right">
+            <!-- Capsule Clock -->
+            <div class="capsule-clock"><span class="clock-time">00:00</span></div>
             <div class="nav-links">
-                <a href="dobi-3d.html"><span class="nav-arrow"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>3D SHOWCASE</a><a href="font-tester.html"><span class="nav-arrow"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>TYPEFACE</a>
+                <a href="dobi-3d.html"><span class="nav-arrow"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>3D SHOWCASE</a><a href="font-tester.html"><span class="nav-arrow"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>TYPEFACE</a><a href="about.html"><span class="nav-arrow"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>ABOUT</a>
                 <a href="contact.html"><span class="nav-arrow"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>CONTACT</a>
             </div>
             <button class="mobile-menu-trigger" id="menu-trigger" aria-label="Menu">
@@ -55,10 +123,66 @@
         <nav class="mobile-nav-links">
             <a href="index.html"><span class="nav-arrow"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>WORK</a>
             <a href="dobi-3d.html"><span class="nav-arrow"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>3D SHOWCASE</a>
-            <a href="font-tester.html"><span class="nav-arrow"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>TYPEFACE</a>
+            <a href="font-tester.html"><span class="nav-arrow"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>TYPEFACE</a><a href="about.html"><span class="nav-arrow"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>ABOUT</a>
             <a href="contact.html"><span class="nav-arrow"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>CONTACT</a>
         </nav>
     </div>
+
+    <!-- ═══ NOISE OVERLAY ═══ -->
+    <div class="noise-overlay"></div>
+
+    <!-- ═══ HERO SECTION ═══ -->
+    <section class="exp-hero">
+        <!-- Viewfinder Brackets -->
+        <div class="vf-bracket vf-tl"></div>
+        <div class="vf-bracket vf-tr"></div>
+        <div class="vf-bracket vf-bl"></div>
+        <div class="vf-bracket vf-br"></div>
+        <!-- Crosshairs -->
+        <div class="vf-crosshair-h"></div>
+        <div class="vf-crosshair-v"></div>
+        <!-- Focus Ring -->
+        <div class="vf-ring"></div>
+
+        <!-- Hero Content -->
+        <div class="exp-hero-content">
+            <h1 class="exp-hero-title">Nisa<br>Alkan</h1>
+            <p class="exp-hero-role">Art Director & Designer</p>
+            <div class="exp-hero-coords">
+                <span>41.0082° N</span>
+                <span>28.9784° E</span>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="exp-scroll-indicator">
+            <span class="exp-scroll-label">Scroll</span>
+            <div class="exp-scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ═══ MARQUEE TICKER ═══ -->
+    <div class="exp-marquee">
+        <div class="exp-marquee-track" id="marquee-track">
+            <div class="exp-marquee-content">
+                <span>ART DIRECTION</span><span class="mq-star">✦</span>
+                <span>TYPE DESIGN</span><span class="mq-star">✦</span>
+                <span>PACKAGING</span><span class="mq-star">✦</span>
+                <span>MOTION</span><span class="mq-star">✦</span>
+                <span>BRANDING</span><span class="mq-star">✦</span>
+                <span>MIXED MEDIA</span><span class="mq-star">✦</span>
+            </div>
+            <div class="exp-marquee-content" aria-hidden="true">
+                <span>ART DIRECTION</span><span class="mq-star">✦</span>
+                <span>TYPE DESIGN</span><span class="mq-star">✦</span>
+                <span>PACKAGING</span><span class="mq-star">✦</span>
+                <span>MOTION</span><span class="mq-star">✦</span>
+                <span>BRANDING</span><span class="mq-star">✦</span>
+                <span>MIXED MEDIA</span><span class="mq-star">✦</span>
+            </div>
+        </div>
+    </div>
+
 <!-- Main Content -->
     <main class="container">
         <!-- Filter Bar -->
@@ -249,7 +373,7 @@
                             <line x1="7" y1="17" x2="17" y2="7"></line>
                             <polyline points="7 7 17 7 17 17"></polyline>
                         </svg>
-                        <h2>Dobi IP</h2>
+                        <h2>IP Design</h2>
                     </div>
                 </div>
             </a>
@@ -419,6 +543,43 @@
                 if (c) movePill(c.closest('label'));
             });
         }
+    </script>
+    <script>
+    // ═══ CAPSULE CLOCK ═══
+    (function(){
+        const el = document.querySelector('.clock-time');
+        if(!el) return;
+        function tick(){ const n=new Date(); el.textContent=String(n.getHours()).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0'); }
+        tick(); setInterval(tick,1000);
+    })();
+
+    // ═══ HUD SCROLL % ═══
+    (function(){
+        const el = document.getElementById('hud-scroll');
+        if(!el) return;
+        window.addEventListener('scroll',()=>{
+            const h=document.documentElement.scrollHeight-window.innerHeight;
+            if(h<=0) return;
+            el.textContent = String(Math.round(window.scrollY/h*100)).padStart(2,'0');
+        },{passive:true});
+    })();
+
+    // ═══ SCROLL-VELOCITY MARQUEE ═══
+    (function(){
+        const track = document.getElementById('marquee-track');
+        if(!track) return;
+        let offset=0, speed=0.5, lastY=window.scrollY;
+        function tick(){
+            const v=Math.abs(window.scrollY-lastY); lastY=window.scrollY;
+            speed+=(0.5+v*0.15-speed)*0.08;
+            offset+=speed;
+            const half=track.offsetWidth/2;
+            if(half>0 && offset>=half) offset%=half;
+            track.style.transform='translate3d('+(-offset)+'px,0,0)';
+            requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+    })();
     </script>
 <script src="./loader.js"></script>
 

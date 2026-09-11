@@ -584,6 +584,19 @@ h6 {
     animation-delay: 0.2s;
 }
 
+/* 2-Column Grid Gallery Option */
+.project-gallery.grid-2 {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+}
+
+@media (max-width: 768px) {
+    .project-gallery.grid-2 {
+        grid-template-columns: 1fr !important;
+    }
+}
+
 /* Shared Project and Contact Header Styles */
 .project-header,
 .contact-heading {
