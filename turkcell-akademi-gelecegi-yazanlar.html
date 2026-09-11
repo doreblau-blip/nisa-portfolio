@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Turkcell Akademi Geleceği Yazanlar | Nisa Alkan">
+    <meta property="og:description" content="Portfolio of Nisa Alkan. Art direction, type design and social media visual design.">
+    <meta property="og:image" content="images/turkcell-gelecegi-yazanlar/cover.png">
+    <meta property="og:url" content="https://doreblau.com/turkcell-akademi-gelecegi-yazanlar.html">
+
+    <meta charset="UTF-8">
+    <meta name="color-scheme" content="light">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turkcell Akademi Geleceği Yazanlar | Nisa Alkan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/style.css?v=1775051105">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/project-hero.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <style>
+        /* Natural Aspect Ratio Instagram Masonry Grid (Zero Crop) */
+        .sm-feed-wrap {
+            width: 100%;
+            max-width: 1440px;
+            margin: 40px auto 100px;
+            padding: 0 20px;
+            column-count: 4;
+            column-gap: 22px;
+        }
+
+        @media (max-width: 1200px) {
+            .sm-feed-wrap {
+                column-count: 3;
+                column-gap: 18px;
+            }
+        }
+
+        @media (max-width: 800px) {
+            .sm-feed-wrap {
+                column-count: 2;
+                column-gap: 16px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .sm-feed-wrap {
+                column-count: 1;
+                column-gap: 0;
+            }
+        }
+
+        .sm-feed-card {
+            break-inside: avoid;
+            -webkit-column-break-inside: avoid;
+            page-break-inside: avoid;
+            margin-bottom: 22px;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .sm-post-card, .reels-card {
+            background: #121214;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 18px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            position: relative;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .sm-post-card:hover, .reels-card:hover {
+            border-color: rgba(255, 199, 44, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 18px rgba(255, 199, 44, 0.15);
+            z-index: 5;
+        }
+
+        .sm-post-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background: #121214;
+            flex-shrink: 0;
+            z-index: 2;
+        }
+
+        .sm-user-info {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .sm-avatar {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #1a1a1e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .sm-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .sm-avatar-fallback {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 8px;
+            font-weight: 700;
+            color: #08080c;
+            text-transform: uppercase;
+        }
+
+        .sm-username {
+            font-family: 'Space Grotesk', 'Syne', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            color: #f0f0f0;
+            letter-spacing: -0.01em;
+            text-transform: lowercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+        }
+
+        .sm-verified-badge {
+            width: 11px;
+            height: 11px;
+            color: #0095f6;
+            flex-shrink: 0;
+        }
+
+        .sm-more-icon {
+            width: 14px;
+            height: 14px;
+            color: rgba(255, 255, 255, 0.35);
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .sm-more-icon:hover {
+            color: #fff;
+        }
+
+        /* 4:5 ASPECT RATIO POST CONTAINER (1080x1350) - STRICT NO CROP */
+        .sm-post-image {
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            position: relative;
+            background: #09090b;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sm-post-image img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: contain;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .sm-post-card:hover .sm-post-image img {
+            transform: scale(1.02);
+        }
+
+        /* 9:16 ASPECT RATIO REELS CONTAINER (1080x1920) - STRICT NO CROP */
+        .reels-video-wrap {
+            width: 100%;
+            aspect-ratio: 9 / 16;
+            position: relative;
+            background: #09090b;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .reels-video-wrap video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            pointer-events: none;
+        }
+
+        .sm-post-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            background: #121214;
+            flex-shrink: 0;
+            z-index: 2;
+        }
+
+        .sm-actions-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .sm-icon {
+            width: 15px;
+            height: 15px;
+            color: rgba(255, 255, 255, 0.8);
+            stroke-width: 1.3px;
+            cursor: pointer;
+            transition: transform 0.15s ease, color 0.15s ease;
+        }
+
+        .sm-icon:hover {
+            color: #FFC72C;
+            transform: scale(1.12);
+        }
+    </style>
+</head>
+<body class="v2-page">
+<div id="page-loader"><div class="loader"></div></div>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="index.html">
+                <h1 class="nav-name">Nisa Alkan</h1>
+            </a>
+            <span class="nav-subtitle">Art Director & Designer</span>
+        </div>
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="dobi-3d.html"><span class="nav-arrow"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>3D SHOWCASE</a><a href="font-tester.html"><span class="nav-arrow"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>TYPEFACE</a><a href="about.html"><span class="nav-arrow"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>ABOUT</a>
+                <a href="contact.html"><span class="nav-arrow"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>CONTACT</a>
+            </div>
+            <button class="mobile-menu-trigger" id="menu-trigger" aria-label="Menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-overlay" id="mobile-menu">
+        <button class="mobile-overlay-close" id="menu-close" aria-label="Close Menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+        <nav class="mobile-nav-links">
+            <a href="index.html"><span class="nav-arrow"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>WORK</a>
+            <a href="dobi-3d.html"><span class="nav-arrow"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>3D SHOWCASE</a>
+            <a href="font-tester.html"><span class="nav-arrow"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>TYPEFACE</a><a href="about.html"><span class="nav-arrow"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>ABOUT</a>
+            <a href="contact.html"><span class="nav-arrow"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>CONTACT</a>
+        </nav>
+    </div>
+
+    <!-- ── V2 HERO ── -->
+    <section class="v2-hero">
+        <div class="v2-scroll">
+            <span class="v2-scroll-label">Scroll</span>
+            <div class="v2-scroll-line"></div>
+        </div>
+        <div class="v2-index">Project — 05 / 15</div>
+        <h1 class="v2-title">Turkcell Akademi<br>Geleceği Yazanlar</h1>
+        <p class="v2-desc"></p>
+        <div class="v2-meta-row">
+            <span>2026</span>
+            <div class="v2-meta-dot"></div>
+            <span>Social Media Design</span>
+        </div>
+    </section>
+    <div class="v2-divider"></div>
+
+    <main class="container v2-gallery-wrap">
+        <!-- Editorial header -->
+        <div class="project-header" id="project-header">
+            <div class="project-header-top">
+                <h1 class="project-title" id="p-title">Turkcell Akademi Geleceği Yazanlar</h1>
+                <div class="project-meta">
+                    <span id="p-year">2026</span>
+                    <span class="meta-divider"></span>
+                    <span id="p-role">SOCIAL MEDIA DESIGN</span>
+                </div>
+            </div>
+            
+            <div class="project-header-divider"></div>
+
+            <div class="project-header-bottom">
+                <p class="project-description" id="p-desc"></p>
+            </div>
+        </div>
+
+        <!-- Instagram Masonry Grid Container with Strict Proportional Aspect Ratios -->
+        <div class="sm-feed-wrap" id="project-gallery">
+            
+            <!-- Item 1: Reel 1 (9:16) -->
+            <div class="sm-feed-card">
+                <div class="reels-card gallery-item">
+                    <div class="sm-post-header">
+                        <div class="sm-user-info">
+                            <div class="sm-avatar">
+                                <img src="images/turkcell-gelecegi-yazanlar/avatar.jpg" alt="geleceği yazanlar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="sm-avatar-fallback" style="display:none;">GY</div>
+                            </div>
+                            <span class="sm-username">gelecegi.yazanlar<svg class="sm-verified-badge" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1.9 14.7l-3.8-3.8 1.4-1.4 2.4 2.4 6-6 1.4 1.4-7.4 7.4z"/></svg></span>
+                        </div>
+                        <svg class="sm-more-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                    </div>
+                    <div class="reels-video-wrap">
+                        <video src="images/turkcell-gelecegi-yazanlar/video/GY_CODE_NIGHT_COK_YAKINDA_REELS.mp4" autoplay loop muted playsinline></video>
+                    </div>
+                    <div class="sm-post-actions">
+                        <div class="sm-actions-left">
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        </div>
+                        <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3: Post Untitled-2-01 (4:5) -->
+            <div class="sm-feed-card">
+                <div class="sm-post-card gallery-item">
+                    <div class="sm-post-header">
+                        <div class="sm-user-info">
+                            <div class="sm-avatar">
+                                <img src="images/turkcell-gelecegi-yazanlar/avatar.jpg" alt="geleceği yazanlar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="sm-avatar-fallback" style="display:none;">GY</div>
+                            </div>
+                            <span class="sm-username">gelecegi.yazanlar<svg class="sm-verified-badge" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1.9 14.7l-3.8-3.8 1.4-1.4 2.4 2.4 6-6 1.4 1.4-7.4 7.4z"/></svg></span>
+                        </div>
+                        <svg class="sm-more-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                    </div>
+                    <div class="sm-post-image">
+                        <img loading="lazy" src="images/turkcell-gelecegi-yazanlar/Untitled-2-01.jpg" alt="Post 2">
+                    </div>
+                    <div class="sm-post-actions">
+                        <div class="sm-actions-left">
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        </div>
+                        <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 4: Post TEMP_02 (4:5) -->
+            <div class="sm-feed-card">
+                <div class="sm-post-card gallery-item">
+                    <div class="sm-post-header">
+                        <div class="sm-user-info">
+                            <div class="sm-avatar">
+                                <img src="images/turkcell-gelecegi-yazanlar/avatar.jpg" alt="geleceği yazanlar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="sm-avatar-fallback" style="display:none;">GY</div>
+                            </div>
+                            <span class="sm-username">gelecegi.yazanlar<svg class="sm-verified-badge" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1.9 14.7l-3.8-3.8 1.4-1.4 2.4 2.4 6-6 1.4 1.4-7.4 7.4z"/></svg></span>
+                        </div>
+                        <svg class="sm-more-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                    </div>
+                    <div class="sm-post-image">
+                        <img loading="lazy" src="images/turkcell-gelecegi-yazanlar/TEMP_02.jpg" alt="Post 3">
+                    </div>
+                    <div class="sm-post-actions">
+                        <div class="sm-actions-left">
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        </div>
+                        <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 5: Reel 2 (9:16) -->
+            <div class="sm-feed-card">
+                <div class="reels-card gallery-item">
+                    <div class="sm-post-header">
+                        <div class="sm-user-info">
+                            <div class="sm-avatar">
+                                <img src="images/turkcell-gelecegi-yazanlar/avatar.jpg" alt="geleceği yazanlar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="sm-avatar-fallback" style="display:none;">GY</div>
+                            </div>
+                            <span class="sm-username">gelecegi.yazanlar<svg class="sm-verified-badge" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1.9 14.7l-3.8-3.8 1.4-1.4 2.4 2.4 6-6 1.4 1.4-7.4 7.4z"/></svg></span>
+                        </div>
+                        <svg class="sm-more-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                    </div>
+                    <div class="reels-video-wrap">
+                        <video src="images/turkcell-gelecegi-yazanlar/video/GY_COK_YAKINDA_2.mp4" autoplay loop muted playsinline></video>
+                    </div>
+                    <div class="sm-post-actions">
+                        <div class="sm-actions-left">
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        </div>
+                        <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 6: Post TEMP_03 (4:5) -->
+            <div class="sm-feed-card">
+                <div class="sm-post-card gallery-item">
+                    <div class="sm-post-header">
+                        <div class="sm-user-info">
+                            <div class="sm-avatar">
+                                <img src="images/turkcell-gelecegi-yazanlar/avatar.jpg" alt="geleceği yazanlar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="sm-avatar-fallback" style="display:none;">GY</div>
+                            </div>
+                            <span class="sm-username">gelecegi.yazanlar<svg class="sm-verified-badge" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1.9 14.7l-3.8-3.8 1.4-1.4 2.4 2.4 6-6 1.4 1.4-7.4 7.4z"/></svg></span>
+                        </div>
+                        <svg class="sm-more-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                    </div>
+                    <div class="sm-post-image">
+                        <img loading="lazy" src="images/turkcell-gelecegi-yazanlar/TEMP_03.jpg" alt="Post 4">
+                    </div>
+                    <div class="sm-post-actions">
+                        <div class="sm-actions-left">
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        </div>
+                        <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 7: Post TEMP_05 (4:5) -->
+            <div class="sm-feed-card">
+                <div class="sm-post-card gallery-item">
+                    <div class="sm-post-header">
+                        <div class="sm-user-info">
+                            <div class="sm-avatar">
+                                <img src="images/turkcell-gelecegi-yazanlar/avatar.jpg" alt="geleceği yazanlar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="sm-avatar-fallback" style="display:none;">GY</div>
+                            </div>
+                            <span class="sm-username">gelecegi.yazanlar<svg class="sm-verified-badge" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1.9 14.7l-3.8-3.8 1.4-1.4 2.4 2.4 6-6 1.4 1.4-7.4 7.4z"/></svg></span>
+                        </div>
+                        <svg class="sm-more-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                    </div>
+                    <div class="sm-post-image">
+                        <img loading="lazy" src="images/turkcell-gelecegi-yazanlar/TEMP_05.jpg" alt="Post 5">
+                    </div>
+                    <div class="sm-post-actions">
+                        <div class="sm-actions-left">
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        </div>
+                        <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 8: Reel 3 (9:16) -->
+            <div class="sm-feed-card">
+                <div class="reels-card gallery-item">
+                    <div class="sm-post-header">
+                        <div class="sm-user-info">
+                            <div class="sm-avatar">
+                                <img src="images/turkcell-gelecegi-yazanlar/avatar.jpg" alt="geleceği yazanlar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="sm-avatar-fallback" style="display:none;">GY</div>
+                            </div>
+                            <span class="sm-username">gelecegi.yazanlar<svg class="sm-verified-badge" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1.9 14.7l-3.8-3.8 1.4-1.4 2.4 2.4 6-6 1.4 1.4-7.4 7.4z"/></svg></span>
+                        </div>
+                        <svg class="sm-more-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                    </div>
+                    <div class="reels-video-wrap">
+                        <video src="images/turkcell-gelecegi-yazanlar/video/CODE_NIGHT_TEASER.mov" autoplay loop muted playsinline></video>
+                    </div>
+                    <div class="sm-post-actions">
+                        <div class="sm-actions-left">
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        </div>
+                        <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 9: Post Untitled-2-02 (4:5) -->
+            <div class="sm-feed-card">
+                <div class="sm-post-card gallery-item">
+                    <div class="sm-post-header">
+                        <div class="sm-user-info">
+                            <div class="sm-avatar">
+                                <img src="images/turkcell-gelecegi-yazanlar/avatar.jpg" alt="geleceği yazanlar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="sm-avatar-fallback" style="display:none;">GY</div>
+                            </div>
+                            <span class="sm-username">gelecegi.yazanlar<svg class="sm-verified-badge" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1.9 14.7l-3.8-3.8 1.4-1.4 2.4 2.4 6-6 1.4 1.4-7.4 7.4z"/></svg></span>
+                        </div>
+                        <svg class="sm-more-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                    </div>
+                    <div class="sm-post-image">
+                        <img loading="lazy" src="images/turkcell-gelecegi-yazanlar/Untitled-2-02.jpg" alt="Post 6">
+                    </div>
+                    <div class="sm-post-actions">
+                        <div class="sm-actions-left">
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        </div>
+                        <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 10: Post TEMP-08 (4:5) -->
+            <div class="sm-feed-card">
+                <div class="sm-post-card gallery-item">
+                    <div class="sm-post-header">
+                        <div class="sm-user-info">
+                            <div class="sm-avatar">
+                                <img src="images/turkcell-gelecegi-yazanlar/avatar.jpg" alt="geleceği yazanlar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="sm-avatar-fallback" style="display:none;">GY</div>
+                            </div>
+                            <span class="sm-username">gelecegi.yazanlar<svg class="sm-verified-badge" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1.9 14.7l-3.8-3.8 1.4-1.4 2.4 2.4 6-6 1.4 1.4-7.4 7.4z"/></svg></span>
+                        </div>
+                        <svg class="sm-more-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                    </div>
+                    <div class="sm-post-image">
+                        <img loading="lazy" src="images/turkcell-gelecegi-yazanlar/TEMP-08.jpg" alt="Post 7">
+                    </div>
+                    <div class="sm-post-actions">
+                        <div class="sm-actions-left">
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        </div>
+                        <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 11: Reel 4 (9:16) -->
+            <div class="sm-feed-card">
+                <div class="reels-card gallery-item">
+                    <div class="sm-post-header">
+                        <div class="sm-user-info">
+                            <div class="sm-avatar">
+                                <img src="images/turkcell-gelecegi-yazanlar/avatar.jpg" alt="geleceği yazanlar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="sm-avatar-fallback" style="display:none;">GY</div>
+                            </div>
+                            <span class="sm-username">gelecegi.yazanlar<svg class="sm-verified-badge" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1.9 14.7l-3.8-3.8 1.4-1.4 2.4 2.4 6-6 1.4 1.4-7.4 7.4z"/></svg></span>
+                        </div>
+                        <svg class="sm-more-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                    </div>
+                    <div class="reels-video-wrap">
+                        <video src="images/turkcell-gelecegi-yazanlar/video/GY_CODENIGHT_TEASER_REELS.mp4" autoplay loop muted playsinline></video>
+                    </div>
+                    <div class="sm-post-actions">
+                        <div class="sm-actions-left">
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        </div>
+                        <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 12: Post a.jpg (4:5) -->
+            <div class="sm-feed-card">
+                <div class="sm-post-card gallery-item">
+                    <div class="sm-post-header">
+                        <div class="sm-user-info">
+                            <div class="sm-avatar">
+                                <img src="images/turkcell-gelecegi-yazanlar/avatar.jpg" alt="geleceği yazanlar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="sm-avatar-fallback" style="display:none;">GY</div>
+                            </div>
+                            <span class="sm-username">gelecegi.yazanlar<svg class="sm-verified-badge" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1.9 14.7l-3.8-3.8 1.4-1.4 2.4 2.4 6-6 1.4 1.4-7.4 7.4z"/></svg></span>
+                        </div>
+                        <svg class="sm-more-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                    </div>
+                    <div class="sm-post-image">
+                        <img loading="lazy" src="images/turkcell-gelecegi-yazanlar/a.jpg" alt="Post 8">
+                    </div>
+                    <div class="sm-post-actions">
+                        <div class="sm-actions-left">
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        </div>
+                        <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 13: Post Untitled-2-03 (4:5) -->
+            <div class="sm-feed-card">
+                <div class="sm-post-card gallery-item">
+                    <div class="sm-post-header">
+                        <div class="sm-user-info">
+                            <div class="sm-avatar">
+                                <img src="images/turkcell-gelecegi-yazanlar/avatar.jpg" alt="geleceği yazanlar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="sm-avatar-fallback" style="display:none;">GY</div>
+                            </div>
+                            <span class="sm-username">gelecegi.yazanlar<svg class="sm-verified-badge" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1.9 14.7l-3.8-3.8 1.4-1.4 2.4 2.4 6-6 1.4 1.4-7.4 7.4z"/></svg></span>
+                        </div>
+                        <svg class="sm-more-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                    </div>
+                    <div class="sm-post-image">
+                        <img loading="lazy" src="images/turkcell-gelecegi-yazanlar/Untitled-2-03.jpg" alt="Post 9">
+                    </div>
+                    <div class="sm-post-actions">
+                        <div class="sm-actions-left">
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        </div>
+                        <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 14: Reel 5 (9:16) -->
+            <div class="sm-feed-card">
+                <div class="reels-card gallery-item">
+                    <div class="sm-post-header">
+                        <div class="sm-user-info">
+                            <div class="sm-avatar">
+                                <img src="images/turkcell-gelecegi-yazanlar/avatar.jpg" alt="geleceği yazanlar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="sm-avatar-fallback" style="display:none;">GY</div>
+                            </div>
+                            <span class="sm-username">gelecegi.yazanlar<svg class="sm-verified-badge" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1.9 14.7l-3.8-3.8 1.4-1.4 2.4 2.4 6-6 1.4 1.4-7.4 7.4z"/></svg></span>
+                        </div>
+                        <svg class="sm-more-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                    </div>
+                    <div class="reels-video-wrap">
+                        <video src="images/turkcell-gelecegi-yazanlar/video/GY_KODUN_ANATOMISI.mp4" autoplay loop muted playsinline></video>
+                    </div>
+                    <div class="sm-post-actions">
+                        <div class="sm-actions-left">
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        </div>
+                        <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 15: Post TEMP-23 (4:5) -->
+            <div class="sm-feed-card">
+                <div class="sm-post-card gallery-item">
+                    <div class="sm-post-header">
+                        <div class="sm-user-info">
+                            <div class="sm-avatar">
+                                <img src="images/turkcell-gelecegi-yazanlar/avatar.jpg" alt="geleceği yazanlar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="sm-avatar-fallback" style="display:none;">GY</div>
+                            </div>
+                            <span class="sm-username">gelecegi.yazanlar<svg class="sm-verified-badge" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1.9 14.7l-3.8-3.8 1.4-1.4 2.4 2.4 6-6 1.4 1.4-7.4 7.4z"/></svg></span>
+                        </div>
+                        <svg class="sm-more-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                    </div>
+                    <div class="sm-post-image">
+                        <img loading="lazy" src="images/turkcell-gelecegi-yazanlar/TEMP-23.jpg" alt="Post 10">
+                    </div>
+                    <div class="sm-post-actions">
+                        <div class="sm-actions-left">
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        </div>
+                        <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 16: Post TEMP_02 kopya (4:5) -->
+            <div class="sm-feed-card">
+                <div class="sm-post-card gallery-item">
+                    <div class="sm-post-header">
+                        <div class="sm-user-info">
+                            <div class="sm-avatar">
+                                <img src="images/turkcell-gelecegi-yazanlar/avatar.jpg" alt="geleceği yazanlar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="sm-avatar-fallback" style="display:none;">GY</div>
+                            </div>
+                            <span class="sm-username">gelecegi.yazanlar<svg class="sm-verified-badge" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1.9 14.7l-3.8-3.8 1.4-1.4 2.4 2.4 6-6 1.4 1.4-7.4 7.4z"/></svg></span>
+                        </div>
+                        <svg class="sm-more-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                    </div>
+                    <div class="sm-post-image">
+                        <img loading="lazy" src="images/turkcell-gelecegi-yazanlar/TEMP_02 kopya.jpg" alt="Post 11">
+                    </div>
+                    <div class="sm-post-actions">
+                        <div class="sm-actions-left">
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        </div>
+                        <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 17: Reel 6 (9:16) -->
+            <div class="sm-feed-card">
+                <div class="reels-card gallery-item">
+                    <div class="sm-post-header">
+                        <div class="sm-user-info">
+                            <div class="sm-avatar">
+                                <img src="images/turkcell-gelecegi-yazanlar/avatar.jpg" alt="geleceği yazanlar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="sm-avatar-fallback" style="display:none;">GY</div>
+                            </div>
+                            <span class="sm-username">gelecegi.yazanlar<svg class="sm-verified-badge" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1.9 14.7l-3.8-3.8 1.4-1.4 2.4 2.4 6-6 1.4 1.4-7.4 7.4z"/></svg></span>
+                        </div>
+                        <svg class="sm-more-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                    </div>
+                    <div class="reels-video-wrap">
+                        <video src="images/turkcell-gelecegi-yazanlar/video/GY_KOD_KOMBAT.mp4" autoplay loop muted playsinline></video>
+                    </div>
+                    <div class="sm-post-actions">
+                        <div class="sm-actions-left">
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        </div>
+                        <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 18: Post CODE_NIGHT_22_TEMMUZ (4:5) -->
+            <div class="sm-feed-card">
+                <div class="sm-post-card gallery-item">
+                    <div class="sm-post-header">
+                        <div class="sm-user-info">
+                            <div class="sm-avatar">
+                                <img src="images/turkcell-gelecegi-yazanlar/avatar.jpg" alt="geleceği yazanlar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="sm-avatar-fallback" style="display:none;">GY</div>
+                            </div>
+                            <span class="sm-username">gelecegi.yazanlar<svg class="sm-verified-badge" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1.9 14.7l-3.8-3.8 1.4-1.4 2.4 2.4 6-6 1.4 1.4-7.4 7.4z"/></svg></span>
+                        </div>
+                        <svg class="sm-more-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                    </div>
+                    <div class="sm-post-image">
+                        <img loading="lazy" src="images/turkcell-gelecegi-yazanlar/CODE_NIGHT_22_TEMMUZ.jpg" alt="Post 12">
+                    </div>
+                    <div class="sm-post-actions">
+                        <div class="sm-actions-left">
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        </div>
+                        <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 19: Post YTL_COVER-03 (4:5) -->
+            <div class="sm-feed-card">
+                <div class="sm-post-card gallery-item">
+                    <div class="sm-post-header">
+                        <div class="sm-user-info">
+                            <div class="sm-avatar">
+                                <img src="images/turkcell-gelecegi-yazanlar/avatar.jpg" alt="geleceği yazanlar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="sm-avatar-fallback" style="display:none;">GY</div>
+                            </div>
+                            <span class="sm-username">gelecegi.yazanlar<svg class="sm-verified-badge" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1.9 14.7l-3.8-3.8 1.4-1.4 2.4 2.4 6-6 1.4 1.4-7.4 7.4z"/></svg></span>
+                        </div>
+                        <svg class="sm-more-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                    </div>
+                    <div class="sm-post-image">
+                        <img loading="lazy" src="images/turkcell-gelecegi-yazanlar/YTL_COVER-03.jpg" alt="Post 13">
+                    </div>
+                    <div class="sm-post-actions">
+                        <div class="sm-actions-left">
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                            <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        </div>
+                        <svg class="sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </main>
+
+    <nav class="project-list-nav">
+        <div class="project-list-nav-inner">
+            <a href="turkcell-code-night.html" class="pn-item">Turkcell Code Night All-Star</a>
+            <span class="pn-bullet">·</span>
+            <a href="kafakafaya-tiktok.html" class="pn-item">KafaKafaya TikTok</a>
+            <span class="pn-bullet">·</span>
+            <a href="lootie-ip-design.html" class="pn-item">Lootie IP Design</a>
+            <span class="pn-bullet">·</span>
+            <a href="backgammon-notebook.html" class="pn-item">Backgammon Notebook</a>
+            <span class="pn-bullet">·</span>
+            <span class="pn-item active">Turkcell Akademi Geleceği Yazanlar</span>
+            <span class="pn-bullet">·</span>
+            <a href="persona.html" class="pn-item">Persona</a>
+            <span class="pn-bullet">·</span>
+            <a href="not-alone.html" class="pn-item">Not Alone</a>
+            <span class="pn-bullet">·</span>
+            <a href="saline.html" class="pn-item">Saline</a>
+            <span class="pn-bullet">·</span>
+            <a href="dore-typeface.html" class="pn-item">Dore Typeface</a>
+            <span class="pn-bullet">·</span>
+            <a href="ira-typeface.html" class="pn-item">Ira Typeface</a>
+            <span class="pn-bullet">·</span>
+            <a href="melis-karaduman.html" class="pn-item">Melis Karaduman</a>
+            <span class="pn-bullet">·</span>
+            <a href="ip-design.html" class="pn-item">IP Design</a>
+            <span class="pn-bullet">·</span>
+            <a href="interia.html" class="pn-item">Interia</a>
+            <span class="pn-bullet">·</span>
+            <a href="sehinshah-stage-visuals.html" class="pn-item">Şehinşah Stage Visuals</a>
+        </div>
+    </nav>
+
+    <!-- Lightbox -->
+    <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox(event)">
+        <div class="lightbox-content" id="lightbox-content">
+            <div class="lightbox-stage">
+                <div class="lightbox-img-frame">
+                    <button type="button" class="lightbox-close" onclick="event.stopPropagation(); closeLightboxBtn();" aria-label="Close">&#x2715;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-left">
+            <div class="time-block">
+                <span class="time-label">LOCAL TIME</span>
+                <span class="time-val" id="time">00:00:00 GMT+3</span>
+            </div>
+        </div>
+        <div class="footer-center">
+            <span>© 2026 NİSA ALKAN</span>
+        </div>
+        <div class="footer-right">
+            <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                BACK TO TOP <span class="arrow">↑</span>
+            </button>
+        </div>
+    </footer>
+
+    <script>
+        let audioUnlocked = false;
+
+        ['mousemove', 'mouseover', 'pointermove', 'wheel', 'scroll', 'touchstart', 'click'].forEach(evt => {
+            window.addEventListener(evt, () => {
+                audioUnlocked = true;
+            }, { passive: true });
+        });
+
+        document.querySelectorAll('.reels-card').forEach(card => {
+            const vid = card.querySelector('video');
+            if (!vid) return;
+
+            card.addEventListener('mouseenter', () => {
+                document.querySelectorAll('.reels-card video').forEach(v => {
+                    if (v !== vid) v.muted = true;
+                });
+                
+                vid.muted = false;
+                vid.volume = 1.0;
+                const promise = vid.play();
+                if (promise !== undefined) {
+                    promise.catch(() => {
+                        vid.muted = false;
+                        vid.play().catch(() => {});
+                    });
+                }
+            });
+
+            card.addEventListener('mouseleave', () => {
+                vid.muted = true;
+                vid.play().catch(() => {});
+            });
+        });
+
+        function closeLightbox(e) {
+            if (e.target.id === 'lightbox' || e.target.classList.contains('lightbox-content') || e.target.classList.contains('lightbox-stage')) {
+                closeLightboxBtn();
+            }
+        }
+
+        function closeLightboxBtn() {
+            const lb = document.getElementById('lightbox');
+            const frame = lb.querySelector('.lightbox-img-frame');
+            const oldContent = frame.querySelector('img, video');
+            if (oldContent) {
+                if (oldContent.tagName === 'VIDEO') oldContent.pause();
+                oldContent.remove();
+            }
+            lb.classList.remove('active');
+        }
+    </script>
+    <script src="./loader.js"></script>
+</body>
+</html>
