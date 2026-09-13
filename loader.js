@@ -8,18 +8,16 @@
         hidden = true;
         loader.style.opacity = '0';
         loader.style.pointerEvents = 'none';
-        setTimeout(function() { loader.style.display = 'none'; }, 500);
+        setTimeout(function() { loader.style.display = 'none'; }, 400);
     }
 
     if (document.readyState === 'interactive' || document.readyState === 'complete') {
-        setTimeout(hideLoader, 100);
+        hideLoader();
     } else {
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(hideLoader, 200);
-        });
+        document.addEventListener('DOMContentLoaded', hideLoader);
         window.addEventListener('load', hideLoader);
     }
 
-    // Safety fallback: ensure loader is NEVER stuck covering the screen
-    setTimeout(hideLoader, 800);
+    // Instant fallback so page rendering is never blocked
+    setTimeout(hideLoader, 200);
 })();
