@@ -429,17 +429,17 @@ h6 {
     padding-bottom: 0;
 }
 
-/* Home Grid Layout - 6 Column Grid Math */
+/* Home Grid Layout - 4 Column Grid Math */
 .work-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 12px;
 }
 
 /* Work Item Grid Spans */
 .work-item.grid-3 {
-    grid-column: span 2;
-    /* 3 items per row */
+    grid-column: span 1;
+    /* 4 items per row */
 }
 
 .work-item.grid-2 {
