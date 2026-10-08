@@ -1,4 +1,10 @@
 User-agent: *
 Allow: /
+Disallow: /backgammon-3d-test.html
+Disallow: /backgammon-book.html
+Disallow: /index-experimental.html
+Disallow: /dore-typeface-v1.html
+Disallow: /dore-typeface-v2.html
+Disallow: /mertvenisa.html
 
 Sitemap: https://doreblau.com/sitemap.xml
