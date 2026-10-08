@@ -13,24 +13,262 @@
     <image:image><image:loc>https://doreblau.com/images/interia/cover.jpg</image:loc><image:title>Doreblau Interia Lifestyle Visual Design</image:title></image:image>
     <image:image><image:loc>https://doreblau.com/images/sehinshah/1.gif</image:loc><image:title>Doreblau Sehinshah Stage Visuals Art Direction</image:title></image:image>
   </url>
-  <url><loc>https://doreblau.com/turkcell-oyun-programlama-bootcamp.html</loc><priority>0.8</priority></url>
-  <url><loc>https://doreblau.com/turkcell-code-night.html</loc><priority>0.8</priority></url>
-  <url><loc>https://doreblau.com/turkcell-akademi-gelecegi-yazanlar.html</loc><priority>0.8</priority></url>
-  <url><loc>https://doreblau.com/godfather-of-harlem.html</loc><priority>0.8</priority></url>
+  <url>
+    <loc>https://doreblau.com/turkcell-oyun-programlama-bootcamp.html</loc>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://doreblau.com/images/turkcell-oyun-bootcamp/02.jpg</image:loc><image:title>Idea - From playing the game to building it</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/turkcell-oyun-bootcamp/03.jpg</image:loc><image:title>Level 1 to Level 4 Roadmap</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/turkcell-oyun-bootcamp/01.jpg</image:loc><image:title>Turkcell Geleceği Yazanlar Oyun Programlama Bootcampi Key Visual</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/turkcell-oyun-bootcamp/04.jpg</image:loc><image:title>Process - Merak Fikir Kod Test Build Yayınlama</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/turkcell-oyun-bootcamp/05.jpg</image:loc><image:title>Social Media Posts - Bu kez oyunu sen yaz</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/turkcell-oyun-bootcamp/06.jpg</image:loc><image:title>Social Media Posts - Envanterine eklenecekler</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/turkcell-oyun-bootcamp/07.jpg</image:loc><image:title>Social Media Posts - Oyundaki yeni rolün: Geliştirici</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/turkcell-oyun-bootcamp/08.jpg</image:loc><image:title>Social Media Posts - Oyun bitti. Kariyer başladı.</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/turkcell-oyun-bootcamp/09.jpg</image:loc><image:title>Web Adaptations</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/turkcell-oyun-bootcamp/10.jpg</image:loc><image:title>Turkcell Geleceği Yazanlar Oyun Programlama Bootcampi Key Visual Banner</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/turkcell-oyun-bootcamp/12.jpg</image:loc><image:title>Başlamak için bir tuşa bas</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/turkcell-oyun-bootcamp/11.jpg</image:loc><image:title>3D Arcade Cabinets - Başvurular Başladı</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/turkcell-oyun-bootcamp/13.jpg</image:loc><image:title>Final Campaign Visual</image:title></image:image>
+  </url>
+  <url>
+    <loc>https://doreblau.com/turkcell-code-night.html</loc>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://doreblau.com/images/turkcell/1.gif</image:loc><image:title>Turkcell Code Night Detail 1</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/turkcell/2.jpg</image:loc><image:title>Turkcell Code Night Detail 2</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/turkcell/3.jpg</image:loc><image:title>Turkcell Code Night Detail 3</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/turkcell/4.jpg</image:loc><image:title>Turkcell Code Night Detail 4</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/turkcell/5.jpg</image:loc><image:title>Turkcell Code Night Detail 5</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/turkcell/6.jpg</image:loc><image:title>Turkcell Code Night Detail 6</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/turkcell/7.gif</image:loc><image:title>Turkcell Code Night Detail 7</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/turkcell/8.jpg</image:loc><image:title>Turkcell Code Night Detail 8</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/turkcell/9.jpg</image:loc><image:title>Turkcell Code Night Detail 9</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/turkcell/10.jpg</image:loc><image:title>Turkcell Code Night Detail 10</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/turkcell/11.jpg</image:loc><image:title>Turkcell Code Night Detail 11</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/turkcell/12.jpg</image:loc><image:title>Turkcell Code Night Detail 12</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/turkcell/13.png</image:loc><image:title>Turkcell Code Night Detail 13</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/turkcell/14.jpg</image:loc><image:title>Turkcell Code Night Detail 14</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/turkcell/15.jpg</image:loc><image:title>Turkcell Code Night Detail 15</image:title></image:image>
+  </url>
+  <url>
+    <loc>https://doreblau.com/turkcell-akademi-gelecegi-yazanlar.html</loc>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://doreblau.com/images/turkcell-gelecegi-yazanlar/avatar.jpg</image:loc><image:title>geleceği yazanlar</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/turkcell-gelecegi-yazanlar/Untitled-2-01.jpg</image:loc><image:title>Post 2</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/turkcell-gelecegi-yazanlar/TEMP_02.jpg</image:loc><image:title>Post 3</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/turkcell-gelecegi-yazanlar/TEMP_03.jpg</image:loc><image:title>Post 4</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/turkcell-gelecegi-yazanlar/TEMP_05.jpg</image:loc><image:title>Post 5</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/turkcell-gelecegi-yazanlar/Untitled-2-02.jpg</image:loc><image:title>Post 6</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/turkcell-gelecegi-yazanlar/TEMP-08.jpg</image:loc><image:title>Post 7</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/turkcell-gelecegi-yazanlar/a.jpg</image:loc><image:title>Post 8</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/turkcell-gelecegi-yazanlar/Untitled-2-03.jpg</image:loc><image:title>Post 9</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/turkcell-gelecegi-yazanlar/TEMP-23.jpg</image:loc><image:title>Post 10</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/turkcell-gelecegi-yazanlar/TEMP_02%20kopya.jpg</image:loc><image:title>Post 11</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/turkcell-gelecegi-yazanlar/CODE_NIGHT_22_TEMMUZ.jpg</image:loc><image:title>Post 12</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/turkcell-gelecegi-yazanlar/YTL_COVER-03.jpg</image:loc><image:title>Post 13</image:title></image:image>
+  </url>
+  <url>
+    <loc>https://doreblau.com/godfather-of-harlem.html</loc>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://doreblau.com/images/godfather-of-harlem/01.gif</image:loc><image:title>Godfather of Harlem GIF 1</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/godfather-of-harlem/02.gif</image:loc><image:title>Godfather of Harlem GIF 2</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/godfather-of-harlem/03.gif</image:loc><image:title>Godfather of Harlem GIF 3</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/godfather-of-harlem/04.gif</image:loc><image:title>Godfather of Harlem GIF 4</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/godfather-of-harlem/05.gif</image:loc><image:title>Godfather of Harlem GIF 5</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/godfather-of-harlem/06.gif</image:loc><image:title>Godfather of Harlem GIF 6</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/godfather-of-harlem/08.gif</image:loc><image:title>Godfather of Harlem GIF 8</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/godfather-of-harlem/09.gif</image:loc><image:title>Godfather of Harlem GIF 9</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/godfather-of-harlem/10.gif</image:loc><image:title>Godfather of Harlem GIF 10</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/godfather-of-harlem/11.gif</image:loc><image:title>Godfather of Harlem GIF 11</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/godfather-of-harlem/12.gif</image:loc><image:title>Godfather of Harlem GIF 12</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/godfather-of-harlem/13.gif</image:loc><image:title>Godfather of Harlem GIF 13</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/godfather-of-harlem/14.gif</image:loc><image:title>Godfather of Harlem GIF 14</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/godfather-of-harlem/15.gif</image:loc><image:title>Godfather of Harlem GIF 15</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/godfather-of-harlem/16.gif</image:loc><image:title>Godfather of Harlem GIF 16</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/godfather-of-harlem/17.gif</image:loc><image:title>Godfather of Harlem GIF 17</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/godfather-of-harlem/18.gif</image:loc><image:title>Godfather of Harlem GIF 18</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/godfather-of-harlem/20.gif</image:loc><image:title>Godfather of Harlem GIF 20</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/godfather-of-harlem/22.gif</image:loc><image:title>Godfather of Harlem GIF 22</image:title></image:image>
+  </url>
   <url><loc>https://doreblau.com/dobi-3d.html</loc><priority>0.5</priority></url>
   <url><loc>https://doreblau.com/lootie-3d.html</loc><priority>0.5</priority></url>
   <url><loc>https://doreblau.com/font-tester.html</loc><priority>0.5</priority></url>
-  <url><loc>https://doreblau.com/kafakafaya-tiktok.html</loc><priority>0.8</priority></url>
-  <url><loc>https://doreblau.com/lootie-ip-design.html</loc><priority>0.8</priority></url>
-  <url><loc>https://doreblau.com/backgammon-notebook.html</loc><priority>0.8</priority></url>
-  <url><loc>https://doreblau.com/persona.html</loc><priority>0.8</priority></url>
-  <url><loc>https://doreblau.com/not-alone.html</loc><priority>0.8</priority></url>
-  <url><loc>https://doreblau.com/saline.html</loc><priority>0.8</priority></url>
-  <url><loc>https://doreblau.com/dore-typeface.html</loc><priority>0.8</priority></url>
-  <url><loc>https://doreblau.com/ira-typeface.html</loc><priority>0.8</priority></url>
-  <url><loc>https://doreblau.com/melis-karaduman.html</loc><priority>0.8</priority></url>
-  <url><loc>https://doreblau.com/ip-design.html</loc><priority>0.8</priority></url>
-  <url><loc>https://doreblau.com/interia.html</loc><priority>0.8</priority></url>
-  <url><loc>https://doreblau.com/sehinshah-stage-visuals.html</loc><priority>0.8</priority></url>
+  <url>
+    <loc>https://doreblau.com/kafakafaya-tiktok.html</loc>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://doreblau.com/images/tiktok/01.gif</image:loc><image:title>KafaKafaya TikTok Detail 01</image:title></image:image>
+  </url>
+  <url>
+    <loc>https://doreblau.com/lootie-ip-design.html</loc>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://doreblau.com/images/lootie/01.jpg</image:loc><image:title>Lootie Detail 01</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/lootie/02.jpg</image:loc><image:title>Lootie Detail 02</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/lootie/03.jpg</image:loc><image:title>Lootie Detail 03</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/lootie/04.jpg</image:loc><image:title>Lootie Detail 04</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/lootie/05.jpg</image:loc><image:title>Lootie Detail 05</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/lootie/5.jpg</image:loc><image:title>Lootie Detail 5</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/lootie/06.jpg</image:loc><image:title>Lootie Detail 06</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/lootie/07.jpg</image:loc><image:title>Lootie Detail 07</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/lootie/08.jpg</image:loc><image:title>Lootie Detail 08</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/lootie/09.jpg</image:loc><image:title>Lootie Detail 09</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/lootie/11.jpg</image:loc><image:title>Lootie Detail 11</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/lootie/12.jpg</image:loc><image:title>Lootie Detail 12</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/lootie/Box%20Mockup%201.jpg</image:loc><image:title>Lootie Box Mockup</image:title></image:image>
+  </url>
+  <url>
+    <loc>https://doreblau.com/backgammon-notebook.html</loc>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://doreblau.com/backgammon-3d/cover-front.png</image:loc><image:title>Backgammon Notebook</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/backgammon-3d/cover-back.png</image:loc><image:title>Backgammon Notebook</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/backgammon-3d/open.png</image:loc><image:title>Backgammon Notebook</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/backgammon/01.jpg</image:loc><image:title>Backgammon 01</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/backgammon/02.jpg</image:loc><image:title>Backgammon 02</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/backgammon/03.jpg</image:loc><image:title>Backgammon 03</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/backgammon/04.jpg</image:loc><image:title>Backgammon 04</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/backgammon/05.jpg</image:loc><image:title>Backgammon 05</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/backgammon/06.jpg</image:loc><image:title>Backgammon 06</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/backgammon/07.jpg</image:loc><image:title>Backgammon 07</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/backgammon/08.jpg</image:loc><image:title>Backgammon 08</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/backgammon/09.jpg</image:loc><image:title>Backgammon 09</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/backgammon/10.jpg</image:loc><image:title>Backgammon 10</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/backgammon/11.jpg</image:loc><image:title>Backgammon 11</image:title></image:image>
+  </url>
+  <url>
+    <loc>https://doreblau.com/persona.html</loc>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://doreblau.com/images/persona/cover.gif</image:loc><image:title>Persona Animation</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/persona/01.jpg</image:loc><image:title>Persona Detail 01</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/persona/02.jpg</image:loc><image:title>Persona Detail 02</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/persona/03.jpg</image:loc><image:title>Persona Detail 03</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/persona/04.jpg</image:loc><image:title>Persona Detail 04</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/persona/05.jpg</image:loc><image:title>Persona Detail 05</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/persona/06.jpg</image:loc><image:title>Persona Detail 06</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/persona/07.jpg</image:loc><image:title>Persona Detail 07</image:title></image:image>
+  </url>
+  <url>
+    <loc>https://doreblau.com/not-alone.html</loc>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://doreblau.com/images/sugo/1.jpg</image:loc><image:title>Not Alone 01</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/sugo/2.jpg</image:loc><image:title>Not Alone 02</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/sugo/3.jpg</image:loc><image:title>Not Alone 03</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/sugo/4.jpg</image:loc><image:title>Not Alone 04</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/sugo/5.jpg</image:loc><image:title>Not Alone 05</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/sugo/6.jpg</image:loc><image:title>Not Alone 06</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/sugo/7.jpg</image:loc><image:title>Not Alone 07</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/sugo/8.jpg</image:loc><image:title>Not Alone 08</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/sugo/9.jpg</image:loc><image:title>Not Alone 09</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/sugo/10.jpg</image:loc><image:title>Not Alone 10</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/sugo/11.jpg</image:loc><image:title>Not Alone 11</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/sugo/12.jpg</image:loc><image:title>Not Alone 12</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/sugo/13.jpg</image:loc><image:title>Not Alone 13</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/sugo/14.jpg</image:loc><image:title>Not Alone 14</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/sugo/15.jpg</image:loc><image:title>Not Alone 15</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/sugo/16.jpg</image:loc><image:title>Not Alone 16</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/sugo/17.jpg</image:loc><image:title>Not Alone 17</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/sugo/18.jpg</image:loc><image:title>Not Alone 18</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/sugo/68812a0d99d6c8799df69b86b74684457a48585e0e8a406754d835b895616d53.jpg</image:loc><image:title>Not Alone Detail</image:title></image:image>
+  </url>
+  <url>
+    <loc>https://doreblau.com/saline.html</loc>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://doreblau.com/images/saline/01.jpg</image:loc><image:title>Saline 01</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/saline/02.jpg</image:loc><image:title>Saline 02</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/saline/03.jpg</image:loc><image:title>Saline 03</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/saline/04.jpg</image:loc><image:title>Saline 04</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/saline/05.jpg</image:loc><image:title>Saline 05</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/saline/06.jpg</image:loc><image:title>Saline 06</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/saline/07.jpg</image:loc><image:title>Saline 07</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/saline/08.jpg</image:loc><image:title>Saline 08</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/saline/09.jpg</image:loc><image:title>Saline 09</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/saline/10.jpg</image:loc><image:title>Saline 10</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/saline/11.jpg</image:loc><image:title>Saline 11</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/saline/12.jpg</image:loc><image:title>Saline 12</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/saline/13.jpg</image:loc><image:title>Saline 13</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/saline/14.jpg</image:loc><image:title>Saline 14</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/saline/15.jpg</image:loc><image:title>Saline 15</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/saline/16.jpg</image:loc><image:title>Saline 16</image:title></image:image>
+  </url>
+  <url>
+    <loc>https://doreblau.com/dore-typeface.html</loc>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://doreblau.com/images/dore-typeface/Cover.jpg</image:loc><image:title>Dore Typeface Cover</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/dore-typeface/1.gif</image:loc><image:title>Dore Typeface Glitch 1</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/dore-typeface/3.gif</image:loc><image:title>Dore Typeface Glitch 3</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/dore-typeface/0917%283%29.gif</image:loc><image:title>Dore Typeface Large Motion</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/dore-typeface/6.gif</image:loc><image:title>Dore Typeface Glitch 6</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/dore-typeface/4.gif</image:loc><image:title>Dore Typeface Glitch 4</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/dore-typeface/5.gif</image:loc><image:title>Dore Typeface Glitch 5</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/dore-typeface/dore-20.jpg</image:loc><image:title>Dore Typeface Detail 20</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/dore-typeface/dore-21.jpg</image:loc><image:title>Dore Typeface Detail 21</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/dore-typeface/0607%20%282%29.gif</image:loc><image:title>Dore Typeface Motion Detail</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/dore-typeface/dore-09_edited.jpg</image:loc><image:title>Dore Typeface Edited Detail</image:title></image:image>
+  </url>
+  <url>
+    <loc>https://doreblau.com/ira-typeface.html</loc>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://doreblau.com/images/ira-typeface/header.gif</image:loc><image:title>Ira Typeface Header</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/ira-typeface/ira-1.gif</image:loc><image:title>Ira Detail 1</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/ira-typeface/ira-2.gif</image:loc><image:title>Ira Detail 2</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/ira-typeface/ira-3.gif</image:loc><image:title>Ira Detail 3</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/ira-typeface/ira-4.gif</image:loc><image:title>Ira Detail 4</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/ira-typeface/ira-5.gif</image:loc><image:title>Ira Detail 5</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/ira-typeface/ira-6.gif</image:loc><image:title>Ira Detail 6</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/ira-typeface/ira-7.gif</image:loc><image:title>Ira Detail 7</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/ira-typeface/ira-8.gif</image:loc><image:title>Ira Detail 8</image:title></image:image>
+  </url>
+  <url>
+    <loc>https://doreblau.com/melis-karaduman.html</loc>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://doreblau.com/images/melis-karaduman/melis-1.gif</image:loc><image:title>Melis Karaduman 1</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/melis-karaduman/melis-2.gif</image:loc><image:title>Melis Karaduman 2</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/melis-karaduman/melis-3.gif</image:loc><image:title>Melis Karaduman 3</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/melis-karaduman/melis-4.gif</image:loc><image:title>Melis Karaduman 4</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/melis-karaduman/melis-5.gif</image:loc><image:title>Melis Karaduman 5</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/melis-karaduman/melis-6.gif</image:loc><image:title>Melis Karaduman 6</image:title></image:image>
+  </url>
+  <url>
+    <loc>https://doreblau.com/ip-design.html</loc>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://doreblau.com/images/dobi/01.jpg</image:loc><image:title>IP Design Detail 01</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/dobi/07.jpg</image:loc><image:title>IP Design Detail 02</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/dobi/333.jpg</image:loc><image:title>IP Design Detail 03</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/dobi/Square-Paper-Boxes-Mockup.jpg</image:loc><image:title>IP Design Mockup</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/dobi/cover.jpg</image:loc><image:title>IP Design Cover</image:title></image:image>
+  </url>
+  <url>
+    <loc>https://doreblau.com/interia.html</loc>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://doreblau.com/images/interia/01.jpg</image:loc><image:title>Interia 01</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/interia/02.jpg</image:loc><image:title>Interia 02</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/interia/smeg.jpg</image:loc><image:title>Interia SMEG</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/interia/carrousel-2.jpg</image:loc><image:title>Interia Carrousel</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/interia/interia-row3-01.jpg</image:loc><image:title>Interia Floral Teacups Stack</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/interia/interia-row3-02.jpg</image:loc><image:title>Interia Floral Plate and Cup</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/interia/interia-row3-03.jpg</image:loc><image:title>Interia Floral Serving Plate</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/interia/interia-row4-01.jpg</image:loc><image:title>Interia Nespresso Lifestyle</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/interia/interia-mackenzie-royal-check.jpg</image:loc><image:title>Interia Mackenzie Royal Check</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/interia/interia-row4-03.jpg</image:loc><image:title>Interia Mackenzie Green Set</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/interia/post.jpg</image:loc><image:title>Interia Post</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/interia/kitchenaid.jpg</image:loc><image:title>Interia KitchenAid</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/interia/1-cups.jpg</image:loc><image:title>Interia 1</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/interia/2.jpg</image:loc><image:title>Interia 2</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/interia/3.jpg</image:loc><image:title>Interia 3</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/interia/mackenzie-gallery-01.jpg</image:loc><image:title>Interia Mackenzie</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/interia/mackenzie-gallery-02.jpg</image:loc><image:title>Interia Mackenzie 2</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/interia/mackenzie-gallery-03.jpg</image:loc><image:title>Interia Mackenzie Kitchen</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/interia/pip-studio.jpg</image:loc><image:title>Interia PIP Studio</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/interia/versace-plates.jpg</image:loc><image:title>Interia Versace Plates</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/interia/interia_pip_kek-01.jpg</image:loc><image:title>Interia PIP KEK</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/interia/pasabahce_vazo-01.jpg</image:loc><image:title>Interia Vazo</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/interia/pip.jpg</image:loc><image:title>Interia PIP</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/interia/2-kopyasi.jpg</image:loc><image:title>Interia 2 kopyası</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/interia/1.jpg</image:loc><image:title>Interia lifestyle</image:title></image:image>
+  </url>
+  <url>
+    <loc>https://doreblau.com/sehinshah-stage-visuals.html</loc>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://doreblau.com/images/sehinshah/1.gif</image:loc><image:title>Şehinşah KARMA Logo</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/sehinshah/2.gif</image:loc><image:title>Şehinşah Stage Visual 2</image:title></image:image>
+    <image:image><image:loc>https://doreblau.com/images/sehinshah/3.gif</image:loc><image:title>Şehinşah Stage Visual 3</image:title></image:image>
+  </url>
   <url><loc>https://doreblau.com/contact.html</loc><priority>0.6</priority></url>
 </urlset>
