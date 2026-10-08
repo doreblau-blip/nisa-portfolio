@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./css/style.css?v=1775051105">
+    <link rel="stylesheet" href="./css/style.css?v=1791501500">
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/project-hero.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -93,6 +93,35 @@
 
         .v2-divider {
             background: rgba(0, 0, 0, 0.08) !important;
+        }
+
+        /* Behance-style narrow project column (this page only) */
+        .v2-gallery-wrap {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 5vw clamp(20px, 10vw, 180px) 6vw !important;
+            box-sizing: content-box;
+        }
+        #project-gallery .gallery-item { border-radius: 0; }
+        #project-gallery .gallery-section-title {
+            font-family: var(--font-family);
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            text-indent: 0.2em;
+            text-align: center;
+            color: rgba(0, 0, 0, 0.4);
+            width: 100%;
+            margin: 0;
+            padding: clamp(40px, 5vw, 80px) 0;
+            line-height: 1;
+        }
+        #project-gallery .gallery-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+        @media (max-width: 768px) { #project-gallery .gallery-row-2 { grid-template-columns: 1fr; } }
+        #project-gallery .gallery-item:hover img { transform: none; }
+        @media (max-width: 768px) {
+            .v2-gallery-wrap { padding: 8vw 0 10vw !important; }
         }
     </style>
 </head>
@@ -174,18 +203,25 @@
 
         <!-- Gallery -->
         <div class="project-gallery" id="project-gallery" style="gap: 0;">
-            <div class="gallery-item"><img loading="lazy" src="images/turkcell-oyun-bootcamp/01.jpg" alt="Turkcell Geleceği Yazanlar Oyun Programlama Bootcampi Key Visual"></div>
             <div class="gallery-item"><img loading="lazy" src="images/turkcell-oyun-bootcamp/02.jpg" alt="Idea - From playing the game to building it"></div>
             <div class="gallery-item"><img loading="lazy" src="images/turkcell-oyun-bootcamp/03.jpg" alt="Level 1 to Level 4 Roadmap"></div>
+            <div class="gallery-item"><img loading="lazy" src="images/turkcell-oyun-bootcamp/01.jpg" alt="Turkcell Geleceği Yazanlar Oyun Programlama Bootcampi Key Visual"></div>
             <div class="gallery-item"><img loading="lazy" src="images/turkcell-oyun-bootcamp/04.jpg" alt="Process - Merak Fikir Kod Test Build Yayınlama"></div>
-            <div class="gallery-item"><img loading="lazy" src="images/turkcell-oyun-bootcamp/05.jpg" alt="Social Media Posts - Bu kez oyunu sen yaz"></div>
-            <div class="gallery-item"><img loading="lazy" src="images/turkcell-oyun-bootcamp/06.jpg" alt="Social Media Posts - Envanterine eklenecekler"></div>
-            <div class="gallery-item"><img loading="lazy" src="images/turkcell-oyun-bootcamp/07.jpg" alt="Social Media Posts - Oyundaki yeni rolün: Geliştirici"></div>
-            <div class="gallery-item"><img loading="lazy" src="images/turkcell-oyun-bootcamp/08.jpg" alt="Social Media Posts - Oyun bitti. Kariyer başladı."></div>
+            <h2 class="gallery-section-title">Social Media</h2>
+            <div class="gallery-row-2">
+                <div class="gallery-item"><img loading="lazy" src="images/turkcell-oyun-bootcamp/05.jpg" alt="Social Media Posts - Bu kez oyunu sen yaz"></div>
+                <div class="gallery-item"><img loading="lazy" src="images/turkcell-oyun-bootcamp/06.jpg" alt="Social Media Posts - Envanterine eklenecekler"></div>
+            </div>
+            <div class="gallery-row-2">
+                <div class="gallery-item"><img loading="lazy" src="images/turkcell-oyun-bootcamp/07.jpg" alt="Social Media Posts - Oyundaki yeni rolün: Geliştirici"></div>
+                <div class="gallery-item"><img loading="lazy" src="images/turkcell-oyun-bootcamp/08.jpg" alt="Social Media Posts - Oyun bitti. Kariyer başladı."></div>
+            </div>
             <div class="gallery-item"><img loading="lazy" src="images/turkcell-oyun-bootcamp/09.jpg" alt="Web Adaptations"></div>
-            <div class="gallery-item"><img loading="lazy" src="images/turkcell-oyun-bootcamp/10.jpg" alt="Turkcell Geleceği Yazanlar Oyun Programlama Bootcampi Key Visual Banner"></div>
+            <div class="gallery-row-2">
+                <div class="gallery-item"><img loading="lazy" src="images/turkcell-oyun-bootcamp/10.jpg" alt="Turkcell Geleceği Yazanlar Oyun Programlama Bootcampi Key Visual Banner"></div>
+                <div class="gallery-item"><img loading="lazy" src="images/turkcell-oyun-bootcamp/12.jpg" alt="Başlamak için bir tuşa bas"></div>
+            </div>
             <div class="gallery-item"><img loading="lazy" src="images/turkcell-oyun-bootcamp/11.jpg" alt="3D Arcade Cabinets - Başvurular Başladı"></div>
-            <div class="gallery-item"><img loading="lazy" src="images/turkcell-oyun-bootcamp/12.jpg" alt="Başlamak için bir tuşa bas"></div>
             <div class="gallery-item"><img loading="lazy" src="images/turkcell-oyun-bootcamp/13.jpg" alt="Final Campaign Visual"></div>
         </div>
 </main>
@@ -203,6 +239,26 @@
                 <a href="backgammon-notebook.html" class="pn-item">Backgammon Notebook</a>
                 <span class="pn-bullet">·</span>
                 <a href="turkcell-akademi-gelecegi-yazanlar.html" class="pn-item">Geleceği Yazanlar</a>
+                <span class="pn-bullet">·</span>
+                <a href="persona.html" class="pn-item">Persona</a>
+                <span class="pn-bullet">·</span>
+                <a href="not-alone.html" class="pn-item">Not Alone</a>
+                <span class="pn-bullet">·</span>
+                <a href="saline.html" class="pn-item">Saline</a>
+                <span class="pn-bullet">·</span>
+                <a href="dore-typeface.html" class="pn-item">Dore Typeface</a>
+                <span class="pn-bullet">·</span>
+                <a href="ira-typeface.html" class="pn-item">Ira Typeface</a>
+                <span class="pn-bullet">·</span>
+                <a href="melis-karaduman.html" class="pn-item">Melis Karaduman</a>
+                <span class="pn-bullet">·</span>
+                <a href="ip-design.html" class="pn-item">IP Design</a>
+                <span class="pn-bullet">·</span>
+                <a href="interia.html" class="pn-item">Interia</a>
+                <span class="pn-bullet">·</span>
+                <a href="sehinshah-stage-visuals.html" class="pn-item">Şehinşah Stage Visuals</a>
+                <span class="pn-bullet">·</span>
+                <a href="godfather-of-harlem.html" class="pn-item">Godfather of Harlem</a>
             </div>
         </nav>
 
